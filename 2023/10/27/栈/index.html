@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>栈 | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先是先进后出的数据结构https:&#x2F;&#x2F;download.tooc.xlj0.com&#x2F;uploads&#x2F;179&#x2F;%E7%AE%97%E6%B3%95&#x2F;Pasted%20image%2020231018220744.png STL中栈的一些函数12345678910&#x2F;&#x2F;元素访问st.top()&#x2F;&#x2F;返回栈顶&#x2F;&#x2F;修改st.push()&#x2F;&#x2F;传入参数到栈顶st.pop()&#x2F;&#x2F;弹出栈顶&#x2F;&#x2F;容量st.empty(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="栈">
+<meta property="og:url" content="http://example.com/2023/10/27/%E6%A0%88/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="首先是先进后出的数据结构https:&#x2F;&#x2F;download.tooc.xlj0.com&#x2F;uploads&#x2F;179&#x2F;%E7%AE%97%E6%B3%95&#x2F;Pasted%20image%2020231018220744.png STL中栈的一些函数12345678910&#x2F;&#x2F;元素访问st.top()&#x2F;&#x2F;返回栈顶&#x2F;&#x2F;修改st.push()&#x2F;&#x2F;传入参数到栈顶st.pop()&#x2F;&#x2F;弹出栈顶&#x2F;&#x2F;容量st.empty(">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-27T12:51:49.000Z">
+<meta property="article:modified_time" content="2023-10-27T12:52:36.677Z">
+<meta property="article:author" content="iolzyy">
+<meta property="article:tag" content="基础算法">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">iolzyy</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 16.67px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 13.33px;">算法基础</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-栈" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/10/27/%E6%A0%88/" class="article-date">
+  	<time datetime="2023-10-27T12:51:49.000Z" itemprop="datePublished">2023-10-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      栈
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="首先是先进后出的数据结构"><a href="#首先是先进后出的数据结构" class="headerlink" title="首先是先进后出的数据结构"></a>首先是先进后出的数据结构</h3><p><a target="_blank" rel="noopener" href="https://download.tooc.xlj0.com/uploads/179/%E7%AE%97%E6%B3%95/Pasted%20image%2020231018220744.png">https://download.tooc.xlj0.com/uploads/179/%E7%AE%97%E6%B3%95/Pasted%20image%2020231018220744.png</a></p>
+<h3 id="STL中栈的一些函数"><a href="#STL中栈的一些函数" class="headerlink" title="STL中栈的一些函数"></a>STL中栈的一些函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//元素访问</span></span><br><span class="line">st.top()<span class="comment">//返回栈顶</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//修改</span></span><br><span class="line">st.push()<span class="comment">//传入参数到栈顶</span></span><br><span class="line">st.pop()<span class="comment">//弹出栈顶</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//容量</span></span><br><span class="line">st.empty()<span class="comment">//返回是否为空</span></span><br><span class="line">st.size()<span class="comment">//返回元素数量</span></span><br></pre></td></tr></table></figure>
+<h3 id="来一道模板题"><a href="#来一道模板题" class="headerlink" title="来一道模板题"></a>来一道模板题</h3><blockquote>
+<p>现在有n部火车，每一部火车都有一个1∼n的编号且各不相同（火车编号构成一个<br>排列）。现在他们按照给定的顺序排列在一条轨道上，且可以向两个方向移动，问他们<br>否通过一个车站，且每部火车<strong>至多进站一次</strong>，使得出站口的编号顺序变为升序？<br>车站是一个栈结构，位于输入队列的轨道中间，构成一个T字形，初始时火车都在车站<br>右侧。<br>如果可以输出”Yes”，如果不行输出”No”。（不带引号）</p>
+</blockquote>
+<h4 id="分析：就是将最后结果的排序是必须是升序的，就比如是进站的顺序是312，但是出栈的情况是123。在这里就是用栈的情况，将不符合的先存起来然后符合情况后在出栈"><a href="#分析：就是将最后结果的排序是必须是升序的，就比如是进站的顺序是312，但是出栈的情况是123。在这里就是用栈的情况，将不符合的先存起来然后符合情况后在出栈" class="headerlink" title="分析：就是将最后结果的排序是必须是升序的，就比如是进站的顺序是312，但是出栈的情况是123。在这里就是用栈的情况，将不符合的先存起来然后符合情况后在出栈"></a>分析：就是将最后结果的排序是必须是升序的，就比如是进站的顺序是312，但是出栈的情况是123。在这里就是用栈的情况，将不符合的先存起来然后符合情况后在出栈</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输入案例</span></span><br><span class="line"><span class="comment">//3</span></span><br><span class="line"><span class="comment">//3 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="comment">//Yes</span></span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">using ll = long long;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[N], pos;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">void solve() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line">  cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) cin &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">  pos = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// i表示左边轨道所需的列车编号</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果不是所需的（想要的），就一直找</span></span><br><span class="line"></span><br><span class="line">  while (pos &lt;= n &amp;&amp; (stk.empty() || stk.top() != i)) stk.push(a[pos++]);</span><br><span class="line"><span class="comment">//就是在pos还是小于n的情况下，并且还没有进栈，并且栈的顶部是没有与i对应的，那么就进栈</span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (stk.top() == i)<span class="comment">//如果对应就移除</span></span><br><span class="line"></span><br><span class="line">    stk.pop();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="comment">//就是整个while循环完了还是没有能出栈的，说明就是没有升序的情况</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line"></span><br><span class="line">  ios::sync_with_stdio(<span class="number">0</span>), cin.tie(<span class="number">0</span>), cout.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  while (_--) solve();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/10/28/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          优先队列
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/10/12/PropEmit%E5%92%8Cpinia/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PropEmit和pinia</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2023 iolzyy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
