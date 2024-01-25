@@ -95,7 +95,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 16.67px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 13.33px;">算法基础</a>
+						<a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 16.67px;">前端</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 13.33px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 10px;">蓝桥杯</a>
 					</div>
 				</section>
 				
@@ -166,6 +166,79 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-蓝桥杯模拟" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/01/25/%E8%93%9D%E6%A1%A5%E6%9D%AF%E6%A8%A1%E6%8B%9F/" class="article-date">
+  	<time datetime="2024-01-25T12:08:08.000Z" itemprop="datePublished">2024-01-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/01/25/%E8%93%9D%E6%A1%A5%E6%9D%AF%E6%A8%A1%E6%8B%9F/">
+        蓝桥杯模拟
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="卡片"><a href="#卡片" class="headerlink" title="卡片"></a>卡片</h3><h5 id="【问题描述】"><a href="#【问题描述】" class="headerlink" title="【问题描述】"></a>【问题描述】</h5><p>小蓝有很多数字卡片，每张卡片上都是一个数字（0 到 9）。<br>小蓝准备用这些卡片来拼一些数，他想从 1 开始拼出正整数，每拼一个，就保存起<br>来，卡片就不能用来拼其他数了。<br>小蓝想知道自己能从 1 拼到多少。<br>例如，当小蓝有 30 张卡片，其中 0 到 9 各 3 张，则小蓝可以拼出 1 到 10，但是拼<br>11 时卡片 1 已经只有一张了，不够拼出 11。<br>现在小蓝手里有 0 到 9 的卡片各 2021 张，共 20210 张，请问小蓝可以从 1 拼到<br>多少?</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><blockquote>
+<p>可以看出第一个花完的数字是1，所以所以我们只需要暴力模拟，将每个的数的每一位数对十取模得到每位数，然后是1就减，见到1的牌数为0。但是需要注意的是最终的结果需要减1，因为在我的代码中加多了一次因为最后判定的一次。</p>
+</blockquote>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line"></span><br><span class="line">constexpr <span class="type">int</span> N = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> cnt = <span class="number">2021</span>;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">void solve()&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;;i++)&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> b = i;</span><br><span class="line"></span><br><span class="line">	while(b)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> t = b%<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(t==<span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(cnt==<span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">			cout&lt;&lt;i<span class="number">-1</span>&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span> cnt--;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		b/=<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()&#123;</span><br><span class="line"></span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>);cin.tie(<span class="number">0</span>);cout.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	solve();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="赢球票"><a href="#赢球票" class="headerlink" title="赢球票"></a>赢球票</h3><h4 id="【问题描述】-1"><a href="#【问题描述】-1" class="headerlink" title="【问题描述】"></a>【问题描述】</h4><p>某机构举办球票大奖赛。获奖选手有机会赢得若干张球票。<br>主持人拿出 N 张卡片（上面写着 1, . . . , N 的数字），打乱顺序，排成一个圆圈。<br>你可以从任意一张卡片开始顺时针数数: 1, 2, 3 . . .<br>如果数到的数字刚好和卡片上的数字相同，则把该卡片收入囊中，从下一张卡片重<br>新数数。<br>直到再无法收获任何卡片，游戏结束。囊中卡片数字的和就是赢得球票的张数。<br>比如卡片排列是 1 2 3，我们从 1 号卡开始数，就把 1 号卡拿走。再从 2 号卡开始，<br>但数的数字无法与卡片对上，很快数字越来越大，不可能再拿走卡片了。因此这次我们<br>只赢得了 1 张球票。<br>还不算太坏！如果我们开始就傻傻地从 2 或 3 号卡片数起，那就一张卡片都拿不<br>到了。<br>如果运气好，卡片排列是 2 1 3，那我们可以顺利拿到所有的卡片！<br>本题目标：已知顺时针卡片序列，随便你从哪里开始数，求最多能赢多少张球票（就<br>是收入囊中的卡片数字之和）。</p>
+<h4 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h4><p>第一行一个整数 N (N ⩽ 100)，表示卡片数目。<br>第二行 N 个整数，表示顺时针排列的卡片。</p>
+<h4 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h4><p>输出一行，一个整数，表示最好情况下能赢得多少张球票。</p>
+<h4 id="【样例输入】"><a href="#【样例输入】" class="headerlink" title="【样例输入】"></a>【样例输入】</h4><p>3<br>1 2 3</p>
+<h4 id="【样例输出】"><a href="#【样例输出】" class="headerlink" title="【样例输出】"></a>【样例输出】</h4><p>1</p>
+<h4 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h4><blockquote>
+<p>就是会成一个环，如果没有找到对应的数字，就往下走，并且数到的数字加1，如果还没有就继续重复操作，直到数到的数字大于卡片里的最大值，但是如果找到对应的卡片后，数到的数字就归1，重新开始循环。所以结束的要求是：成功的是全部都找到，失败就是数到的数字大过卡牌的数字，这两种情况都会导致程序结束。<br>题目还有要求是找到最优情况，所以暴力模拟的话就是通过对卡片每一个位置开始数，找到能拿到最多牌的情况。</p>
+</blockquote>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line"></span><br><span class="line">constexpr <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line">void solve()&#123;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++) cin&gt;&gt;a[i];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;<span class="comment">//模拟全部情况</span></span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> num = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> pos = i;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> flag[N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		while(<span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//全部取走或者函数</span></span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(count==n||num&gt;n) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//卡片被取走</span></span><br><span class="line">	</span><br><span class="line">			<span class="keyword">if</span>(flag[pos])&#123;</span><br><span class="line"></span><br><span class="line">				pos++;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(pos==n+<span class="number">1</span>) pos=<span class="number">1</span>;<span class="comment">//也就是循环到开头</span></span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//取走卡片</span></span><br><span class="line"></span><br><span class="line">			<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(a[pos]==num)&#123;</span><br><span class="line"></span><br><span class="line">				res+=a[pos];</span><br><span class="line"></span><br><span class="line">				flag[pos]=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				count++;</span><br><span class="line"></span><br><span class="line">				num=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				pos++;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(pos==n+<span class="number">1</span>) pos = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line"></span><br><span class="line">			num++;</span><br><span class="line"></span><br><span class="line">			pos++;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(pos==n+<span class="number">1</span>) pos = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(res&gt;ans) ans = res;<span class="comment">//找到最优解</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()&#123;</span><br><span class="line"></span><br><span class="line">ios::sync_with_stdio(<span class="number">0</span>);cin.tie(<span class="number">0</span>);cout.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">solve();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag">蓝桥杯</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-单调队列" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -766,64 +839,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" rel="tag">算法基础</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-双指针" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/09/26/%E5%8F%8C%E6%8C%87%E9%92%88/" class="article-date">
-  	<time datetime="2023-09-26T12:48:05.000Z" itemprop="datePublished">2023-09-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/26/%E5%8F%8C%E6%8C%87%E9%92%88/">
-        双指针
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1，双指针的用途就是"><a href="#1，双指针的用途就是" class="headerlink" title="1，双指针的用途就是"></a>1，双指针的用途就是</h3><h4 id="a，有的是快慢指针操作"><a href="#a，有的是快慢指针操作" class="headerlink" title="a，有的是快慢指针操作"></a>a，有的是快慢指针操作</h4><h4 id="b，可以用来维护一段区间"><a href="#b，可以用来维护一段区间" class="headerlink" title="b，可以用来维护一段区间"></a>b，可以用来维护一段区间</h4><h3 id="2，双指针感觉没有模板，比较灵活"><a href="#2，双指针感觉没有模板，比较灵活" class="headerlink" title="2，双指针感觉没有模板，比较灵活"></a>2，双指针感觉没有模板，比较灵活</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这个题就是找出最小不重复区间</span></span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">using ll = long long;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[N], tmp[N];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line"></span><br><span class="line">	ios::sync_with_stdio(<span class="number">0</span>), cin.tie(<span class="number">0</span>), cout.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line"></span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	</span><br><span class="line">	while (t--) &#123;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">		memset(tmp, <span class="number">0</span>, sizeof(<span class="type">int</span>) * (n + <span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line"></span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		ll ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;<span class="comment">//双指针，</span></span><br><span class="line"></span><br><span class="line">			while (j &lt; n &amp;&amp; !tmp[a[j + <span class="number">1</span>]]) &#123; <span class="comment">//前一个不重复</span></span><br><span class="line"></span><br><span class="line">				tmp[a[++j]]++; <span class="comment">//把前面的加起来</span></span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			ans = max(ans, j - i + <span class="number">1</span>ll); <span class="comment">//说明重复了</span></span><br><span class="line"></span><br><span class="line">			tmp[a[i]]--;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
 	</div>
 
       
