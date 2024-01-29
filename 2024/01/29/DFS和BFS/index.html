@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DFS和BFS | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="DFS通过题目来对DFS回溯法进行了解给定一个整数 n，将数字 1∼n 排成一排，将会有很多种排列方法。现在，请你按照字典序将所有的排列方法输出。代码123456789101112131415161718192021222324252627282930#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;typedef long long ll;cons">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DFS和BFS">
+<meta property="og:url" content="http://example.com/2024/01/29/DFS%E5%92%8CBFS/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="DFS通过题目来对DFS回溯法进行了解给定一个整数 n，将数字 1∼n 排成一排，将会有很多种排列方法。现在，请你按照字典序将所有的排列方法输出。代码123456789101112131415161718192021222324252627282930#include&lt;bits&#x2F;stdc++.h&gt;using namespace std;typedef long long ll;cons">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-29T03:09:08.000Z">
+<meta property="article:modified_time" content="2024-01-29T03:10:37.895Z">
+<meta property="article:author" content="iolzyy">
+<meta property="article:tag" content="基础算法">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">iolzyy</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 16.67px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 13.33px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 16.67px;">蓝桥杯</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://houbb.github.io/">echo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-DFS和BFS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/01/29/DFS%E5%92%8CBFS/" class="article-date">
+  	<time datetime="2024-01-29T03:09:08.000Z" itemprop="datePublished">2024-01-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DFS和BFS
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><h5 id="通过题目来对DFS回溯法进行了解"><a href="#通过题目来对DFS回溯法进行了解" class="headerlink" title="通过题目来对DFS回溯法进行了解"></a>通过题目来对DFS回溯法进行了解</h5><h5 id="给定一个整数-n，将数字-1∼n-排成一排，将会有很多种排列方法。现在，请你按照字典序将所有的排列方法输出。"><a href="#给定一个整数-n，将数字-1∼n-排成一排，将会有很多种排列方法。现在，请你按照字典序将所有的排列方法输出。" class="headerlink" title="给定一个整数 n，将数字 1∼n 排成一排，将会有很多种排列方法。现在，请你按照字典序将所有的排列方法输出。"></a>给定一个整数 n，将数字 1∼n 排成一排，将会有很多种排列方法。现在，请你按照字典序将所有的排列方法输出。</h5><h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N =<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> path[N];<span class="comment">//记录路径的数组</span></span><br><span class="line"><span class="type">int</span> state[N];<span class="comment">//判断是不是用了</span></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(u&gt;n)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			cout&lt;&lt;path[i]&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(!state[i])&#123;<span class="comment">//如果这个数字没有被用</span></span><br><span class="line">			path[u] = i;</span><br><span class="line">			state[i] = <span class="number">1</span>;</span><br><span class="line">			<span class="built_in">dfs</span>(u+<span class="number">1</span>);<span class="comment">//深搜</span></span><br><span class="line">			path[u] = <span class="number">0</span>;<span class="comment">//恢复现场</span></span><br><span class="line">			state[i] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="built_in">dfs</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="对于DFS我们可以看出这是一条路走到黑的，然后当我们碰壁后，就需要原路返回，也就是需要做到恢复现场的操作。也就是回到一开始的状态。"><a href="#对于DFS我们可以看出这是一条路走到黑的，然后当我们碰壁后，就需要原路返回，也就是需要做到恢复现场的操作。也就是回到一开始的状态。" class="headerlink" title="对于DFS我们可以看出这是一条路走到黑的，然后当我们碰壁后，就需要原路返回，也就是需要做到恢复现场的操作。也就是回到一开始的状态。"></a>对于DFS我们可以看出这是一条路走到黑的，然后当我们碰壁后，就需要原路返回，也就是需要做到恢复现场的操作。也就是回到一开始的状态。</h5><h4 id="bfs的基本操作，bfs是可以找到最短路径的，但是dfs是不一定能找到最短路径的。"><a href="#bfs的基本操作，bfs是可以找到最短路径的，但是dfs是不一定能找到最短路径的。" class="headerlink" title="bfs的基本操作，bfs是可以找到最短路径的，但是dfs是不一定能找到最短路径的。"></a>bfs的基本操作，bfs是可以找到最短路径的，但是dfs是不一定能找到最短路径的。</h4><h4 id="题目-走迷宫"><a href="#题目-走迷宫" class="headerlink" title="题目 走迷宫"></a>题目 走迷宫</h4><h4 id="给定一个-n×m的二维整数数组，用来表示一个迷宫，数组中只包含-0-或-1，其中-0-表示可以走的路，1-表示不可通过的墙壁。最初，有一个人位于左上角-1-1-1-1-处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。请问，该人从左上角移动至右下角-n-m-处，至少需要移动多少次。数据保证-1-1-处和-n-m-处的数字为-0，且一定至少存在一条通路"><a href="#给定一个-n×m的二维整数数组，用来表示一个迷宫，数组中只包含-0-或-1，其中-0-表示可以走的路，1-表示不可通过的墙壁。最初，有一个人位于左上角-1-1-1-1-处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。请问，该人从左上角移动至右下角-n-m-处，至少需要移动多少次。数据保证-1-1-处和-n-m-处的数字为-0，且一定至少存在一条通路" class="headerlink" title="给定一个 n×m的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。最初，有一个人位于左上角 (1,1)(1,1) 处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。请问，该人从左上角移动至右下角 (n,m) 处，至少需要移动多少次。数据保证(1,1) 处和 (n,m) 处的数字为 0，且一定至少存在一条通路"></a>给定一个 n×m的二维整数数组，用来表示一个迷宫，数组中只包含 0 或 1，其中 0 表示可以走的路，1 表示不可通过的墙壁。最初，有一个人位于左上角 (1,1)(1,1) 处，已知该人每次可以向上、下、左、右任意一个方向移动一个位置。请问，该人从左上角移动至右下角 (n,m) 处，至少需要移动多少次。数据保证(1,1) 处和 (n,m) 处的数字为 0，且一定至少存在一条通路</h4><h5 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 5</span><br><span class="line">0 1 0 0 0</span><br><span class="line">0 1 0 1 0</span><br><span class="line">0 0 0 0 0</span><br><span class="line">0 1 1 1 0</span><br><span class="line">0 0 0 1 0</span><br></pre></td></tr></table></figure>
+<h5 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">int</span> g[N][N];<span class="comment">//存储地图</span></span><br><span class="line"><span class="type">int</span> f[N][N];<span class="comment">//存储距离</span></span><br><span class="line"><span class="type">int</span> n,m;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">bfs</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span></span>&#123;</span><br><span class="line">	queue&lt;PII&gt; q;</span><br><span class="line">	q.<span class="built_in">push</span>(&#123;a,b&#125;);<span class="comment">//横坐标和纵坐标</span></span><br><span class="line">	f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">		PII start = q.<span class="built_in">front</span>();<span class="comment">//读取队列顶端的</span></span><br><span class="line">		q.<span class="built_in">pop</span>();</span><br><span class="line">		<span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;<span class="comment">//四个方向下，右，上，左</span></span><br><span class="line">		<span class="type">int</span> dy[<span class="number">4</span>] = &#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">			<span class="type">int</span> x = start.first+dx[i];</span><br><span class="line">			<span class="type">int</span> y = start.second+dy[i];</span><br><span class="line">			<span class="keyword">if</span>(g[x][y]==<span class="number">0</span>)&#123;<span class="comment">//如果没有找到就走过去</span></span><br><span class="line">				g[x][y] = <span class="number">1</span>;</span><br><span class="line">				f[x][y] = f[start.first][start.second]+<span class="number">1</span>;<span class="comment">//距离加1</span></span><br><span class="line">				q.<span class="built_in">push</span>(&#123;x,y&#125;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;f[n][m];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">memset</span>(g,<span class="number">1</span>,<span class="built_in">sizeof</span>(g));</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			cin&gt;&gt;g[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">bfs</span>(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="所以BFS是操作是用队列来存储，首先存储要开始的地方，然后读取队列顶端，然后往下走，走到下一个不是1的位置然后就可以读入队列中，并且将走过0的位置标记成1。"><a href="#所以BFS是操作是用队列来存储，首先存储要开始的地方，然后读取队列顶端，然后往下走，走到下一个不是1的位置然后就可以读入队列中，并且将走过0的位置标记成1。" class="headerlink" title="所以BFS是操作是用队列来存储，首先存储要开始的地方，然后读取队列顶端，然后往下走，走到下一个不是1的位置然后就可以读入队列中，并且将走过0的位置标记成1。"></a>所以BFS是操作是用队列来存储，首先存储要开始的地方，然后读取队列顶端，然后往下走，走到下一个不是1的位置然后就可以读入队列中，并且将走过0的位置标记成1。</h5>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/28/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0day1-Vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">寒假学习day1(Vue)</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2024 iolzyy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
