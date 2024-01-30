@@ -167,6 +167,87 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-卡特兰式和快速幂" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/01/30/%E5%8D%A1%E7%89%B9%E5%85%B0%E5%BC%8F%E5%92%8C%E5%BF%AB%E9%80%9F%E5%B9%82/" class="article-date">
+  	<time datetime="2024-01-30T07:05:45.000Z" itemprop="datePublished">2024-01-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/01/30/%E5%8D%A1%E7%89%B9%E5%85%B0%E5%BC%8F%E5%92%8C%E5%BF%AB%E9%80%9F%E5%B9%82/">
+        卡特兰式和快速幂
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="常用的应用场景："><a href="#常用的应用场景：" class="headerlink" title="常用的应用场景："></a>常用的应用场景：</h4><h5 id="1-括号匹配：有效的匹配方式，左括号数量不少于右括号数量。"><a href="#1-括号匹配：有效的匹配方式，左括号数量不少于右括号数量。" class="headerlink" title="1.括号匹配：有效的匹配方式，左括号数量不少于右括号数量。"></a>1.括号匹配：有效的匹配方式，左括号数量不少于右括号数量。</h5><hr>
+<h5 id="2-计算具有几个节点的二叉搜索树。"><a href="#2-计算具有几个节点的二叉搜索树。" class="headerlink" title="2.计算具有几个节点的二叉搜索树。"></a>2.计算具有几个节点的二叉搜索树。</h5><hr>
+<h5 id="3-路径问题：在一个n-n的网格中，计算从左上角到右下角的路径数量，条件只能向右或者向下，不能穿对角线。"><a href="#3-路径问题：在一个n-n的网格中，计算从左上角到右下角的路径数量，条件只能向右或者向下，不能穿对角线。" class="headerlink" title="3.路径问题：在一个n*n的网格中，计算从左上角到右下角的路径数量，条件只能向右或者向下，不能穿对角线。"></a>3.路径问题：在一个<code>n*n</code>的网格中，计算从左上角到右下角的路径数量，条件只能向右或者向下，不能穿对角线。</h5><hr>
+<h5 id="4-堆栈序列：计算n个元素有效的堆栈进出序列，有效序列指，进栈元素大于出栈元素。"><a href="#4-堆栈序列：计算n个元素有效的堆栈进出序列，有效序列指，进栈元素大于出栈元素。" class="headerlink" title="4.堆栈序列：计算n个元素有效的堆栈进出序列，有效序列指，进栈元素大于出栈元素。"></a>4.堆栈序列：计算n个元素有效的堆栈进出序列，有效序列指，进栈元素大于出栈元素。</h5><hr>
+<h5 id="5-凸多边形划分三角形：计算一个凸多边形可被划分成三角形数量。"><a href="#5-凸多边形划分三角形：计算一个凸多边形可被划分成三角形数量。" class="headerlink" title="5.凸多边形划分三角形：计算一个凸多边形可被划分成三角形数量。"></a>5.凸多边形划分三角形：计算一个凸多边形可被划分成三角形数量。</h5><h4 id="举例：比如三对括号的有效匹配方式式5个。凸五边形划分成五种三角形。"><a href="#举例：比如三对括号的有效匹配方式式5个。凸五边形划分成五种三角形。" class="headerlink" title="举例：比如三对括号的有效匹配方式式5个。凸五边形划分成五种三角形。"></a>举例：比如三对括号的有效匹配方式式5个。凸五边形划分成五种三角形。</h4><h5 id="卡兰特式-：H0-1-Hn-Hn-1-4n-2-n-1"><a href="#卡兰特式-：H0-1-Hn-Hn-1-4n-2-n-1" class="headerlink" title="卡兰特式 ：H0:1 Hn &#x3D; Hn-1*(4n-2)&#x2F;n+1"></a><em>卡兰特式</em> ：H0:1 Hn &#x3D; Hn-1*(4n-2)&#x2F;n+1</h5><h5 id="洛谷P1044"><a href="#洛谷P1044" class="headerlink" title="洛谷P1044"></a>洛谷P1044</h5><h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><blockquote>
+<p>栈是计算机中经典的数据结构，简单的说，栈就是限制在一端进行插入删除操作的线性表。栈有两种最重要的操作，即 pop（从栈顶弹出一个元素）和 push（将一个元素进栈）。栈的重要性不言自明，任何一门数据结构的课程都会介绍栈。宁宁同学在复习栈的基本概念时，想到了一个书上没有讲过的问题，而他自己无法给出答案，所以需要你的帮忙。你的程序将对给定的 n，计算并输出由操作数列 1,2,…,n 经过操作可能得到的输出序列的总数。</p>
+</blockquote>
+<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><blockquote>
+<p>可以看出这个是要给出有效情况。所以是卡特兰式操作</p>
+</blockquote>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">20</span>;</span><br><span class="line"><span class="type">long</span> <span class="type">long</span> f[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	f[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		f[i] = f[i<span class="number">-1</span>]*(<span class="number">4</span>*i<span class="number">-2</span>)/(i+<span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;f[n]&lt;&lt;endl;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h3><h4 id="题目：给你三个整数a-b-p，求-a-bmodp。"><a href="#题目：给你三个整数a-b-p，求-a-bmodp。" class="headerlink" title="题目：给你三个整数a,b,p，求 a^bmodp。"></a>题目：给你三个整数a,b,p，求 a^bmodp。</h4><h4 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 10 9</span><br></pre></td></tr></table></figure>
+<h4 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2^10 mod 9=7</span><br></pre></td></tr></table></figure>
+
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><blockquote>
+<p>这个就是快速幂取模,快速幂的操作就是将幂指数变成二进制，然后一直对于超过的数一直取模就行了。</p>
+</blockquote>
+<h5 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">quick_exp</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a,<span class="type">long</span> <span class="type">long</span> b,<span class="type">long</span> <span class="type">long</span> p)</span></span>&#123;<span class="comment">//快速幂的操作。</span></span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> res = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>) res = (res%p*a%p)%p;</span><br><span class="line">		a = (a%p*a%p)%p;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res%p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> a,b,p;</span><br><span class="line">	cin&gt;&gt;a&gt;&gt;b&gt;&gt;p;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> ans = <span class="built_in">quick_exp</span>(a,b,p);</span><br><span class="line">	cout&lt;&lt;a&lt;&lt;<span class="string">&#x27;^&#x27;</span>&lt;&lt;b&lt;&lt;<span class="string">&#x27; &#x27;</span>&lt;&lt;<span class="string">&quot;mod &quot;</span>&lt;&lt;p&lt;&lt;<span class="string">&#x27;=&#x27;</span>&lt;&lt;ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-DFS和BFS" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -832,95 +913,9 @@
 
 
   
-    <article id="post-map-STL" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/28/map-STL/" class="article-date">
-  	<time datetime="2023-10-28T15:51:01.000Z" itemprop="datePublished">2023-10-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/28/map-STL/">
-        map(STL)
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><h4 id="Each-element-元素-has-a-key-value-and-a-mapped-value-No-two-mapped-values-can-可以-have-the-same-key-values-借用网站上的话解释的非常清晰。"><a href="#Each-element-元素-has-a-key-value-and-a-mapped-value-No-two-mapped-values-can-可以-have-the-same-key-values-借用网站上的话解释的非常清晰。" class="headerlink" title="Each element(元素) has a key value and a mapped value. No two mapped values can(可以) have the same key values.借用网站上的话解释的非常清晰。"></a>Each element(元素) has a key value and a mapped value. No two mapped values can(可以) have the same key values.借用网站上的话解释的非常清晰。</h4><h3 id="一些常用的函数"><a href="#一些常用的函数" class="headerlink" title="一些常用的函数"></a>一些常用的函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建map</span></span><br><span class="line"><span class="keyword">map</span>&lt;<span class="type">string</span>,<span class="type">int</span>&gt; mp</span><br><span class="line"><span class="comment">//begin函数,返回第一个元素的迭代器,要专门写一个迭代器去接受</span></span><br><span class="line">std::<span class="keyword">map</span>&lt;std::<span class="type">string</span>, <span class="type">int</span>&gt;::iterator it = <span class="keyword">map</span>.begin();</span><br><span class="line">mp.begin()</span><br><span class="line"><span class="comment">//end()</span></span><br><span class="line">mp.end()<span class="comment">//返回最后一个迭代器</span></span><br><span class="line"><span class="comment">//find()</span></span><br><span class="line">mp.find(key)<span class="comment">//找到S的对应的迭代器</span></span><br><span class="line"><span class="comment">//count(key)</span></span><br><span class="line">mp.count(key)<span class="comment">//找到对应的value的个数0或者1</span></span><br></pre></td></tr></table></figure>
-<h3 id="一道练习题"><a href="#一道练习题" class="headerlink" title="一道练习题"></a>一道练习题</h3><blockquote>
-<p>空中有n个气球，第i个气球有一个颜色coli​（用一个字符串表示）。</p>
-</blockquote>
-<blockquote>
-<p>请你求出每种气球的个数，按照气球出现的顺序进行排序输出。</p>
-</blockquote>
-<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><blockquote>
-<p>第一行一个整数T表示样例个数。(1≤T≤10)</p>
-</blockquote>
-<blockquote>
-<p>对于每个样例，第一行一个整数n表示气球个数。(1≤n le100)</p>
-</blockquote>
-<blockquote>
-<p>接下来n行，每行一个字符串表示coli​。(1≤∣coli​∣≤50)</p>
-</blockquote>
-<blockquote>
-<p>字符串仅包含小写英文字母。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">样例输入 </span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">red</span><br><span class="line">red</span><br><span class="line">blue</span><br><span class="line">5</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">e</span><br><span class="line">d</span><br><span class="line">e</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">red 2</span><br><span class="line">blue 1</span><br><span class="line">a 1</span><br><span class="line">b 1</span><br><span class="line">e 2</span><br><span class="line">d 1</span><br><span class="line">### 样例输出</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><blockquote>
-<p>对于每个样例，输出所有气球的种类和个数。</p>
-</blockquote>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line"></span><br><span class="line">constexpr <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">void solve() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">map</span>&lt;<span class="type">string</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line"></span><br><span class="line">  vector&lt;<span class="type">string</span>&gt; v;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line">  cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line"></span><br><span class="line">   <span class="type">string</span> s;</span><br><span class="line"></span><br><span class="line">   cin &gt;&gt; s;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> (mp.find(s) != mp.end())</span><br><span class="line"></span><br><span class="line">     mp[s]++;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">     v.push_back(s), mp[s] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">for</span> (auto &amp;i : v) cout &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; mp[i] &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line"></span><br><span class="line">  ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  cin.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  cout.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> m;</span><br><span class="line"></span><br><span class="line">  cin &gt;&gt; m;</span><br><span class="line">  </span><br><span class="line">  while (m--) &#123;</span><br><span class="line"></span><br><span class="line">  solve();</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="关于map遍历顺序的问题"><a href="#关于map遍历顺序的问题" class="headerlink" title="关于map遍历顺序的问题"></a>关于map遍历顺序的问题</h3><h4 id="当你为MAP插入一个元素后，MAP会按KEY的顺序重新排列，所以当你遍历MAP的时候，遍历的顺序已经不是你插入元素的顺序。举个具体例子"><a href="#当你为MAP插入一个元素后，MAP会按KEY的顺序重新排列，所以当你遍历MAP的时候，遍历的顺序已经不是你插入元素的顺序。举个具体例子" class="headerlink" title="当你为MAP插入一个元素后，MAP会按KEY的顺序重新排列，所以当你遍历MAP的时候，遍历的顺序已经不是你插入元素的顺序。举个具体例子:"></a>当你为MAP插入一个元素后，MAP会按KEY的顺序重新排列，所以当你遍历MAP的时候，遍历的顺序已经不是你插入元素的顺序。举个具体例子:</h4><h5 id="MAP【‘B’】-1"><a href="#MAP【‘B’】-1" class="headerlink" title="MAP【‘B’】&#x3D;1"></a>MAP【‘B’】&#x3D;1</h5><h5 id="MAP【‘C’】-2"><a href="#MAP【‘C’】-2" class="headerlink" title="MAP【‘C’】&#x3D;2"></a>MAP【‘C’】&#x3D;2</h5><h5 id="MAP【’A‘】-3"><a href="#MAP【’A‘】-3" class="headerlink" title="MAP【’A‘】&#x3D;3"></a>MAP【’A‘】&#x3D;3</h5><h5 id="当你遍历MAP输出的时候，是按’A’-’B’-’C’顺序输出的，而不是’B’-’C’-’A’顺序输出。如果你要遍历的顺序就是插入元素的顺序，你必须用线性容器，比如VECTOR"><a href="#当你遍历MAP输出的时候，是按’A’-’B’-’C’顺序输出的，而不是’B’-’C’-’A’顺序输出。如果你要遍历的顺序就是插入元素的顺序，你必须用线性容器，比如VECTOR" class="headerlink" title="当你遍历MAP输出的时候，是按’A’,’B’,’C’顺序输出的，而不是’B’,’C’,’A’顺序输出。如果你要遍历的顺序就是插入元素的顺序，你必须用线性容器，比如VECTOR"></a>当你遍历MAP输出的时候，是按’A’,’B’,’C’顺序输出的，而不是’B’,’C’,’A’顺序输出。如果你要遍历的顺序就是插入元素的顺序，你必须用线性容器，比如VECTOR</h5>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 </div>
