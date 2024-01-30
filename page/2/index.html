@@ -207,7 +207,7 @@ mjx-container[display="true"] + br {
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 16.67px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 13.33px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 16.67px;">蓝桥杯</a>
+						<a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 16.67px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 13.33px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 13.33px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 16.67px;">蓝桥杯</a>
 					</div>
 				</section>
 				
@@ -278,6 +278,82 @@ mjx-container[display="true"] + br {
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-set-STL" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/10/30/set-STL/" class="article-date">
+  	<time datetime="2023-10-30T08:20:07.000Z" itemprop="datePublished">2023-10-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/10/30/set-STL/">
+        set(STL)
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="set的性质"><a href="#set的性质" class="headerlink" title="set的性质"></a>set的性质</h3><h4 id="Sets-组-are-a-type-of-associative-container-容器-in-which-each-element-元素-has-to-be-unique-独特-because-the-value-of-the-element-元素-identifies-识别-it-The-values-are-stored-in-a-specific-特定-sorted-order-i-e-either-ascending-or-descending-下降-解释set不会有重复的东西，即使插入多个重复的东西，那么仍然只会显示一个-而且是有顺序的。"><a href="#Sets-组-are-a-type-of-associative-container-容器-in-which-each-element-元素-has-to-be-unique-独特-because-the-value-of-the-element-元素-identifies-识别-it-The-values-are-stored-in-a-specific-特定-sorted-order-i-e-either-ascending-or-descending-下降-解释set不会有重复的东西，即使插入多个重复的东西，那么仍然只会显示一个-而且是有顺序的。" class="headerlink" title="Sets(组) are a type of associative container(容器) in which each element(元素) has to be unique(独特) because the value of the element(元素) identifies(识别) it. The values are stored in a specific(特定) sorted order i.e. either ascending or descending(下降).  解释set不会有重复的东西，即使插入多个重复的东西，那么仍然只会显示一个,而且是有顺序的。"></a>Sets(组) are a type of associative container(容器) in which each element(元素) has to be unique(独特) because the value of the element(元素) identifies(识别) it. The values are stored in a specific(特定) sorted order i.e. either ascending or descending(下降).  解释set不会有重复的东西，即使插入多个重复的东西，那么仍然只会显示一个,而且是有顺序的。</h4><h3 id="举一个例子来看STL中的函数"><a href="#举一个例子来看STL中的函数" class="headerlink" title="举一个例子来看STL中的函数"></a>举一个例子来看STL中的函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++ program to demonstrate various functions of</span></span><br><span class="line"><span class="comment">// STL</span></span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;iterator&gt;</span><br><span class="line">#include &lt;set&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// empty set container</span></span><br><span class="line">	set&lt;<span class="type">int</span>, greater&lt;<span class="type">int</span>&gt; &gt; s1;<span class="comment">//说明这个是大的在前</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// insert elements in random order</span></span><br><span class="line">	s1.insert(<span class="number">40</span>);<span class="comment">//插入函数</span></span><br><span class="line">	s1.insert(<span class="number">30</span>);</span><br><span class="line">	s1.insert(<span class="number">60</span>);</span><br><span class="line">	s1.insert(<span class="number">20</span>);</span><br><span class="line">	s1.insert(<span class="number">50</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// only one 50 will be added to the set</span></span><br><span class="line">	s1.insert(<span class="number">50</span>);</span><br><span class="line">	s1.insert(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// printing set s1</span></span><br><span class="line">	set&lt;<span class="type">int</span>, greater&lt;<span class="type">int</span>&gt; &gt;::iterator itr;<span class="comment">//迭代器</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;\nThe set s1 is : \n&quot;</span>;</span><br><span class="line">	<span class="keyword">for</span> (itr = s1.begin(); itr != s1.end(); itr++) &#123;</span><br><span class="line">		cout &lt;&lt; *itr &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// assigning the elements from s1 to s2</span></span><br><span class="line">	set&lt;<span class="type">int</span>&gt; s2(s1.begin(), s1.end());<span class="comment">//默认从小到大</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// print all elements of the set s2</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;\nThe set s2 after assign from s1 is : \n&quot;</span>;</span><br><span class="line">	<span class="keyword">for</span> (itr = s2.begin(); itr != s2.end(); itr++) &#123;</span><br><span class="line">		cout &lt;&lt; *itr &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// remove all elements up to 30 in s2</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;\ns2 after removal of elements less than 30 &quot;</span></span><br><span class="line">			<span class="string">&quot;:\n&quot;</span>;</span><br><span class="line">	s2.erase(s2.begin(), s2.find(<span class="number">30</span>));<span class="comment">//删去小于三十的</span></span><br><span class="line">	<span class="keyword">for</span> (itr = s2.begin(); itr != s2.end(); itr++) &#123;</span><br><span class="line">		cout &lt;&lt; *itr &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// remove element with value 50 in s2</span></span><br><span class="line">	<span class="type">int</span> num;</span><br><span class="line">	num = s2.erase(<span class="number">50</span>);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;\ns2.erase(50) : &quot;</span>;</span><br><span class="line">	cout &lt;&lt; num &lt;&lt; <span class="string">&quot; removed\n&quot;</span>;</span><br><span class="line">	<span class="keyword">for</span> (itr = s2.begin(); itr != s2.end(); itr++) &#123;</span><br><span class="line">		cout &lt;&lt; *itr &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// lower bound and upper bound for set s1</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;s1.lower_bound(40) : &quot;</span></span><br><span class="line">		&lt;&lt; *s1.lower_bound(<span class="number">40</span>) &lt;&lt; endl;</span><br><span class="line">		<span class="comment">// lower_bound的指的是&lt;=是可以取到</span></span><br><span class="line">		<span class="comment">//upper_bound指的是&gt;是只能取到你想要的更高的一位</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;s1.upper_bound(40) : &quot;</span></span><br><span class="line">		&lt;&lt; *s1.upper_bound(<span class="number">40</span>) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// lower bound and upper bound for set s2</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;s2.lower_bound(40) : &quot;</span></span><br><span class="line">		&lt;&lt; *s2.lower_bound(<span class="number">40</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;s2.upper_bound(40) : &quot;</span></span><br><span class="line">		&lt;&lt; *s2.upper_bound(<span class="number">40</span>) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">The set s1 is : </span><br><span class="line"><span class="number">60</span> <span class="number">50</span> <span class="number">40</span> <span class="number">30</span> <span class="number">20</span> <span class="number">10</span> </span><br><span class="line"></span><br><span class="line">The set s2 after assign from s1 is : </span><br><span class="line"><span class="number">10</span> <span class="number">20</span> <span class="number">30</span> <span class="number">40</span> <span class="number">50</span> <span class="number">60</span> </span><br><span class="line"></span><br><span class="line">s2 after removal of elements less than <span class="number">30</span> :</span><br><span class="line"><span class="number">30</span> <span class="number">40</span> <span class="number">50</span> <span class="number">60</span> </span><br><span class="line">s2.erase(<span class="number">50</span>) : <span class="number">1</span> removed</span><br><span class="line"><span class="number">30</span> <span class="number">40</span> <span class="number">60</span> </span><br><span class="line">s1.lower_bound(<span class="number">40</span>) : <span class="number">40</span></span><br><span class="line">s1.upper_bound(<span class="number">40</span>) : <span class="number">30</span></span><br><span class="line">s2.lower_bound(<span class="number">40</span>) : <span class="number">40</span></span><br><span class="line">s2.upper_bound(<span class="number">40</span>) : <span class="number">60</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="例题来熟悉"><a href="#例题来熟悉" class="headerlink" title="例题来熟悉"></a>例题来熟悉</h3><blockquote>
+<p>给定一个大小为n的整型数组a，你需要对其按照升序排序并进行去重</p>
+</blockquote>
+<h5 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h5><blockquote>
+<p>第一行：一个整数n。（1≤n≤2×10^5）  </p>
+</blockquote>
+<blockquote>
+<p>第二行：n个整数，表示数组a的所有元素。(−10^9≤ai​≤10^9)，(1≤i≤n）</p>
+</blockquote>
+<h5 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h5><blockquote>
+<p>共一行，输出升序排序且去重后的数组a。</p>
+</blockquote>
+<h5 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">2 0 2 3 0 7 1 7</span><br></pre></td></tr></table></figure>
+<h5 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 1 2 3 7</span><br></pre></td></tr></table></figure>
+<h4 id="ANSWER"><a href="#ANSWER" class="headerlink" title="ANSWER"></a>ANSWER</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;<span class="keyword">map</span>&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;set&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;stack&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;<span class="type">string</span>&gt;</span><br><span class="line"></span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line"></span><br><span class="line">constexpr <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">void solve() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line">  cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">  set&lt;<span class="type">int</span>&gt; st;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line"></span><br><span class="line">    cin &gt;&gt; x;</span><br><span class="line"></span><br><span class="line">    st.insert(x);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (auto&amp; v : st) &#123;</span><br><span class="line"></span><br><span class="line">  cout &lt;&lt; v &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line"></span><br><span class="line">  ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  cin.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  cout.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  while (a--) &#123;</span><br><span class="line"></span><br><span class="line">  solve();</span><br><span class="line"></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-map-STL" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -875,75 +951,6 @@ mjx-container[display="true"] + br {
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-博客搭建和踩过的坑" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/09/13/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/" class="article-date">
-  	<time datetime="2023-09-12T16:15:33.000Z" itemprop="datePublished">2023-09-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/09/13/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/">
-        博客搭建和踩过的坑
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1，hexo的平台搭建"><a href="#1，hexo的平台搭建" class="headerlink" title="1，hexo的平台搭建"></a>1，hexo的平台搭建</h4><h5 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作:"></a>准备工作:</h5><p>1， 弄个github账号<br>2，安装Nodejs<br>3，安装git </p>
-<h5 id="Git-详细安装教程（详解-Git-安装过程的每一个步骤）-git安装-CSDN博客"><a href="#Git-详细安装教程（详解-Git-安装过程的每一个步骤）-git安装-CSDN博客" class="headerlink" title="Git 详细安装教程（详解 Git 安装过程的每一个步骤）_git安装-CSDN博客"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/mukes/article/details/115693833">Git 详细安装教程（详解 Git 安装过程的每一个步骤）_git安装-CSDN博客</a></h5><h5 id="node-js安装及环境配置超详细教程【Windows系统安装包方式】-知乎-zhihu-com"><a href="#node-js安装及环境配置超详细教程【Windows系统安装包方式】-知乎-zhihu-com" class="headerlink" title="node.js安装及环境配置超详细教程【Windows系统安装包方式】 - 知乎 (zhihu.com)"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/442215189">node.js安装及环境配置超详细教程【Windows系统安装包方式】 - 知乎 (zhihu.com)</a></h5><h5 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h5><h6 id="使用-Hexo-GitHub-搭建个人免费博客教程（小白向）-知乎-zhihu-com"><a href="#使用-Hexo-GitHub-搭建个人免费博客教程（小白向）-知乎-zhihu-com" class="headerlink" title="使用 Hexo+GitHub 搭建个人免费博客教程（小白向） - 知乎 (zhihu.com)"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60578464">使用 Hexo+GitHub 搭建个人免费博客教程（小白向） - 知乎 (zhihu.com)</a></h6><h6 id="用这个文章差不多能搞定"><a href="#用这个文章差不多能搞定" class="headerlink" title="用这个文章差不多能搞定"></a>用这个文章差不多能搞定</h6><h6 id="会碰到的坑："><a href="#会碰到的坑：" class="headerlink" title="会碰到的坑："></a>会碰到的坑：</h6><p>1，git经常命令无法执行，有可能是管理员权限未开，需要开启。<br>    开启步骤:右键Git bash点属性然后点到兼容性，找到以管理员身份运行。<br>2，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>会碰到npm不能用到的情况这时候就需要换成cnpm</p>
-<h6 id="npmmirror-镜像站-里面就有换源，然后将npm换成cnpm就行"><a href="#npmmirror-镜像站-里面就有换源，然后将npm换成cnpm就行" class="headerlink" title="npmmirror 镜像站 里面就有换源，然后将npm换成cnpm就行"></a><a target="_blank" rel="noopener" href="https://npmmirror.com/">npmmirror 镜像站</a> 里面就有换源，然后将npm换成cnpm就行</h6><p>3,还有就是将<a target="_blank" rel="noopener" href="https://yourname.github.io作为域名的操作/">https://YourName.github.io作为域名的操作</a></p>
-<h4 id="2，hexo的常用指令"><a href="#2，hexo的常用指令" class="headerlink" title="2，hexo的常用指令"></a>2，hexo的常用指令</h4><h5 id="a，初始化和安装所需组件"><a href="#a，初始化和安装所需组件" class="headerlink" title="a，初始化和安装所需组件"></a>a，初始化和安装所需组件</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init ##初始化</span><br><span class="line">npm install ##安装组件，建议先将下载路径换成淘宝镜像，上面就有镜像站链接</span><br></pre></td></tr></table></figure>
-<h5 id="b-一些搭配使用"><a href="#b-一些搭配使用" class="headerlink" title="b,一些搭配使用"></a>b,一些搭配使用</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean ##清除缓存，有时候有用</span><br><span class="line">hexo g ##生成</span><br><span class="line">hexo d ##文件生成后立即部署网站</span><br><span class="line">//这三个经常一起使用</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;你自己取&quot; //创建一个新的博客会在source文件夹的post_(好像是)用markdown语法就行</span><br><span class="line">hexo g </span><br><span class="line">hexo d</span><br><span class="line">//就可以将你写的博客部署到静态网站</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-一些好看的主题"><a href="#3-一些好看的主题" class="headerlink" title="3,一些好看的主题"></a>3,一些好看的主题</h4><h6 id="首先可以在github上搜，上面会有配置文档叫你如何配置"><a href="#首先可以在github上搜，上面会有配置文档叫你如何配置" class="headerlink" title="首先可以在github上搜，上面会有配置文档叫你如何配置"></a>首先可以在github上搜，上面会有配置文档叫你如何配置</h6><h6 id="九个好看实用的Hexo主题推荐-掘金-juejin-cn"><a href="#九个好看实用的Hexo主题推荐-掘金-juejin-cn" class="headerlink" title="九个好看实用的Hexo主题推荐 - 掘金 (juejin.cn)"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7053744641383874574">九个好看实用的Hexo主题推荐 - 掘金 (juejin.cn)</a></h6><h6 id="【教程】下载Hexo主题，并做相应的配置和优化-知乎-zhihu-com"><a href="#【教程】下载Hexo主题，并做相应的配置和优化-知乎-zhihu-com" class="headerlink" title="【教程】下载Hexo主题，并做相应的配置和优化 - 知乎 (zhihu.com)"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137616422">【教程】下载Hexo主题，并做相应的配置和优化 - 知乎 (zhihu.com)</a></h6><p>主题和在配置中遇到的一些问题都能得到解决</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">博客搭建</a></li></ul>
 	</div>
 
       
