@@ -167,6 +167,76 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-进制转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/02/03/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" class="article-date">
+  	<time datetime="2024-02-03T08:52:53.000Z" itemprop="datePublished">2024-02-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/02/03/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/">
+        进制转换
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="洛谷-B3619-10进制转x进制"><a href="#洛谷-B3619-10进制转x进制" class="headerlink" title="洛谷 B3619 10进制转x进制"></a>洛谷 B3619 10进制转x进制</h4><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><blockquote>
+<p>给定一个十进制整数 n 和一个小整数 x。将整数 n 转为 x 进制。对于超过十进制的数码，用 <code>A</code>，<code>B</code> … 表示。</p>
+</blockquote>
+<h4 id="输入输出案例"><a href="#输入输出案例" class="headerlink" title="输入输出案例"></a>输入输出案例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1000</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1111101000</span><br></pre></td></tr></table></figure>
+
+<h5 id="进制转换的操作"><a href="#进制转换的操作" class="headerlink" title="进制转换的操作"></a>进制转换的操作</h5><h5 id="进位制-OI-Wiki-oi-wiki-org"><a href="#进位制-OI-Wiki-oi-wiki-org" class="headerlink" title="进位制 - OI Wiki (oi-wiki.org)"></a><a target="_blank" rel="noopener" href="https://oi-wiki.org/math/base/">进位制 - OI Wiki (oi-wiki.org)</a></h5><h5 id="就是取每个进制的余数，比如取得是二进制那么就是一直除2，然后得到余数，然后余数从下往上读。直到不能再除。"><a href="#就是取每个进制的余数，比如取得是二进制那么就是一直除2，然后得到余数，然后余数从下往上读。直到不能再除。" class="headerlink" title="就是取每个进制的余数，比如取得是二进制那么就是一直除2，然后得到余数，然后余数从下往上读。直到不能再除。"></a>就是取每个进制的余数，比如取得是二进制那么就是一直除2，然后得到余数，然后余数从下往上读。直到不能再除。</h5><h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n,x;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> k)</span></span>&#123;<span class="comment">//这里就是用递归的方法</span></span><br><span class="line">	<span class="keyword">if</span>(k&gt;=x)&#123;</span><br><span class="line">		<span class="built_in">solve</span>(k/x);</span><br><span class="line">		k%=x;<span class="comment">//得到取余值</span></span><br><span class="line">		<span class="keyword">if</span>(k&gt;=<span class="number">10</span>)&#123;<span class="comment">//大于10就要考虑A这些字母的东西</span></span><br><span class="line">			cout&lt;&lt;<span class="built_in">char</span>(k<span class="number">-10</span>+<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			cout&lt;&lt;k;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;<span class="comment">//不需要递归操作。</span></span><br><span class="line">		<span class="keyword">if</span>(k&gt;=<span class="number">10</span>)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="built_in">char</span>(k<span class="number">-10</span>+<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			cout&lt;&lt;k;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;x;</span><br><span class="line">	<span class="built_in">solve</span>(n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="B3620-x进制转换成十进制"><a href="#B3620-x进制转换成十进制" class="headerlink" title="B3620 x进制转换成十进制"></a>B3620 x进制转换成十进制</h4><h5 id="这里有个数学叫秦九韶算式多用于多项式操作和将各种进制转换成十进制"><a href="#这里有个数学叫秦九韶算式多用于多项式操作和将各种进制转换成十进制" class="headerlink" title="这里有个数学叫秦九韶算式多用于多项式操作和将各种进制转换成十进制"></a>这里有个数学叫秦九韶算式多用于多项式操作和将各种进制转换成十进制</h5><h5 id="对于秦九韶公式秦九韶算法-秦九韶算法公式详解-CSDN博客看完就知道原里。"><a href="#对于秦九韶公式秦九韶算法-秦九韶算法公式详解-CSDN博客看完就知道原里。" class="headerlink" title="对于秦九韶公式秦九韶算法_秦九韶算法公式详解-CSDN博客看完就知道原里。"></a>对于秦九韶公式<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52588437/article/details/123100562">秦九韶算法_秦九韶算法公式详解-CSDN博客</a>看完就知道原里。</h5><h5 id="然后再解题的时候给出的是一个字符串，然后字符串的第一位实际上是最高位，所有对于这个就是通过一个乘法和加法的循环不断操作。"><a href="#然后再解题的时候给出的是一个字符串，然后字符串的第一位实际上是最高位，所有对于这个就是通过一个乘法和加法的循环不断操作。" class="headerlink" title="然后再解题的时候给出的是一个字符串，然后字符串的第一位实际上是最高位，所有对于这个就是通过一个乘法和加法的循环不断操作。"></a>然后再解题的时候给出的是一个字符串，然后字符串的第一位实际上是最高位，所有对于这个就是通过一个乘法和加法的循环不断操作。</h5><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">```cpp</span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">string s1;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(string s1,<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> c:s1)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c&lt;<span class="string">&#x27;A&#x27;</span>)&#123;<span class="comment">//就是没超过是</span></span><br><span class="line">		res = res*x+c-<span class="string">&#x27;0&#x27;</span>;<span class="comment">//就是不断的×和+</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			res = res*x+c-<span class="string">&#x27;A&#x27;</span>+<span class="number">10</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	cin&gt;&gt;s1;</span><br><span class="line">	<span class="built_in">solve</span>(s1,n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code>
+</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-寒假前端学习Day2-Vue" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -841,64 +911,6 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-      
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Hexo部署出现错误-Error-Spawn-failed" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2023/10/30/Hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF-Error-Spawn-failed/" class="article-date">
-  	<time datetime="2023-10-30T08:43:45.000Z" itemprop="datePublished">2023-10-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/10/30/Hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0%E9%94%99%E8%AF%AF-Error-Spawn-failed/">
-        Hexo部署出现错误 Error Spawn failed
-        
-      </a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="hexo发生error：spawn-failed错误的解决方法-error-spawn-failed-CSDN博客"><a href="#hexo发生error：spawn-failed错误的解决方法-error-spawn-failed-CSDN博客" class="headerlink" title="hexo发生error：spawn failed错误的解决方法_error: spawn failed-CSDN博客"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/HTL2018/article/details/106876940">hexo发生error：spawn failed错误的解决方法_error: spawn failed-CSDN博客</a></h4>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li></ul>
 	</div>
 
       
