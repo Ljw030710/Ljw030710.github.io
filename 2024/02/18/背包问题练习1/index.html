@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>背包问题练习1 | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="P1833 樱花P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。代码123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta property="og:type" content="article">
+<meta property="og:title" content="背包问题练习1">
+<meta property="og:url" content="http://example.com/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="P1833 樱花P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。代码123456789101112131415161718192021222324252627282930313233343536373839404142">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-18T12:17:30.000Z">
+<meta property="article:modified_time" content="2024-02-18T12:17:57.223Z">
+<meta property="article:author" content="iolzyy">
+<meta property="article:tag" content="基础算法">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">iolzyy</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 12.5px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px;">蓝桥杯</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://houbb.github.io/">echo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-背包问题练习1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/" class="article-date">
+  	<time datetime="2024-02-18T12:17:30.000Z" itemprop="datePublished">2024-02-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      背包问题练习1
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="P1833-樱花P1833-樱花-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1833-樱花P1833-樱花-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1833 樱花P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1833 樱花<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1833">P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="题解-这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。"><a href="#题解-这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。" class="headerlink" title="题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。"></a>题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。</h4><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">10100</span>;</span><br><span class="line"><span class="type">int</span> c[N],dp[N],t[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> th1,ts1,th2,ts2,n;</span><br><span class="line">	<span class="type">char</span> cc;</span><br><span class="line">	cin&gt;&gt;th1&gt;&gt;cc&gt;&gt;ts1&gt;&gt;th2&gt;&gt;cc&gt;&gt;ts2&gt;&gt;n;</span><br><span class="line">	<span class="type">int</span> tz = <span class="number">60</span>*(th2-th1)+ts2-ts1;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> t0,c0,s;</span><br><span class="line">		cin&gt;&gt;t0&gt;&gt;c0&gt;&gt;s;</span><br><span class="line">		<span class="keyword">if</span>(s==<span class="number">0</span>)&#123;<span class="comment">//完全背包</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;=tz;j++) <span class="keyword">if</span>(j&gt;=t0) dp[j] = <span class="built_in">max</span>(dp[j],dp[j-t0]+c0);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;<span class="comment">//多重背包加上01背包写一起</span></span><br><span class="line">			<span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">			<span class="type">int</span> k = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(k&lt;=s)&#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				t[cnt] = k*t0;</span><br><span class="line">				c[cnt] = k*c0;</span><br><span class="line">				s-=k;</span><br><span class="line">				k*=<span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(s)&#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				t[cnt] = s*t0;</span><br><span class="line">				c[cnt] = s*c0;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> m = <span class="number">1</span>;m&lt;=cnt;m++)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> j = tz;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">					<span class="keyword">if</span>(j&gt;=t[m]) dp[j] = <span class="built_in">max</span>(dp[j],dp[j-t[m]]+c[m]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;dp[tz];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、"><a href="#当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、" class="headerlink" title="当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、"></a>当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、</h4><h4 id="P1049-装箱问题-01背包-P1049-NOIP2001-普及组-装箱问题-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1049-装箱问题-01背包-P1049-NOIP2001-普及组-装箱问题-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1049 装箱问题(01背包)P1049 [NOIP2001 普及组] 装箱问题 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1049 装箱问题(01背包)<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1049">P1049 [NOIP2001 普及组] 装箱问题 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="代码-简单就不写题解"><a href="#代码-简单就不写题解" class="headerlink" title="代码(简单就不写题解)"></a>代码(简单就不写题解)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">40</span>;</span><br><span class="line"><span class="type">int</span> dp[<span class="number">20010</span>],v[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> v1,n;</span><br><span class="line">	cin&gt;&gt;v1&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i =<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;v[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = v1;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(j&gt;=v[i])dp[j] = <span class="built_in">max</span>(dp[j],dp[j-v[i]]+v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;v1-dp[v1];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="01背包求方案数"><a href="#01背包求方案数" class="headerlink" title="01背包求方案数"></a>01背包求方案数</h4><h4 id="就是需要记录到达每一个的时候就要将当前方案数记录下来，其实就是求达到的路线，就是在01背包的基础上加上一个需要记忆路线的数组。首先即得到max-f-j-f-j-v-w-，如果maxn-f-j-就是说是前一个更好，所以f-j-maxn然后就是将方案数变成g-j-a-，如果相等的话，就是相当于有两条路，g-j-g-j-g-j-a-就是说这两条路的方案数都要。"><a href="#就是需要记录到达每一个的时候就要将当前方案数记录下来，其实就是求达到的路线，就是在01背包的基础上加上一个需要记忆路线的数组。首先即得到max-f-j-f-j-v-w-，如果maxn-f-j-就是说是前一个更好，所以f-j-maxn然后就是将方案数变成g-j-a-，如果相等的话，就是相当于有两条路，g-j-g-j-g-j-a-就是说这两条路的方案数都要。" class="headerlink" title="就是需要记录到达每一个的时候就要将当前方案数记录下来，其实就是求达到的路线，就是在01背包的基础上加上一个需要记忆路线的数组。首先即得到max(f[j],f[j-v]+w)，如果maxn==f[j]就是说是前一个更好，所以f[j] = maxn然后就是将方案数变成g[j-a]，如果相等的话，就是相当于有两条路，g[j] = (g[j]+g[j-a])就是说这两条路的方案数都要。"></a>就是需要记录到达每一个的时候就要将当前方案数记录下来，其实就是求达到的路线，就是在01背包的基础上加上一个需要记忆路线的数组。首先即得到<code>max(f[j],f[j-v]+w)</code>，如果<code>maxn==f[j]</code>就是说是前一个更好，所以<code>f[j] = maxn</code>然后就是将方案数变成<code>g[j-a]</code>，如果相等的话，就是相当于有两条路，<code>g[j] = (g[j]+g[j-a])</code>就是说这两条路的方案数都要。</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//板子</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,v,a,b,f[<span class="number">1005</span>],g[<span class="number">1005</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;v;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=v;i++)</span><br><span class="line">        g[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b;<span class="comment">//输入废话</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=v;j&gt;=a;j--)&#123;</span><br><span class="line">            <span class="type">int</span> z=f[j-a]+b;<span class="comment">//先用一个数存起来f[j-a]+b</span></span><br><span class="line">            <span class="keyword">if</span>(f[j]&lt;z)&#123;如果f[j]小于它</span><br><span class="line">                f[j]=z;<span class="comment">//更新f[j]</span></span><br><span class="line">                g[j]=g[j-a];<span class="comment">//方案数变为g[j-a]</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(f[j]==z)<span class="comment">//否则如果它们相等</span></span><br><span class="line">                g[j]=(g[j]+g[j-a])%<span class="number">1000000007</span>;<span class="comment">//方案数更新为现在的方案数加上g[j-a]的方案数取模1e9+7</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;g[v];<span class="comment">//最后输出最优选法方案数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="P1164-小A点菜P1164-小A点菜-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1164-小A点菜P1164-小A点菜-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1164 小A点菜P1164 小A点菜 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1164 小A点菜<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1164">P1164 小A点菜 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="这个就是求方案数-由于只有价值没有体积什么的，所以不要额外再弄一个记录方案的数组，用dp-数组即可。"><a href="#这个就是求方案数-由于只有价值没有体积什么的，所以不要额外再弄一个记录方案的数组，用dp-数组即可。" class="headerlink" title="这个就是求方案数,由于只有价值没有体积什么的，所以不要额外再弄一个记录方案的数组，用dp[]数组即可。"></a>这个就是求方案数,由于只有价值没有体积什么的，所以不要额外再弄一个记录方案的数组，用dp<code>[]</code>数组即可。</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n,m,a[<span class="number">105</span>],f[<span class="number">105</span>][<span class="number">10005</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) </span><br><span class="line">	cin&gt;&gt;a[i];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) </span><br><span class="line">	&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++) </span><br><span class="line">		&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i] == j)</span><br><span class="line">			&#123;</span><br><span class="line">                f[i][j]=f[i<span class="number">-1</span>][j]+<span class="number">1</span>;</span><br><span class="line">            &#125;  </span><br><span class="line">			<span class="keyword">else</span> </span><br><span class="line">			<span class="keyword">if</span>(a[i]&gt;j) </span><br><span class="line">			&#123;</span><br><span class="line">                f[i][j]=f[i<span class="number">-1</span>][j];</span><br><span class="line">            &#125; </span><br><span class="line">			<span class="keyword">else</span> </span><br><span class="line">			&#123;</span><br><span class="line">                f[i][j]=f[i<span class="number">-1</span>][j]+f[i<span class="number">-1</span>][j-a[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;f[n][m];</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="P1060-开心的金明-01背包-P1060-NOIP2006-普及组-开心的金明-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1060-开心的金明-01背包-P1060-NOIP2006-普及组-开心的金明-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1060 开心的金明(01背包)P1060 [NOIP2006 普及组] 开心的金明 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1060 开心的金明(01背包)<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1060">P1060 [NOIP2006 普及组] 开心的金明 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="题解：就是说价格和重要度相乘，拿到全部的最大值，所以可以一个数组是两个乘机，另外两个就读入，价格就像当于板子里面的体积，然后用01背包即可"><a href="#题解：就是说价格和重要度相乘，拿到全部的最大值，所以可以一个数组是两个乘机，另外两个就读入，价格就像当于板子里面的体积，然后用01背包即可" class="headerlink" title="题解：就是说价格和重要度相乘，拿到全部的最大值，所以可以一个数组是两个乘机，另外两个就读入，价格就像当于板子里面的体积，然后用01背包即可"></a>题解：就是说价格和重要度相乘，拿到全部的最大值，所以可以一个数组是两个乘机，另外两个就读入，价格就像当于板子里面的体积，然后用01背包即可</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">30050</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> M = <span class="number">30</span>;</span><br><span class="line"><span class="type">int</span> p[M],v[M],dp[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> m,n;</span><br><span class="line">	cin&gt;&gt;m&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;v[i]&gt;&gt;p[i];</span><br><span class="line">		p[i] = v[i]*p[i];<span class="comment">//相当于乘机</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = m;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(j&gt;=v[i])&#123;</span><br><span class="line">				dp[j] = <span class="built_in">max</span>(dp[j],dp[j-v[i]]+p[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;dp[m];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="P2722P2722-USACO3-1-总分-Score-Inflation-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P2722P2722-USACO3-1-总分-Score-Inflation-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P2722P2722 [USACO3.1] 总分 Score Inflation - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P2722<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2722">P2722 [USACO3.1] 总分 Score Inflation - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="一个板子题，看到可以重复选择就说明是完全背包。"><a href="#一个板子题，看到可以重复选择就说明是完全背包。" class="headerlink" title="一个板子题，看到可以重复选择就说明是完全背包。"></a>一个板子题，看到可以重复选择就说明是完全背包。</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> t[N],p[N];</span><br><span class="line"><span class="type">int</span> dp[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> m,n;</span><br><span class="line">	cin&gt;&gt;m&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;p[i]&gt;&gt;t[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(j&gt;=t[i])&#123;</span><br><span class="line">				dp[j] = <span class="built_in">max</span>(dp[j],dp[j-t[i]]+p[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;dp[m];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="P1853-投资的最大效益P1853-投资的最大效益-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1853-投资的最大效益P1853-投资的最大效益-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1853 投资的最大效益P1853 投资的最大效益 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1853 投资的最大效益<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1853">P1853 投资的最大效益 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子"><a href="#题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子" class="headerlink" title="题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子"></a>题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> M = <span class="number">20</span>;</span><br><span class="line"><span class="type">int</span> a[M],b[M];<span class="comment">//投资额,年利息</span></span><br><span class="line"><span class="type">int</span> dp[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> sum,year,n;</span><br><span class="line">	cin&gt;&gt;sum&gt;&gt;year&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;a[i]&gt;&gt;b[i];</span><br><span class="line">		a[i]/=<span class="number">1000</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>;k&lt;=year;k++)&#123;</span><br><span class="line">		<span class="type">int</span> t = sum/<span class="number">1000</span>;<span class="comment">//总额更新</span></span><br><span class="line">		<span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="built_in">sizeof</span>(dp));<span class="comment">//dp数组清0</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;=t;j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(j&gt;=a[i]) dp[j] = <span class="built_in">max</span>(dp[j],dp[j-a[i]]+b[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		sum+=dp[t];<span class="comment">//每年的最大值加到总额里面。</span></span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2024/02/17/DP-%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">DP(分组背包问题)</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2024 iolzyy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

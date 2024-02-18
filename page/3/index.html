@@ -279,6 +279,70 @@ mjx-container[display="true"] + br {
 </nav>
       <div class="body-wrap">
   
+    <article id="post-栈" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/10/27/%E6%A0%88/" class="article-date">
+  	<time datetime="2023-10-27T12:51:49.000Z" itemprop="datePublished">2023-10-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/10/27/%E6%A0%88/">
+        栈
+        
+      </a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="首先是先进后出的数据结构"><a href="#首先是先进后出的数据结构" class="headerlink" title="首先是先进后出的数据结构"></a>首先是先进后出的数据结构</h3><p><a target="_blank" rel="noopener" href="https://download.tooc.xlj0.com/uploads/179/%E7%AE%97%E6%B3%95/Pasted%20image%2020231018220744.png">https://download.tooc.xlj0.com/uploads/179/%E7%AE%97%E6%B3%95/Pasted%20image%2020231018220744.png</a></p>
+<h3 id="STL中栈的一些函数"><a href="#STL中栈的一些函数" class="headerlink" title="STL中栈的一些函数"></a>STL中栈的一些函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//元素访问</span></span><br><span class="line">st.top()<span class="comment">//返回栈顶</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//修改</span></span><br><span class="line">st.push()<span class="comment">//传入参数到栈顶</span></span><br><span class="line">st.pop()<span class="comment">//弹出栈顶</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//容量</span></span><br><span class="line">st.empty()<span class="comment">//返回是否为空</span></span><br><span class="line">st.size()<span class="comment">//返回元素数量</span></span><br></pre></td></tr></table></figure>
+<h3 id="来一道模板题"><a href="#来一道模板题" class="headerlink" title="来一道模板题"></a>来一道模板题</h3><blockquote>
+<p>现在有n部火车，每一部火车都有一个1∼n的编号且各不相同（火车编号构成一个<br>排列）。现在他们按照给定的顺序排列在一条轨道上，且可以向两个方向移动，问他们<br>否通过一个车站，且每部火车<strong>至多进站一次</strong>，使得出站口的编号顺序变为升序？<br>车站是一个栈结构，位于输入队列的轨道中间，构成一个T字形，初始时火车都在车站<br>右侧。<br>如果可以输出”Yes”，如果不行输出”No”。（不带引号）</p>
+</blockquote>
+<h4 id="分析：就是将最后结果的排序是必须是升序的，就比如是进站的顺序是312，但是出栈的情况是123。在这里就是用栈的情况，将不符合的先存起来然后符合情况后在出栈"><a href="#分析：就是将最后结果的排序是必须是升序的，就比如是进站的顺序是312，但是出栈的情况是123。在这里就是用栈的情况，将不符合的先存起来然后符合情况后在出栈" class="headerlink" title="分析：就是将最后结果的排序是必须是升序的，就比如是进站的顺序是312，但是出栈的情况是123。在这里就是用栈的情况，将不符合的先存起来然后符合情况后在出栈"></a>分析：就是将最后结果的排序是必须是升序的，就比如是进站的顺序是312，但是出栈的情况是123。在这里就是用栈的情况，将不符合的先存起来然后符合情况后在出栈</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输入案例</span></span><br><span class="line"><span class="comment">//3</span></span><br><span class="line"><span class="comment">//3 1 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="comment">//Yes</span></span><br><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">using ll = long long;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">9</span>;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="type">int</span> a[N], pos;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">void solve() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line">  cin &gt;&gt; n;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) cin &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">  pos = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// i表示左边轨道所需的列车编号</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果不是所需的（想要的），就一直找</span></span><br><span class="line"></span><br><span class="line">  while (pos &lt;= n &amp;&amp; (stk.empty() || stk.top() != i)) stk.push(a[pos++]);</span><br><span class="line"><span class="comment">//就是在pos还是小于n的情况下，并且还没有进栈，并且栈的顶部是没有与i对应的，那么就进栈</span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (stk.top() == i)<span class="comment">//如果对应就移除</span></span><br><span class="line"></span><br><span class="line">    stk.pop();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">else</span> &#123;<span class="comment">//就是整个while循环完了还是没有能出栈的，说明就是没有升序的情况</span></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;No&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Yes&quot;</span> &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="type">int</span> main() &#123;</span><br><span class="line"></span><br><span class="line">  ios::sync_with_stdio(<span class="number">0</span>), cin.tie(<span class="number">0</span>), cout.tie(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> _ = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  while (_--) solve();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+      
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-PropEmit和pinia" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
