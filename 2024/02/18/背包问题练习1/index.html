@@ -1,15 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>背包问题练习1 | Hexo</title>
-
-  <!-- keywords -->
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="P1833 樱花P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。代码123456789101112131415161718192021222324252627282930313233343536373839404142">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="iolzyy"><meta name="copyright" content="iolzyy"><meta name="generator" content="Hexo 6.3.0"><meta name="theme" content="hexo-theme-yun"><title>背包问题练习1 | Hexo</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"云游君的小站","version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"algolia":{"hits":{"per_page":8}},"fireworks":{"colors":null},"waline":{"config":{"enable":true,"serverURL":"https://waline.yunyoujun.cn","comment":false,"visitor":true,"emoji":null,"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"en"},"cdn":"https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.js","dark":"html.dark"},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-1LL0D86CY9"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1LL0D86CY9');
+}</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="P1833 樱花P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。代码123456789101112131415161718192021222324252627282930313233343536373839404142">
 <meta property="og:type" content="article">
 <meta property="og:title" content="背包问题练习1">
 <meta property="og:url" content="http://example.com/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/index.html">
@@ -20,196 +35,28 @@
 <meta property="article:modified_time" content="2024-02-18T12:17:57.223Z">
 <meta property="article:author" content="iolzyy">
 <meta property="article:tag" content="基础算法">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/img/favicon.ico">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-  
-
-  
-<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
-
-  
-<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
-
-
-  
-<!-- hexo injector head_end start -->
+<meta name="twitter:card" content="summary"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script><!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
-<body>
-  <div id="container">
-    <div id="particles-js"></div>
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-			<h1 class="header-author"><a href="/">iolzyy</a></h1>
-		</hgroup>
-
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">Home</a></li>
-				        
-							<li><a href="/archives">Archives</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="half-header-menu">
-						<a class="hide">Home</a>
-						<a>Tags</a>
-						<a>Links</a>
-						<a>About</a>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-						</div>
-						<!-- music -->
-						
-							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
-							<div style="position: absolute; left: auto; width: 85%;">
-								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
-							</div>
-						
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 12.5px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px;">蓝桥杯</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://houbb.github.io/">echo</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">I&#39;m a developer.</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide"></h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
-			</div>
-			<hgroup>
-			  <h1 class="header-author"></h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">Home</a></li>
-		        
-					<li><a href="/archives">Archives</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-      <div class="body-wrap"><article id="post-背包问题练习1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/" class="article-date">
-  	<time datetime="2024-02-18T12:17:30.000Z" itemprop="datePublished">2024-02-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      背包问题练习1
-      
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
-	</div>
-
-        
-
-        
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="P1833-樱花P1833-樱花-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1833-樱花P1833-樱花-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1833 樱花P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1833 樱花<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1833">P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="题解-这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。"><a href="#题解-这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。" class="headerlink" title="题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。"></a>题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。</h4><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">10100</span>;</span><br><span class="line"><span class="type">int</span> c[N],dp[N],t[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> th1,ts1,th2,ts2,n;</span><br><span class="line">	<span class="type">char</span> cc;</span><br><span class="line">	cin&gt;&gt;th1&gt;&gt;cc&gt;&gt;ts1&gt;&gt;th2&gt;&gt;cc&gt;&gt;ts2&gt;&gt;n;</span><br><span class="line">	<span class="type">int</span> tz = <span class="number">60</span>*(th2-th1)+ts2-ts1;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> t0,c0,s;</span><br><span class="line">		cin&gt;&gt;t0&gt;&gt;c0&gt;&gt;s;</span><br><span class="line">		<span class="keyword">if</span>(s==<span class="number">0</span>)&#123;<span class="comment">//完全背包</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;=tz;j++) <span class="keyword">if</span>(j&gt;=t0) dp[j] = <span class="built_in">max</span>(dp[j],dp[j-t0]+c0);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;<span class="comment">//多重背包加上01背包写一起</span></span><br><span class="line">			<span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">			<span class="type">int</span> k = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(k&lt;=s)&#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				t[cnt] = k*t0;</span><br><span class="line">				c[cnt] = k*c0;</span><br><span class="line">				s-=k;</span><br><span class="line">				k*=<span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(s)&#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				t[cnt] = s*t0;</span><br><span class="line">				c[cnt] = s*c0;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> m = <span class="number">1</span>;m&lt;=cnt;m++)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> j = tz;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">					<span class="keyword">if</span>(j&gt;=t[m]) dp[j] = <span class="built_in">max</span>(dp[j],dp[j-t[m]]+c[m]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;dp[tz];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- hexo injector head_end end --></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="iolzyy"><img width="96" loading="lazy" src="/yun.png" alt="iolzyy"></a><div class="site-author-name"><a href="/about/">iolzyy</a></div><span class="site-name">Hexo</span><sub class="site-subtitle"></sub><div class="site-description"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">30</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">0</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">7</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:clipboard-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><span class="icon iconify" data-icon="ri:rss-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://qun.qq.com/qqweb/qunpro/share?_wv=3&amp;_wwv=128&amp;appChannel=share&amp;inviteCode=28OEdR&amp;appChannel=share&amp;businessType=9&amp;from=246610&amp;biz=ka" title="QQ 频道 - 小云之家" target="_blank" style="color:#12B7F5"><span class="icon iconify" data-icon="ri:qq-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/YunYouJun" title="GitHub" target="_blank" style="color:#6e5494"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://weibo.com/jizhideyunyoujun" title="微博" target="_blank" style="color:#E6162D"><span class="icon iconify" data-icon="ri:weibo-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.douban.com/people/yunyoujun/" title="豆瓣" target="_blank" style="color:#007722"><span class="icon iconify" data-icon="ri:douban-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=247102977" title="网易云音乐" target="_blank" style="color:#C20C0C"><span class="icon iconify" data-icon="ri:netease-cloud-music-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/yunyoujun/" title="知乎" target="_blank" style="color:#0084FF"><span class="icon iconify" data-icon="ri:zhihu-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/1579790" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://cdn.yunyoujun.cn/img/about/white-qrcode-and-search.jpg" title="微信公众号" target="_blank" style="color:#1AAD19"><span class="icon iconify" data-icon="ri:wechat-2-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/YunYouJun" title="Twitter" target="_blank" style="color:#1da1f2"><span class="icon iconify" data-icon="ri:twitter-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/elpsycn" title="Telegram Channel" target="_blank" style="color:#0088CC"><span class="icon iconify" data-icon="ri:telegram-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://discord.gg/nd3mPkU5j8" title="Discord" target="_blank" style="color:#5A6DE2"><span class="icon iconify" data-icon="ri:discord-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:me@yunyoujun.cn" title="E-Mail" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://travellings.link" title="Travelling" target="_blank" style="color:var(--hty-text-color)"><span class="icon iconify" data-icon="ri:train-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a><a class="links-item hty-icon-button" href="/girls/" title="喜欢的女孩子" style="color:hotpink"><span class="icon iconify" data-icon="ri:women-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#P1833-%E6%A8%B1%E8%8A%B1P1833-%E6%A8%B1%E8%8A%B1-%E6%B4%9B%E8%B0%B7-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%95%99%E8%82%B2%E6%96%B0%E7%94%9F%E6%80%81-luogu-com-cn"><span class="toc-number">1.</span> <span class="toc-text">P1833 樱花P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3-%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%B7%B7%E5%92%8C%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%EF%BC%8C%E5%B0%B1%E6%98%AF%E5%A4%9A%E4%B8%AA%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E6%B7%B7%E6%9D%82%E5%88%B0%E4%B8%80%E8%B5%B7%EF%BC%8C%E5%BB%BA%E8%AE%AE%E5%B0%8601%E8%83%8C%E5%8C%85%E5%92%8C%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%98%E5%8C%96%E5%86%99%E5%9C%A8%E4%B8%80%E8%B5%B7%EF%BC%8C%E8%BF%99%E6%A0%B7%E5%AD%90%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%AE%80%E5%8C%96%E5%88%B0%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E5%92%8C%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E3%80%82"><span class="toc-number">2.</span> <span class="toc-text">题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E5%92%8C%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E5%86%99%E4%B8%80%E8%B5%B7%E5%BB%BA%E8%AE%AE%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E4%B8%8D%E8%A6%81%E5%85%88%E8%AF%BB%E5%85%A5%E5%88%B0%E6%95%B0%E7%BB%84%EF%BC%8C%E7%AD%89%E5%88%B0%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85%E8%BF%9B%E8%A1%8C%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BC%98%E5%8C%96%EF%BC%8C%E5%9C%A8%E8%AF%BB%E5%85%A5%E6%95%B0%E7%BB%84%E5%A5%BD%E6%93%8D%E4%BD%9C%E3%80%82%E3%80%81"><span class="toc-number">4.</span> <span class="toc-text">当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P1049-%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98-01%E8%83%8C%E5%8C%85-P1049-NOIP2001-%E6%99%AE%E5%8F%8A%E7%BB%84-%E8%A3%85%E7%AE%B1%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%95%99%E8%82%B2%E6%96%B0%E7%94%9F%E6%80%81-luogu-com-cn"><span class="toc-number">5.</span> <span class="toc-text">P1049 装箱问题(01背包)P1049 [NOIP2001 普及组] 装箱问题 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81-%E7%AE%80%E5%8D%95%E5%B0%B1%E4%B8%8D%E5%86%99%E9%A2%98%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">代码(简单就不写题解)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#01%E8%83%8C%E5%8C%85%E6%B1%82%E6%96%B9%E6%A1%88%E6%95%B0"><span class="toc-number">7.</span> <span class="toc-text">01背包求方案数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%B1%E6%98%AF%E9%9C%80%E8%A6%81%E8%AE%B0%E5%BD%95%E5%88%B0%E8%BE%BE%E6%AF%8F%E4%B8%80%E4%B8%AA%E7%9A%84%E6%97%B6%E5%80%99%E5%B0%B1%E8%A6%81%E5%B0%86%E5%BD%93%E5%89%8D%E6%96%B9%E6%A1%88%E6%95%B0%E8%AE%B0%E5%BD%95%E4%B8%8B%E6%9D%A5%EF%BC%8C%E5%85%B6%E5%AE%9E%E5%B0%B1%E6%98%AF%E6%B1%82%E8%BE%BE%E5%88%B0%E7%9A%84%E8%B7%AF%E7%BA%BF%EF%BC%8C%E5%B0%B1%E6%98%AF%E5%9C%A801%E8%83%8C%E5%8C%85%E7%9A%84%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%8A%A0%E4%B8%8A%E4%B8%80%E4%B8%AA%E9%9C%80%E8%A6%81%E8%AE%B0%E5%BF%86%E8%B7%AF%E7%BA%BF%E7%9A%84%E6%95%B0%E7%BB%84%E3%80%82%E9%A6%96%E5%85%88%E5%8D%B3%E5%BE%97%E5%88%B0max-f-j-f-j-v-w-%EF%BC%8C%E5%A6%82%E6%9E%9Cmaxn-f-j-%E5%B0%B1%E6%98%AF%E8%AF%B4%E6%98%AF%E5%89%8D%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%EF%BC%8C%E6%89%80%E4%BB%A5f-j-maxn%E7%84%B6%E5%90%8E%E5%B0%B1%E6%98%AF%E5%B0%86%E6%96%B9%E6%A1%88%E6%95%B0%E5%8F%98%E6%88%90g-j-a-%EF%BC%8C%E5%A6%82%E6%9E%9C%E7%9B%B8%E7%AD%89%E7%9A%84%E8%AF%9D%EF%BC%8C%E5%B0%B1%E6%98%AF%E7%9B%B8%E5%BD%93%E4%BA%8E%E6%9C%89%E4%B8%A4%E6%9D%A1%E8%B7%AF%EF%BC%8Cg-j-g-j-g-j-a-%E5%B0%B1%E6%98%AF%E8%AF%B4%E8%BF%99%E4%B8%A4%E6%9D%A1%E8%B7%AF%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0%E9%83%BD%E8%A6%81%E3%80%82"><span class="toc-number">8.</span> <span class="toc-text">就是需要记录到达每一个的时候就要将当前方案数记录下来，其实就是求达到的路线，就是在01背包的基础上加上一个需要记忆路线的数组。首先即得到max(f[j],f[j-v]+w)，如果maxn&#x3D;&#x3D;f[j]就是说是前一个更好，所以f[j] &#x3D; maxn然后就是将方案数变成g[j-a]，如果相等的话，就是相当于有两条路，g[j] &#x3D; (g[j]+g[j-a])就是说这两条路的方案数都要。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P1164-%E5%B0%8FA%E7%82%B9%E8%8F%9CP1164-%E5%B0%8FA%E7%82%B9%E8%8F%9C-%E6%B4%9B%E8%B0%B7-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%95%99%E8%82%B2%E6%96%B0%E7%94%9F%E6%80%81-luogu-com-cn"><span class="toc-number">9.</span> <span class="toc-text">P1164 小A点菜P1164 小A点菜 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E5%B0%B1%E6%98%AF%E6%B1%82%E6%96%B9%E6%A1%88%E6%95%B0-%E7%94%B1%E4%BA%8E%E5%8F%AA%E6%9C%89%E4%BB%B7%E5%80%BC%E6%B2%A1%E6%9C%89%E4%BD%93%E7%A7%AF%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%8C%E6%89%80%E4%BB%A5%E4%B8%8D%E8%A6%81%E9%A2%9D%E5%A4%96%E5%86%8D%E5%BC%84%E4%B8%80%E4%B8%AA%E8%AE%B0%E5%BD%95%E6%96%B9%E6%A1%88%E7%9A%84%E6%95%B0%E7%BB%84%EF%BC%8C%E7%94%A8dp-%E6%95%B0%E7%BB%84%E5%8D%B3%E5%8F%AF%E3%80%82"><span class="toc-number">10.</span> <span class="toc-text">这个就是求方案数,由于只有价值没有体积什么的，所以不要额外再弄一个记录方案的数组，用dp[]数组即可。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P1060-%E5%BC%80%E5%BF%83%E7%9A%84%E9%87%91%E6%98%8E-01%E8%83%8C%E5%8C%85-P1060-NOIP2006-%E6%99%AE%E5%8F%8A%E7%BB%84-%E5%BC%80%E5%BF%83%E7%9A%84%E9%87%91%E6%98%8E-%E6%B4%9B%E8%B0%B7-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%95%99%E8%82%B2%E6%96%B0%E7%94%9F%E6%80%81-luogu-com-cn"><span class="toc-number">11.</span> <span class="toc-text">P1060 开心的金明(01背包)P1060 [NOIP2006 普及组] 开心的金明 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3%EF%BC%9A%E5%B0%B1%E6%98%AF%E8%AF%B4%E4%BB%B7%E6%A0%BC%E5%92%8C%E9%87%8D%E8%A6%81%E5%BA%A6%E7%9B%B8%E4%B9%98%EF%BC%8C%E6%8B%BF%E5%88%B0%E5%85%A8%E9%83%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC%EF%BC%8C%E6%89%80%E4%BB%A5%E5%8F%AF%E4%BB%A5%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%E6%98%AF%E4%B8%A4%E4%B8%AA%E4%B9%98%E6%9C%BA%EF%BC%8C%E5%8F%A6%E5%A4%96%E4%B8%A4%E4%B8%AA%E5%B0%B1%E8%AF%BB%E5%85%A5%EF%BC%8C%E4%BB%B7%E6%A0%BC%E5%B0%B1%E5%83%8F%E5%BD%93%E4%BA%8E%E6%9D%BF%E5%AD%90%E9%87%8C%E9%9D%A2%E7%9A%84%E4%BD%93%E7%A7%AF%EF%BC%8C%E7%84%B6%E5%90%8E%E7%94%A801%E8%83%8C%E5%8C%85%E5%8D%B3%E5%8F%AF"><span class="toc-number">12.</span> <span class="toc-text">题解：就是说价格和重要度相乘，拿到全部的最大值，所以可以一个数组是两个乘机，另外两个就读入，价格就像当于板子里面的体积，然后用01背包即可</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P2722P2722-USACO3-1-%E6%80%BB%E5%88%86-Score-Inflation-%E6%B4%9B%E8%B0%B7-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%95%99%E8%82%B2%E6%96%B0%E7%94%9F%E6%80%81-luogu-com-cn"><span class="toc-number">13.</span> <span class="toc-text">P2722P2722 [USACO3.1] 总分 Score Inflation - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E6%9D%BF%E5%AD%90%E9%A2%98%EF%BC%8C%E7%9C%8B%E5%88%B0%E5%8F%AF%E4%BB%A5%E9%87%8D%E5%A4%8D%E9%80%89%E6%8B%A9%E5%B0%B1%E8%AF%B4%E6%98%8E%E6%98%AF%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E3%80%82"><span class="toc-number">14.</span> <span class="toc-text">一个板子题，看到可以重复选择就说明是完全背包。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P1853-%E6%8A%95%E8%B5%84%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%88%E7%9B%8AP1853-%E6%8A%95%E8%B5%84%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%88%E7%9B%8A-%E6%B4%9B%E8%B0%B7-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E6%95%99%E8%82%B2%E6%96%B0%E7%94%9F%E6%80%81-luogu-com-cn"><span class="toc-number">15.</span> <span class="toc-text">P1853 投资的最大效益P1853 投资的最大效益 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3%EF%BC%9A%E8%BF%99%E4%B8%AA%E7%A8%8D%E5%BE%AE%E4%BC%9A%E6%9C%89%E5%8F%98%E5%BD%A2%EF%BC%8C%E9%A6%96%E5%85%88%E6%98%AF%E6%AF%8F%E4%B8%80%E5%B9%B4%E4%BC%9A%E6%80%BB%E6%95%B0%E4%BC%9A%E5%8A%A0%E4%B9%9F%E5%B0%B1%E6%98%AF%E4%BB%A3%E8%A1%A8%E7%9D%80%E4%BB%96%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A5%97%E7%9A%84dp%E5%BE%AA%E7%8E%AF%E4%BC%9A%E8%BF%9B%E8%A1%8C%E7%9A%84%E4%B8%8A%E9%99%90%E4%BC%9A%E5%A2%9E%E5%8A%A0%EF%BC%8C%E8%80%8C%E4%B8%94%E8%BF%98%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%82%B9%E6%98%AF%E6%AF%8F%E4%B8%80%E5%B9%B4%E7%9A%84%E7%9A%84%E6%97%B6%E5%80%99dp%E6%95%B0%E7%BB%84%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E6%B8%850%EF%BC%8C%E5%9B%A0%E4%B8%BA%E9%83%BD%E6%98%AF%E4%B8%80%E5%B9%B4%E4%B9%8B%E5%90%8E%E9%87%8D%E6%96%B0%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%B9%B6%E4%B8%94%E6%AF%8F%E4%B8%80%E5%B9%B4%E8%B5%84%E9%87%91%E6%80%BB%E9%A2%9D%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E6%9B%B4%E6%96%B0%E3%80%82%E6%8E%A5%E7%9D%80%E5%B0%B1%E6%98%AF%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85%E7%9A%84%E6%9D%BF%E5%AD%90"><span class="toc-number">16.</span> <span class="toc-text">题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="iolzyy"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Hexo"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">背包问题练习1<a class="post-edit-link" href="https://github.com/YunYouJun/yunyoujun.github.io/tree/hexo/source/_posts/背包问题练习1.md" target="_blank" title="Edit this post" rel="noopener"><span class="icon iconify" data-icon="ri:edit-line"></span></a></h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="Created: 2024-02-18 20:17:30" itemprop="dateCreated datePublished" datetime="2024-02-18T20:17:30+08:00">2024-02-18</time></div><span class="leancloud_visitors" id="/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/" data-flag-title="背包问题练习1"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Views"><span class="icon iconify" data-icon="ri:eye-line"></span> <span class="leancloud-visitors-count"></span></span></span><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">基础算法</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h4 id="P1833-樱花P1833-樱花-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1833-樱花P1833-樱花-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1833 樱花P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1833 樱花<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1833">P1833 樱花 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="题解-这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。"><a href="#题解-这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。" class="headerlink" title="题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。"></a>题解 这是一个混和背包问题，就是多个背包问题混杂到一起，建议将01背包和多重背包的二进制优化写在一起，这样子背包问题就可以简化到多重背包和完全背包。</h4><h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">10100</span>;</span><br><span class="line"><span class="type">int</span> c[N],dp[N],t[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> th1,ts1,th2,ts2,n;</span><br><span class="line">	<span class="type">char</span> cc;</span><br><span class="line">	cin&gt;&gt;th1&gt;&gt;cc&gt;&gt;ts1&gt;&gt;th2&gt;&gt;cc&gt;&gt;ts2&gt;&gt;n;</span><br><span class="line">	<span class="type">int</span> tz = <span class="number">60</span>*(th2-th1)+ts2-ts1;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> t0,c0,s;</span><br><span class="line">		cin&gt;&gt;t0&gt;&gt;c0&gt;&gt;s;</span><br><span class="line">		<span class="keyword">if</span>(s==<span class="number">0</span>)&#123;<span class="comment">//完全背包</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;=tz;j++) <span class="keyword">if</span>(j&gt;=t0) dp[j] = <span class="built_in">max</span>(dp[j],dp[j-t0]+c0);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;<span class="comment">//多重背包加上01背包写一起</span></span><br><span class="line">			<span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">			<span class="type">int</span> k = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">while</span>(k&lt;=s)&#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				t[cnt] = k*t0;</span><br><span class="line">				c[cnt] = k*c0;</span><br><span class="line">				s-=k;</span><br><span class="line">				k*=<span class="number">2</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(s)&#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				t[cnt] = s*t0;</span><br><span class="line">				c[cnt] = s*c0;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> m = <span class="number">1</span>;m&lt;=cnt;m++)&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="type">int</span> j = tz;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">					<span class="keyword">if</span>(j&gt;=t[m]) dp[j] = <span class="built_in">max</span>(dp[j],dp[j-t[m]]+c[m]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;dp[tz];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、"><a href="#当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、" class="headerlink" title="当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、"></a>当完全背包和多重背包写一起建议完全背包不要先读入到数组，等到多重背包进行二进制优化，在读入数组好操作。、</h4><h4 id="P1049-装箱问题-01背包-P1049-NOIP2001-普及组-装箱问题-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1049-装箱问题-01背包-P1049-NOIP2001-普及组-装箱问题-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1049 装箱问题(01背包)P1049 [NOIP2001 普及组] 装箱问题 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1049 装箱问题(01背包)<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1049">P1049 [NOIP2001 普及组] 装箱问题 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="代码-简单就不写题解"><a href="#代码-简单就不写题解" class="headerlink" title="代码(简单就不写题解)"></a>代码(简单就不写题解)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">40</span>;</span><br><span class="line"><span class="type">int</span> dp[<span class="number">20010</span>],v[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> v1,n;</span><br><span class="line">	cin&gt;&gt;v1&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i =<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;v[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = v1;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">			<span class="keyword">if</span>(j&gt;=v[i])dp[j] = <span class="built_in">max</span>(dp[j],dp[j-v[i]]+v[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;v1-dp[v1];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -223,79 +70,28 @@
 <h4 id="P2722P2722-USACO3-1-总分-Score-Inflation-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P2722P2722-USACO3-1-总分-Score-Inflation-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P2722P2722 [USACO3.1] 总分 Score Inflation - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P2722<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2722">P2722 [USACO3.1] 总分 Score Inflation - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="一个板子题，看到可以重复选择就说明是完全背包。"><a href="#一个板子题，看到可以重复选择就说明是完全背包。" class="headerlink" title="一个板子题，看到可以重复选择就说明是完全背包。"></a>一个板子题，看到可以重复选择就说明是完全背包。</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e4</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> t[N],p[N];</span><br><span class="line"><span class="type">int</span> dp[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> m,n;</span><br><span class="line">	cin&gt;&gt;m&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;p[i]&gt;&gt;t[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(j&gt;=t[i])&#123;</span><br><span class="line">				dp[j] = <span class="built_in">max</span>(dp[j],dp[j-t[i]]+p[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;dp[m];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="P1853-投资的最大效益P1853-投资的最大效益-洛谷-计算机科学教育新生态-luogu-com-cn"><a href="#P1853-投资的最大效益P1853-投资的最大效益-洛谷-计算机科学教育新生态-luogu-com-cn" class="headerlink" title="P1853 投资的最大效益P1853 投资的最大效益 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)"></a>P1853 投资的最大效益<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1853">P1853 投资的最大效益 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></h4><h4 id="题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子"><a href="#题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子" class="headerlink" title="题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子"></a>题解：这个稍微会有变形，首先是每一年会总数会加也就是代表着他的最后一套的dp循环会进行的上限会增加，而且还要注意的点是每一年的的时候dp数组需要重新清0，因为都是一年之后重新更新，并且每一年资金总额需要重新更新。接着就是完全背包的板子</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> M = <span class="number">20</span>;</span><br><span class="line"><span class="type">int</span> a[M],b[M];<span class="comment">//投资额,年利息</span></span><br><span class="line"><span class="type">int</span> dp[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> sum,year,n;</span><br><span class="line">	cin&gt;&gt;sum&gt;&gt;year&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;a[i]&gt;&gt;b[i];</span><br><span class="line">		a[i]/=<span class="number">1000</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>;k&lt;=year;k++)&#123;</span><br><span class="line">		<span class="type">int</span> t = sum/<span class="number">1000</span>;<span class="comment">//总额更新</span></span><br><span class="line">		<span class="built_in">memset</span>(dp,<span class="number">0</span>,<span class="built_in">sizeof</span>(dp));<span class="comment">//dp数组清0</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;=t;j++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(j&gt;=a[i]) dp[j] = <span class="built_in">max</span>(dp[j],dp[j-a[i]]+b[i]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		sum+=dp[t];<span class="comment">//每年的最大值加到总额里面。</span></span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;sum;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="Donate" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">我很可爱，请给我钱</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.yunyoujun.cn/img/donate/alipay-qrcode.jpg"><img loading="lazy" src="https://cdn.yunyoujun.cn/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><span class="icon iconify" data-icon="ri:alipay-line"></span></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.yunyoujun.cn/img/donate/qqpay-qrcode.png"><img loading="lazy" src="https://cdn.yunyoujun.cn/img/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><span class="icon iconify" data-icon="ri:qq-line"></span></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.yunyoujun.cn/img/donate/wechatpay-qrcode.jpg"><img loading="lazy" src="https://cdn.yunyoujun.cn/img/donate/wechatpay-qrcode.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><span class="icon iconify" data-icon="ri:wechat-pay-line"></span></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>iolzyy</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://example.com/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/" title="背包问题练习1">http://example.com/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> unless otherwise stated.</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2024/02/20/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A02/" rel="prev" title="背包问题练习2"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">背包问题练习2</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2024/02/17/DP-%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" rel="next" title="DP(分组背包问题)"><span class="post-nav-text">DP(分组背包问题)</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>如果您有任何关于博客内容的相关讨论，欢迎前往 GitHub Discussions</a> 与我交流。</span><br></div><div id="waline"></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.css"><script>window.CONFIG.waline.config.path = "/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/"</script><div class="js-Pjax"><script src="/js/comments/waline.js" type="module" defer></script></div></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备17038157号</a></div><div class="copyright"><span>&copy; 2016 – 2024 </span><a class="with-love" id="animate" target="_blank" rel="noopener" href="https://sponsors.yunyoujun.cn" title="云游君的赞助者们"><span class="icon iconify" data-icon="ri:cloud-line"></span></a><span class="author"> iolzyy</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v6.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.11</span></div><div class="footer-support"><span>本网站由</span><a class="footer-support-logo" href="https://www.upyun.com" target="blank" title="又拍云"><img height="30" src="https://cdn.yunyoujun.cn/img/logo/upyun-logo.png" alt="又拍云"></a><span>提供 CDN 加速</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="Search"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
 
-      
-    </div>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2024/02/20/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A02/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          背包问题练习2
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2024/02/17/DP-%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">DP(分组背包问题)</div>
-      <strong class="article-nav-caption">&gt;</strong>
-    </a>
-  
-</nav>
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
 
-  
-</article>
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
 
-
-
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-      <div class="footer-left">
-        &copy; 2024 iolzyy
-      </div>
-        <div class="footer-right">
-          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
-        </div>
-    </div>
-  </div>
-</footer>
-    </div>
-    
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-
-
-<script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: false,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
-	}
-</script>
-
-<script src="/js/main.js"></script>
-
-
-
-
-  </div>
-</body>
-</html>
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script defer src="https://fastly.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script><script defer src="https://fastly.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script><script defer src="/js/search/algolia-search.js" type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"></div><div class="algolia-results"><div id="algolia-stats"></div><div id="algolia-hits"></div><div class="algolia-pagination" id="algolia-pagination"></div></div></div></body></html>
