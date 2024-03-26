@@ -1,30 +1,15 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="iolzyy"><meta name="copyright" content="iolzyy"><meta name="generator" content="Hexo 6.3.0"><meta name="theme" content="hexo-theme-yun"><title>二分法 | Hexo</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
-  [".post-card",".markdown-body img"].forEach((target)=> {
-    ScrollReveal().reveal(target);
-  })
-}
-document.addEventListener("DOMContentLoaded", initScrollReveal);
-document.addEventListener("pjax:success", initScrollReveal);
-</script><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
-    window.Yun = {}
-    window.CONFIG = {"hostname":"example.com","root":"/","title":"Hygge的小站","version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"algolia":{"hits":{"per_page":8}},"fireworks":{"colors":null},"waline":{"config":{"enable":true,"serverURL":"https://waline.yunyoujun.cn","comment":false,"visitor":true,"emoji":null,"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"en"},"cdn":"https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.js","dark":"html.dark"},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
-  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-1LL0D86CY9"></script><script>if (CONFIG.hostname === location.hostname) {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-1LL0D86CY9');
-}</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
-  var bp = document.createElement('script');
-  var curProtocol = window.location.protocol.split(':')[0];
-  if (curProtocol === 'https') {
-    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-  }
-  else {
-    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-  }
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(bp, s);
-})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="STL中的二分法数组是{1,2,4,4,5,6}在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。用STL写二分查找输入 n 个不超过 10^9 的单">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>二分法 | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="STL中的二分法数组是{1,2,4,4,5,6}在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。用STL写二分查找输入 n 个不超过 10^9 的单">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分法">
 <meta property="og:url" content="http://example.com/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/index.html">
@@ -35,28 +20,196 @@ document.addEventListener("pjax:success", initScrollReveal);
 <meta property="article:modified_time" content="2024-02-14T11:58:37.135Z">
 <meta property="article:author" content="iolzyy">
 <meta property="article:tag" content="基础算法">
-<meta name="twitter:card" content="summary"><script>(function() {
-  if (CONFIG.mode !== 'auto') return
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const setting = localStorage.getItem('darken-mode') || 'auto'
-  if (setting === 'dark' || (prefersDark && setting !== 'light'))
-    document.documentElement.classList.toggle('dark', true)
-})()</script><!-- hexo injector head_end start -->
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
-IconifyProviders = {
-  // Empty prefix: overwrite default API provider configuration
-  '': {
-    // Use custom API first, use Iconify public API as backup
-    resources: [
-        'https://api.iconify.design',
-    ],
-    // Wait for 1 second before switching API hosts
-    rotate: 1000,
-  },
-};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="Table of Contents"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="Overview"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="iolzyy"><img width="96" loading="lazy" src="/yun.png" alt="iolzyy"></a><div class="site-author-name"><a href="/about/">iolzyy</a></div><span class="site-name">Hexo</span><sub class="site-subtitle"></sub><div class="site-description"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="Home"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="Archives"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">32</span></a></div><div class="site-state-item"><a href="/categories/" title="Categories"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">0</span></a></div><div class="site-state-item"><a href="/tags/" title="Tags"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">8</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:clipboard-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/Ljw030710" title="GitHub" target="_blank" style="color:#6e5494"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=SHp6fXp_enlwfHgIOTlmKycl" title="QQ邮箱" target="_blank" style="color:#8E71C1"><span class="icon iconify" data-icon="ri:mail-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a><a class="links-item hty-icon-button" href="/girls/" title="喜欢的女孩子" style="color:hotpink"><span class="icon iconify" data-icon="ri:women-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#STL%E4%B8%AD%E7%9A%84%E4%BA%8C%E5%88%86%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">STL中的二分法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E6%98%AF-1-2-4-4-5-6"><span class="toc-number">1.1.</span> <span class="toc-text">数组是{1,2,4,4,5,6}</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8STL%E4%B8%ADlower-bound-%E6%98%AF%E8%BF%94%E5%9B%9E%E7%AC%AC%E4%B8%80%E4%B8%AA%E9%9D%9E%E9%80%92%E5%87%8F%E5%BA%8F%E5%88%97%E4%B8%AD%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8Eval%E7%9A%84%E4%BD%8D%E7%BD%AE%EF%BC%8C%E5%86%99%E6%B3%95%E6%98%AFlower-bound-v-begin-v-end-target-%E8%BF%99%E6%A0%B7%E5%B0%B1%E4%BC%9A%E6%8C%87%E7%9A%84%E6%98%AF%E7%AC%AC%E4%B8%89%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="toc-number">1.2.</span> <span class="toc-text">在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9C%A8STL%E4%B8%ADupper-bound-%E6%98%AF%E8%BF%94%E5%9B%9E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E4%BA%8Eval%E7%9A%84%E4%BD%8D%E7%BD%AE%EF%BC%8C%E6%89%80%E6%9C%89%E5%AF%B9%E4%BA%8E%E8%BF%99%E4%B8%AA%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AF%E5%80%BC%E4%B8%BA5%E7%9A%84%E5%85%83%E7%B4%A0%E3%80%82"><span class="toc-number">1.3.</span> <span class="toc-text">在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8STL%E5%86%99%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="toc-number">2.</span> <span class="toc-text">用STL写二分查找</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BE%93%E5%85%A5-n-%E4%B8%AA%E4%B8%8D%E8%B6%85%E8%BF%87-10-9-%E7%9A%84%E5%8D%95%E8%B0%83%E4%B8%8D%E5%87%8F%E7%9A%84%EF%BC%88%E5%B0%B1%E6%98%AF%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%E4%B8%8D%E5%B0%8F%E4%BA%8E%E5%89%8D%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97%EF%BC%89%E9%9D%9E%E8%B4%9F%E6%95%B4%E6%95%B0-1-2-%E2%80%A6-a1%E2%80%8B-a2%E2%80%8B-%E2%80%A6-an%E2%80%8B%EF%BC%8C%E7%84%B6%E5%90%8E%E8%BF%9B%E8%A1%8C-m-%E6%AC%A1%E8%AF%A2%E9%97%AE%E3%80%82%E5%AF%B9%E4%BA%8E%E6%AF%8F%E6%AC%A1%E8%AF%A2%E9%97%AE%EF%BC%8C%E7%BB%99%E5%87%BA%E4%B8%80%E4%B8%AA%E6%95%B4%E6%95%B0-q%EF%BC%8C%E8%A6%81%E6%B1%82%E8%BE%93%E5%87%BA%E8%BF%99%E4%B8%AA%E6%95%B0%E5%AD%97%E5%9C%A8%E5%BA%8F%E5%88%97%E4%B8%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%87%BA%E7%8E%B0%E7%9A%84%E7%BC%96%E5%8F%B7%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E6%89%BE%E5%88%B0%E7%9A%84%E8%AF%9D%E8%BE%93%E5%87%BA-%E2%88%921-%E3%80%82"><span class="toc-number">2.1.</span> <span class="toc-text">输入 n 个不超过 10^9 的单调不减的（就是后面的数字不小于前面的数字）非负整数 1,2,…,a1​,a2​,…,an​，然后进行 m 次询问。对于每次询问，给出一个整数 q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出 −1 。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3%EF%BC%9A%E8%BF%99%E9%87%8C%E5%B0%B1%E6%98%AF%E7%94%A8%E5%87%BD%E6%95%B0lower-bound-%E6%9D%A5%E8%BF%94%E5%9B%9E%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E%EF%BC%8C%E7%84%B6%E5%90%8E%E6%83%B3%E8%BF%94%E5%9B%9E%E5%BA%8F%E5%88%97%E5%8F%B7%E5%B0%B1%E7%94%A8distance-%EF%BC%8C%E7%84%B6%E5%90%8E%E6%95%B0%E7%BB%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%9A%84%E4%BD%8D%E7%BD%AE%E6%98%AF1%EF%BC%8C%E6%89%80%E6%9C%89%E9%9C%80%E8%A6%81%E5%9C%A8%E5%8E%9F%E6%9C%89%E5%9F%BA%E7%A1%80%E4%B8%8A%E5%8A%A01%EF%BC%8C%E7%84%B6%E5%90%8E%E5%AF%B9%E4%BA%8E%E5%88%A4%E6%96%AD%E5%B0%B1%E6%98%AFit%E4%B8%8D%E8%83%BD%E7%AD%89%E4%BA%8Eend%EF%BC%8C%E6%8A%8A%E5%B9%B6%E4%B8%94it%E7%9A%84%E5%80%BC%E8%A6%81%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84target%E7%9B%B8%E5%90%8C%EF%BC%8C%E8%80%8Cit%E7%9A%84%E5%80%BC%E5%B0%B1%E6%98%AF%E6%98%9F%E5%8F%B7it%E3%80%82"><span class="toc-number">2.2.</span> <span class="toc-text">题解：这里就是用函数lower_bound()来返回第一个大于等于，然后想返回序列号就用distance()，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">2.3.</span> <span class="toc-text">代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E6%95%B0%E8%8C%83%E5%9B%B4%E7%9A%84%E4%BA%8C%E5%88%86%EF%BC%88%E5%B8%A6%E5%B0%8F%E6%95%B0%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">实数范围的二分（带小数）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E5%AE%9E%E6%95%B0%E4%BA%8C%E5%88%86%E6%9D%A5%E8%AF%B4%EF%BC%8C%E6%98%AF%E6%9C%89%E8%AE%B8%E5%A4%9A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%8C%E6%AF%94%E5%A6%82%E8%AF%B4%E6%B1%82%E5%8D%95%E8%B0%83%E5%87%BD%E6%95%B0%E7%9A%84%E9%9B%B6%E7%82%B9%E6%88%96%E8%80%85%E6%9E%81%E5%80%BC%E3%80%82%E5%8F%A6%E5%A4%96%E5%B0%B1%E6%98%AF%E6%BB%A1%E8%B6%B3%E6%9F%90%E7%A7%8D%E6%9D%A1%E4%BB%B6%E7%9A%84%E6%9C%80%E4%BC%98%E8%A7%A3%EF%BC%9B%E6%88%96%E8%80%85%E6%98%AF%E8%A7%A3%E5%86%B3%E4%B8%80%E4%BA%9B%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%BE%83%E9%AB%98%E7%9A%84%E9%97%AE%E9%A2%98%E3%80%82"><span class="toc-number">3.1.</span> <span class="toc-text">对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BA%8C%E5%88%86%E6%B3%95%E6%B1%82%E8%A7%A3%E5%87%BD%E6%95%B0%E9%9B%B6%E7%82%B9%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%8C%E9%A6%96%E5%85%88%E8%A6%81%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E6%98%AF%E5%AF%B9%E5%BA%94%E7%9A%84%E8%A1%A8%E8%BE%BE%E5%BC%8F%E3%80%82%E7%84%B6%E5%90%8E%E5%B0%8F%E6%95%B0%E4%BA%8C%E5%88%86%E7%9A%84%E4%B8%80%E4%B8%AA%E6%8A%80%E5%B7%A7%E6%98%AFright-left%E8%A6%81%E5%A4%A7%E4%BA%8E%E6%9F%90%E4%B8%AAexp%E5%80%BC%EF%BC%8C%E6%89%8D%E4%BC%9A%E7%BB%A7%E7%BB%AD%E5%BE%80%E4%B8%8B%E5%BE%AA%E7%8E%AF%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%B1%E6%98%AF%E6%9C%80%E5%B8%B8%E8%A7%84%E7%9A%84%E4%BA%8C%E5%88%86%E6%93%8D%E4%BD%9C%E3%80%82"><span class="toc-number">3.2.</span> <span class="toc-text">用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BE%E4%B8%AA%E4%BE%8B%E5%AD%90%EF%BC%8C%E5%AF%B9%E4%BA%8Ef-x-x-2-2%EF%BC%8C%E7%B2%BE%E5%BA%A6%E4%B8%BA1e-6%EF%BC%8C%E8%A6%81%E9%80%9A%E8%BF%87%E4%BA%8C%E5%88%86%E6%B3%95%E6%B1%82%E9%9B%B6%E7%82%B9%E7%9A%84%E8%AF%9D%E3%80%82"><span class="toc-number">3.3.</span> <span class="toc-text">举个例子，对于f(x) &#x3D; x^2-2，精度为1e-6，要通过二分法求零点的话。</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#P1024-%E4%B8%80%E5%85%83%E4%B8%89%E6%AC%A1%E6%96%B9%E7%A8%8B%E6%B1%82%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">P1024 一元三次方程求解</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%9C%89%E5%BD%A2%E5%A6%82%EF%BC%9Aax-3-bx-2-cx-d-0-%E8%BF%99%E6%A0%B7%E7%9A%84%E4%B8%80%E4%B8%AA%E4%B8%80%E5%85%83%E4%B8%89%E6%AC%A1%E6%96%B9%E7%A8%8B%E3%80%82%E7%BB%99%E5%87%BA%E8%AF%A5%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%90%84%E9%A1%B9%E7%9A%84%E7%B3%BB%E6%95%B0%EF%BC%88a-b-c-d-%E5%9D%87%E4%B8%BA%E5%AE%9E%E6%95%B0%EF%BC%89%EF%BC%8C%E5%B9%B6%E7%BA%A6%E5%AE%9A%E8%AF%A5%E6%96%B9%E7%A8%8B%E5%AD%98%E5%9C%A8%E4%B8%89%E4%B8%AA%E4%B8%8D%E5%90%8C%E5%AE%9E%E6%A0%B9%EF%BC%88%E6%A0%B9%E7%9A%84%E8%8C%83%E5%9B%B4%E5%9C%A8-%E2%88%92100%E8%87%B3-100-%E4%B9%8B%E9%97%B4%EF%BC%89%EF%BC%8C%E4%B8%94%E6%A0%B9%E4%B8%8E%E6%A0%B9%E4%B9%8B%E5%B7%AE%E7%9A%84%E7%BB%9D%E5%AF%B9%E5%80%BC-%E2%89%A51%E3%80%82%E8%A6%81%E6%B1%82%E7%94%B1%E5%B0%8F%E5%88%B0%E5%A4%A7%E4%BE%9D%E6%AC%A1%E5%9C%A8%E5%90%8C%E4%B8%80%E8%A1%8C%E8%BE%93%E5%87%BA%E8%BF%99%E4%B8%89%E4%B8%AA%E5%AE%9E%E6%A0%B9-%E6%A0%B9%E4%B8%8E%E6%A0%B9%E4%B9%8B%E9%97%B4%E7%95%99%E6%9C%89%E7%A9%BA%E6%A0%BC-%EF%BC%8C%E5%B9%B6%E7%B2%BE%E7%A1%AE%E5%88%B0%E5%B0%8F%E6%95%B0%E7%82%B9%E5%90%8E-2-%E4%BD%8D%E3%80%82"><span class="toc-number">4.1.</span> <span class="toc-text">题目有形如：ax^3+bx^2+cx+d&#x3D;0 这样的一个一元三次方程。给出该方程中各项的系数（a,b,c,d 均为实数），并约定该方程存在三个不同实根（根的范围在 −100至 100 之间），且根与根之差的绝对值 ≥1。要求由小到大依次在同一行输出这三个实根(根与根之间留有空格)，并精确到小数点后 2 位。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%EF%BC%9A%E8%AE%B0%E6%96%B9%E7%A8%8B-f-x-0%EF%BC%8C%E8%8B%A5%E5%AD%98%E5%9C%A8-2-%E4%B8%AA%E6%95%B0-x1%E2%80%8B-%E5%92%8C-x2%E2%80%8B%EF%BC%8C%E4%B8%94-x1%E2%80%8B"><span class="toc-number">4.2.</span> <span class="toc-text">提示：记方程 f(x)&#x3D;0，若存在 2 个数 x1​ 和 x2​，且 x1​&lt;x2​，f(x1​)×f(x2​)&lt;0，则在 (x1​,x2​) 之间一定有一个根。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA%E6%A1%88%E4%BE%8B"><span class="toc-number">4.4.</span> <span class="toc-text">输入和输出案例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="toc-number">4.5.</span> <span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%99%E5%B0%B1%E6%98%AF%E5%85%B8%E5%9E%8B%E7%9A%84%E5%87%BD%E6%95%B0%E9%9B%B6%E7%82%B9%E6%B1%82%E8%A7%A3%E3%80%82"><span class="toc-number">4.6.</span> <span class="toc-text">这就是典型的函数零点求解。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-number">4.7.</span> <span class="toc-text">代码：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E4%BA%8C%E5%88%86%E6%B3%95%E5%8C%BA%E9%97%B4%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">对于二分法区间的操作</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="http://example.com/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="iolzyy"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Hexo"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">二分法<a class="post-edit-link" href="https://github.com/YunYouJun/yunyoujun.github.io/tree/hexo/source/_posts/二分法.md" target="_blank" title="Edit this post" rel="noopener"><span class="icon iconify" data-icon="ri:edit-line"></span></a></h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="Created: 2024-02-14 19:58:13" itemprop="dateCreated datePublished" datetime="2024-02-14T19:58:13+08:00">2024-02-14</time></div><span class="leancloud_visitors" id="/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/" data-flag-title="二分法"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="Views"><span class="icon iconify" data-icon="ri:eye-line"></span> <span class="leancloud-visitors-count"></span></span></span><div class="post-classify"><span class="post-tag"><a class="tag-item" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">基础算法</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h4 id="STL中的二分法"><a href="#STL中的二分法" class="headerlink" title="STL中的二分法"></a>STL中的二分法</h4><h5 id="数组是-1-2-4-4-5-6"><a href="#数组是-1-2-4-4-5-6" class="headerlink" title="数组是{1,2,4,4,5,6}"></a>数组是{1,2,4,4,5,6}</h5><h5 id="在STL中lower-bound-是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower-bound-v-begin-v-end-target-这样就会指的是第三个元素"><a href="#在STL中lower-bound-是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower-bound-v-begin-v-end-target-这样就会指的是第三个元素" class="headerlink" title="在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素"></a>在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素</h5><h5 id="在STL中upper-bound-是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。"><a href="#在STL中upper-bound-是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。" class="headerlink" title="在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。"></a>在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。</h5><h4 id="用STL写二分查找"><a href="#用STL写二分查找" class="headerlink" title="用STL写二分查找"></a>用STL写二分查找</h4><h5 id="输入-n-个不超过-10-9-的单调不减的（就是后面的数字不小于前面的数字）非负整数-1-2-…-a1​-a2​-…-an​，然后进行-m-次询问。对于每次询问，给出一个整数-q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出-−1-。"><a href="#输入-n-个不超过-10-9-的单调不减的（就是后面的数字不小于前面的数字）非负整数-1-2-…-a1​-a2​-…-an​，然后进行-m-次询问。对于每次询问，给出一个整数-q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出-−1-。" class="headerlink" title="输入 n 个不超过 10^9 的单调不减的（就是后面的数字不小于前面的数字）非负整数 1,2,…,a1​,a2​,…,an​，然后进行 m 次询问。对于每次询问，给出一个整数 q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出 −1 。"></a>输入 n 个不超过 10^9 的单调不减的（就是后面的数字不小于前面的数字）非负整数 1,2,…,a1​,a2​,…,an​，然后进行 m 次询问。对于每次询问，给出一个整数 q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出 −1 。</h5><h5 id="题解：这里就是用函数lower-bound-来返回第一个大于等于，然后想返回序列号就用distance-，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。"><a href="#题解：这里就是用函数lower-bound-来返回第一个大于等于，然后想返回序列号就用distance-，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。" class="headerlink" title="题解：这里就是用函数lower_bound()来返回第一个大于等于，然后想返回序列号就用distance()，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。"></a>题解：这里就是用函数lower_bound()来返回第一个大于等于，然后想返回序列号就用distance()，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。</h5><h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="type">int</span> m;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; a;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		a.<span class="built_in">push_back</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(m--)&#123;</span><br><span class="line">		<span class="type">int</span> target;</span><br><span class="line">		cin&gt;&gt;target;</span><br><span class="line">		<span class="keyword">auto</span> it =<span class="built_in">lower_bound</span>(a.<span class="built_in">begin</span>(),a.<span class="built_in">end</span>(),target);</span><br><span class="line">		<span class="keyword">if</span>(it!=a.<span class="built_in">end</span>()&amp;&amp;*it==target)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="built_in">distance</span>(a.<span class="built_in">begin</span>(),it)+<span class="number">1</span>&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;-1 &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">iolzyy</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Atcoder/" style="font-size: 10px;">Atcoder</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 12.5px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px;">蓝桥杯</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://houbb.github.io/">echo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-二分法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/" class="article-date">
+  	<time datetime="2024-02-14T11:58:13.000Z" itemprop="datePublished">2024-02-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二分法
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="STL中的二分法"><a href="#STL中的二分法" class="headerlink" title="STL中的二分法"></a>STL中的二分法</h4><h5 id="数组是-1-2-4-4-5-6"><a href="#数组是-1-2-4-4-5-6" class="headerlink" title="数组是{1,2,4,4,5,6}"></a>数组是{1,2,4,4,5,6}</h5><h5 id="在STL中lower-bound-是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower-bound-v-begin-v-end-target-这样就会指的是第三个元素"><a href="#在STL中lower-bound-是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower-bound-v-begin-v-end-target-这样就会指的是第三个元素" class="headerlink" title="在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素"></a>在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素</h5><h5 id="在STL中upper-bound-是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。"><a href="#在STL中upper-bound-是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。" class="headerlink" title="在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。"></a>在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。</h5><h4 id="用STL写二分查找"><a href="#用STL写二分查找" class="headerlink" title="用STL写二分查找"></a>用STL写二分查找</h4><h5 id="输入-n-个不超过-10-9-的单调不减的（就是后面的数字不小于前面的数字）非负整数-1-2-…-a1​-a2​-…-an​，然后进行-m-次询问。对于每次询问，给出一个整数-q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出-−1-。"><a href="#输入-n-个不超过-10-9-的单调不减的（就是后面的数字不小于前面的数字）非负整数-1-2-…-a1​-a2​-…-an​，然后进行-m-次询问。对于每次询问，给出一个整数-q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出-−1-。" class="headerlink" title="输入 n 个不超过 10^9 的单调不减的（就是后面的数字不小于前面的数字）非负整数 1,2,…,a1​,a2​,…,an​，然后进行 m 次询问。对于每次询问，给出一个整数 q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出 −1 。"></a>输入 n 个不超过 10^9 的单调不减的（就是后面的数字不小于前面的数字）非负整数 1,2,…,a1​,a2​,…,an​，然后进行 m 次询问。对于每次询问，给出一个整数 q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出 −1 。</h5><h5 id="题解：这里就是用函数lower-bound-来返回第一个大于等于，然后想返回序列号就用distance-，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。"><a href="#题解：这里就是用函数lower-bound-来返回第一个大于等于，然后想返回序列号就用distance-，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。" class="headerlink" title="题解：这里就是用函数lower_bound()来返回第一个大于等于，然后想返回序列号就用distance()，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。"></a>题解：这里就是用函数lower_bound()来返回第一个大于等于，然后想返回序列号就用distance()，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。</h5><h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="type">int</span> m;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; a;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		a.<span class="built_in">push_back</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(m--)&#123;</span><br><span class="line">		<span class="type">int</span> target;</span><br><span class="line">		cin&gt;&gt;target;</span><br><span class="line">		<span class="keyword">auto</span> it =<span class="built_in">lower_bound</span>(a.<span class="built_in">begin</span>(),a.<span class="built_in">end</span>(),target);</span><br><span class="line">		<span class="keyword">if</span>(it!=a.<span class="built_in">end</span>()&amp;&amp;*it==target)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="built_in">distance</span>(a.<span class="built_in">begin</span>(),it)+<span class="number">1</span>&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;-1 &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="实数范围的二分（带小数）"><a href="#实数范围的二分（带小数）" class="headerlink" title="实数范围的二分（带小数）"></a>实数范围的二分（带小数）</h4><h5 id="对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。"><a href="#对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。" class="headerlink" title="对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。"></a>对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。</h5><h5 id="用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。"><a href="#用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。" class="headerlink" title="用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。"></a>用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。</h5><h5 id="举个例子，对于f-x-x-2-2，精度为1e-6，要通过二分法求零点的话。"><a href="#举个例子，对于f-x-x-2-2，精度为1e-6，要通过二分法求零点的话。" class="headerlink" title="举个例子，对于f(x) &#x3D; x^2-2，精度为1e-6，要通过二分法求零点的话。"></a>举个例子，对于f(x) &#x3D; x^2-2，精度为1e-6，要通过二分法求零点的话。</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x*x<span class="number">-2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">double</span> left = <span class="number">0</span>,right = <span class="number">2</span>,eps = <span class="number">1e-6</span>;</span><br><span class="line">	<span class="keyword">while</span>(right-left&gt;eps)&#123;</span><br><span class="line">		<span class="type">double</span> mid = left+(right-left)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">f</span>(mid)&gt;<span class="number">0</span>)&#123;</span><br><span class="line">			right = mid;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			left = mid;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;零点是:&quot;</span>&lt;&lt;left&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -67,4 +220,79 @@ IconifyProviders = {
 <h5 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h5><h5 id="这就是典型的函数零点求解。"><a href="#这就是典型的函数零点求解。" class="headerlink" title="这就是典型的函数零点求解。"></a>这就是典型的函数零点求解。</h5><h5 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">double</span> a,b,c,d;<span class="comment">//定义全局变量，在函数和主程序里面都有用 </span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a*x*x*x+b*x*x+c*x+d);<span class="comment">//万能函数，求出在未知数为x时的方程解 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">double</span> x1,x2,xx;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d;<span class="comment">//输入 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">-100</span>;x&lt;=<span class="number">100</span>;x+=<span class="number">1</span>)<span class="comment">//枚举每一个可能的根 </span></span><br><span class="line">    &#123;</span><br><span class="line">        x1=x;x2=x+<span class="number">1</span>;<span class="comment">//确定根可能所在的区间 </span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">f</span>(x1)==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">&quot;%.2f &quot;</span>,x1);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">f</span>(x1)*<span class="built_in">f</span>(x2)&lt;<span class="number">0</span>)</span><br><span class="line">             &#123;</span><br><span class="line">                 <span class="keyword">while</span>(x2-x1&gt;=<span class="number">0.001</span>)<span class="comment">//二分法确定根的值 </span></span><br><span class="line">                 &#123;</span><br><span class="line">                      xx=(x1+x2)/<span class="number">2</span>;</span><br><span class="line">                      <span class="keyword">if</span>((<span class="built_in">f</span>(x1)*<span class="built_in">f</span>(xx))&lt;=<span class="number">0</span>)x2=xx;</span><br><span class="line">                      <span class="keyword">else</span> x1=xx;</span><br><span class="line">                 &#125;</span><br><span class="line">                 <span class="built_in">printf</span>(<span class="string">&quot;%.2f &quot;</span>,x1);<span class="comment">//输出根 </span></span><br><span class="line">             &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="对于二分法区间的操作"><a href="#对于二分法区间的操作" class="headerlink" title="对于二分法区间的操作"></a>对于二分法区间的操作</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/533408649">二分法总结 | 万字长文带你看透二分查找 - 知乎 (zhihu.com)</a></p>
-</div></section><ul class="post-copyright"><li class="post-copyright-author"><strong>Post author: </strong>iolzyy</li><li class="post-copyright-link"><strong>Post link: </strong><a href="http://example.com/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/" title="二分法">http://example.com/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/</a></li><li class="post-copyright-license"><strong>Copyright Notice: </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> unless otherwise stated.</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2024/02/16/dp-01%E8%83%8C%E5%8C%85%E5%92%8C%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" rel="prev" title="dp(01背包和完全背包)"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">dp(01背包和完全背包)</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2024/02/05/%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8Ccmp%E7%9A%84%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/" rel="next" title="结构体和cmp的简单操作"><span class="post-nav-text">结构体和cmp的简单操作</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div id="waline"></div><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/@waline/client@v2/dist/waline.css"><script>window.CONFIG.waline.config.path = "/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/"</script><div class="js-Pjax"><script src="/js/comments/waline.js" type="module" defer></script></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2024 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> iolzyy</span></div><div class="powered"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v6.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.11</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" target="_blank" rel="noopener" href="https://www.google.com/search?q=site:yunyoujun.cn" title="Search"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a></body></html>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/02/16/dp-01%E8%83%8C%E5%8C%85%E5%92%8C%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          dp(01背包和完全背包)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/02/05/%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8Ccmp%E7%9A%84%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">结构体和cmp的简单操作</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2024 iolzyy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
