@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>寒假学习day1(Vue) | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一，声明式渲染1. 关于组合式api，通常会和script setup 搭配使用2.在script中，使用ref或者reactive来声明响应式状态 3.在script中，将组件声明，并且有组件逻辑和其他一些响应式状态。 4.然后在template中对调取对应的响应式状态的值来进行文本渲染 举例1234567891011&lt;script setup&gt;import &amp;#123; react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="寒假学习day1(Vue)">
+<meta property="og:url" content="http://example.com/2024/01/28/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0day1-Vue/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一，声明式渲染1. 关于组合式api，通常会和script setup 搭配使用2.在script中，使用ref或者reactive来声明响应式状态 3.在script中，将组件声明，并且有组件逻辑和其他一些响应式状态。 4.然后在template中对调取对应的响应式状态的值来进行文本渲染 举例1234567891011&lt;script setup&gt;import &amp;#123; react">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-28T05:33:20.000Z">
+<meta property="article:modified_time" content="2024-01-28T05:34:34.438Z">
+<meta property="article:author" content="iolzyy">
+<meta property="article:tag" content="前端学习">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">iolzyy</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Atcoder/" style="font-size: 10px;">Atcoder</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 12.5px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px;">蓝桥杯</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://houbb.github.io/">echo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-寒假学习day1-Vue" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/01/28/%E5%AF%92%E5%81%87%E5%AD%A6%E4%B9%A0day1-Vue/" class="article-date">
+  	<time datetime="2024-01-28T05:33:20.000Z" itemprop="datePublished">2024-01-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      寒假学习day1(Vue)
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" rel="tag">前端学习</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一，声明式渲染"><a href="#一，声明式渲染" class="headerlink" title="一，声明式渲染"></a>一，声明式渲染</h3><h5 id="1-关于组合式api，通常会和script-setup-搭配使用"><a href="#1-关于组合式api，通常会和script-setup-搭配使用" class="headerlink" title="1. 关于组合式api，通常会和script setup 搭配使用"></a>1. 关于组合式api，通常会和script setup 搭配使用</h5><h5 id="2-在script中，使用ref或者reactive来声明响应式状态"><a href="#2-在script中，使用ref或者reactive来声明响应式状态" class="headerlink" title="2.在script中，使用ref或者reactive来声明响应式状态"></a>2.在script中，使用ref或者reactive来声明响应式状态</h5><hr>
+<h5 id="3-在script中，将组件声明，并且有组件逻辑和其他一些响应式状态。"><a href="#3-在script中，将组件声明，并且有组件逻辑和其他一些响应式状态。" class="headerlink" title="3.在script中，将组件声明，并且有组件逻辑和其他一些响应式状态。"></a>3.在script中，将组件声明，并且有组件逻辑和其他一些响应式状态。</h5><hr>
+<h5 id="4-然后在template中对调取对应的响应式状态的值来进行文本渲染"><a href="#4-然后在template中对调取对应的响应式状态的值来进行文本渲染" class="headerlink" title="4.然后在template中对调取对应的响应式状态的值来进行文本渲染"></a>4.然后在template中对调取对应的响应式状态的值来进行文本渲染</h5><hr>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; reactive, ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const counter = reactive(&#123; count: 0 &#125;)</span><br><span class="line">const message = ref(&#x27;Hello World!&#x27;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1&gt;&#123;&#123; message &#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;p&gt;Count is: &#123;&#123; counter.count &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二，Attribute绑定"><a href="#二，Attribute绑定" class="headerlink" title="二，Attribute绑定"></a>二，Attribute绑定</h3><h5 id="1-在template中为了给attribute绑定一个动态值，一般都是需要v-bind指令-而且可以进行缩写"><a href="#1-在template中为了给attribute绑定一个动态值，一般都是需要v-bind指令-而且可以进行缩写" class="headerlink" title="1.在template中为了给attribute绑定一个动态值，一般都是需要v-bind指令,而且可以进行缩写"></a>1.在template中为了给attribute绑定一个动态值，一般都是需要v-bind指令,而且可以进行缩写</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;//未缩写</span><br><span class="line">&lt;div :id=&quot;dynamicId&quot;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="2-还有bool型，当-isButtonDisabled-为真值或一个空字符串-即-时，元素会包含这个-disabled-attribute。而当其为其他假值时-attribute-将被忽略。"><a href="#2-还有bool型，当-isButtonDisabled-为真值或一个空字符串-即-时，元素会包含这个-disabled-attribute。而当其为其他假值时-attribute-将被忽略。" class="headerlink" title="2.还有bool型，当 isButtonDisabled 为真值或一个空字符串 (即 &lt;button disabled=&quot;&quot;&gt;) 时，元素会包含这个 disabled attribute。而当其为其他假值时 attribute 将被忽略。"></a>2.还有bool型，当 <code>isButtonDisabled</code> 为<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">真值</a>或一个空字符串 (即 <code>&lt;button disabled=&quot;&quot;&gt;</code>) 时，元素会包含这个 <code>disabled</code> attribute。而当其为其他<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">假值</a>时 attribute 将被忽略。</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button :disabled=&quot;isButtonDisabled&quot;&gt;Button&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="3-动态绑定多个值"><a href="#3-动态绑定多个值" class="headerlink" title="3.动态绑定多个值"></a>3.动态绑定多个值</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> objectOfAttrs = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="string">&#x27;container&#x27;</span>,</span><br><span class="line">  <span class="attr">class</span>: <span class="string">&#x27;wrapper&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="通过不带参数的-v-bind，你可以将它们绑定到单个元素上："><a href="#通过不带参数的-v-bind，你可以将它们绑定到单个元素上：" class="headerlink" title="通过不带参数的 v-bind，你可以将它们绑定到单个元素上："></a>通过不带参数的 <code>v-bind</code>，你可以将它们绑定到单个元素上：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind=&quot;objectOfAttrs&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="4-v-if-指令会基于表达式-seen-的值的真假来移除-插入该-元素。"><a href="#4-v-if-指令会基于表达式-seen-的值的真假来移除-插入该-元素。" class="headerlink" title="4.v-if 指令会基于表达式 seen 的值的真假来移除&#x2F;插入该 &lt;p&gt; 元素。"></a>4.<code>v-if</code> 指令会基于表达式 <code>seen</code> 的值的真假来移除&#x2F;插入该 <code>&lt;p&gt;</code> 元素。</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p v-if=&quot;seen&quot;&gt;Now you see me&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="5-href-就是一个参数，它告诉-v-bind-指令将表达式-url-的值绑定到元素的-href-attribute-上。在简写中，参数前的一切-例如-v-bind-都会被缩略为一个-字符"><a href="#5-href-就是一个参数，它告诉-v-bind-指令将表达式-url-的值绑定到元素的-href-attribute-上。在简写中，参数前的一切-例如-v-bind-都会被缩略为一个-字符" class="headerlink" title="5.href 就是一个参数，它告诉 v-bind 指令将表达式 url 的值绑定到元素的 href attribute 上。在简写中，参数前的一切 (例如 v-bind:) 都会被缩略为一个 : 字符"></a>5.<code>href</code> 就是一个参数，它告诉 <code>v-bind</code> 指令将表达式 <code>url</code> 的值绑定到元素的 <code>href</code> attribute 上。在简写中，参数前的一切 (例如 <code>v-bind:</code>) 都会被缩略为一个 <code>:</code> 字符</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-bind:href=&quot;url&quot;&gt; ... &lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 简写 --&gt;</span><br><span class="line">&lt;a :href=&quot;url&quot;&gt; ... &lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="6-监听DOM时间-v-on指令"><a href="#6-监听DOM时间-v-on指令" class="headerlink" title="6.监听DOM时间 v-on指令"></a>6.监听DOM时间 <code>v-on</code>指令</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a v-on:click=&quot;doSomething&quot;&gt; ... &lt;/a&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 简写 --&gt;</span><br><span class="line">&lt;a @click=&quot;doSomething&quot;&gt; ... &lt;/a&gt;//v-on缩写就是@</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const titleClass = ref(&#x27;title&#x27;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1 v-bind:class=&quot;titleClass&quot;&gt;Make me red&lt;/h1&gt; &lt;!-- 此处添加一个动态 class 绑定 --&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.title &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三，事件监听"><a href="#三，事件监听" class="headerlink" title="三，事件监听"></a>三，事件监听</h3><h5 id="1-用v-on进行监听，简写语法和用法上面提到过。"><a href="#1-用v-on进行监听，简写语法和用法上面提到过。" class="headerlink" title="1.用v-on进行监听，简写语法和用法上面提到过。"></a>1.用<code>v-on</code>进行监听，简写语法和用法上面提到过。</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const count = ref(0)</span><br><span class="line"></span><br><span class="line">function increment() &#123;</span><br><span class="line">  count.value++</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;increment&quot;&gt;count is: &#123;&#123; count &#125;&#125;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="实现-increment-函数并通过使用-v-on-将其绑定到按钮上。这种就是内联事件处理器，一般用于简单场景。"><a href="#实现-increment-函数并通过使用-v-on-将其绑定到按钮上。这种就是内联事件处理器，一般用于简单场景。" class="headerlink" title="实现 increment 函数并通过使用 v-on 将其绑定到按钮上。这种就是内联事件处理器，一般用于简单场景。"></a>实现 <code>increment</code> 函数并通过使用 <code>v-on</code> 将其绑定到按钮上。这种就是内联事件处理器，一般用于简单场景。</h5><hr>
+<h5 id="2-方法事件处理器"><a href="#2-方法事件处理器" class="headerlink" title="2.方法事件处理器"></a>2.方法事件处理器</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">const name = ref(&#x27;Vue.js&#x27;)</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">function greet(event) &#123;</span><br><span class="line"></span><br><span class="line">  alert(`Hello $&#123;name.value&#125;!`)</span><br><span class="line"></span><br><span class="line">  // `event` is the native DOM event</span><br><span class="line"></span><br><span class="line">  if (event) &#123;</span><br><span class="line"></span><br><span class="line">    alert(event.target.tagName)</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line"></span><br><span class="line">  &lt;button @click=&quot;greet&quot;&gt;Greet&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="方法事件处理器会自动接收原生-DOM-事件并触发执行。在上面的例子中，我们能够通过被触发事件的-event-target-tagName-访问到该-DOM-元素。"><a href="#方法事件处理器会自动接收原生-DOM-事件并触发执行。在上面的例子中，我们能够通过被触发事件的-event-target-tagName-访问到该-DOM-元素。" class="headerlink" title="方法事件处理器会自动接收原生 DOM 事件并触发执行。在上面的例子中，我们能够通过被触发事件的 event.target.tagName 访问到该 DOM 元素。"></a>方法事件处理器会自动接收原生 DOM 事件并触发执行。在上面的例子中，我们能够通过被触发事件的 <code>event.target.tagName</code> 访问到该 DOM 元素。</h5><hr>
+<h5 id="3-在内联事件处理器中访问事件参数"><a href="#3-在内联事件处理器中访问事件参数" class="headerlink" title="3.在内联事件处理器中访问事件参数"></a>3.在内联事件处理器中访问事件参数</h5><h5 id="有时我们需要在内联事件处理器中访问原生-DOM-事件。你可以向该处理器方法传入一个特殊的-event-变量，或者使用内联箭头函数："><a href="#有时我们需要在内联事件处理器中访问原生-DOM-事件。你可以向该处理器方法传入一个特殊的-event-变量，或者使用内联箭头函数：" class="headerlink" title="有时我们需要在内联事件处理器中访问原生 DOM 事件。你可以向该处理器方法传入一个特殊的 $event 变量，或者使用内联箭头函数："></a>有时我们需要在内联事件处理器中访问原生 DOM 事件。你可以向该处理器方法传入一个特殊的 <code>$event</code> 变量，或者使用内联箭头函数：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 使用特殊的 $event 变量 --&gt;</span><br><span class="line">&lt;button @click=&quot;warn(&#x27;Form cannot be submitted yet.&#x27;, $event)&quot;&gt;</span><br><span class="line">  Submit</span><br><span class="line">&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 使用内联箭头函数 --&gt;</span><br><span class="line">&lt;button @click=&quot;(event) =&gt; warn(&#x27;Form cannot be submitted yet.&#x27;, event)&quot;&gt;</span><br><span class="line">  Submit</span><br><span class="line">&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">warn</span>(<span class="params">message, event</span>) &#123; <span class="comment">// 这里可以访问原生事件 </span></span><br><span class="line"><span class="keyword">if</span> (event) &#123; event.<span class="title function_">preventDefault</span>() &#125; <span class="title function_">alert</span>(message) &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="所以看出想要进行事件访问，funtion中有一个参数是event"><a href="#所以看出想要进行事件访问，funtion中有一个参数是event" class="headerlink" title="所以看出想要进行事件访问，funtion中有一个参数是event"></a>所以看出想要进行事件访问，funtion中有一个参数是event</h4><h5 id="还有一系列按键操作，就不赘述。"><a href="#还有一系列按键操作，就不赘述。" class="headerlink" title="还有一系列按键操作，就不赘述。"></a>还有一系列按键操作，就不赘述。</h5><h3 id="四，表单绑定"><a href="#四，表单绑定" class="headerlink" title="四，表单绑定"></a>四，表单绑定</h3><h4 id="就是v-model操作"><a href="#就是v-model操作" class="headerlink" title="就是v-model操作"></a>就是v-model操作</h4><h5 id="v-mode操作可以支持文本输入框或者多选框，下拉框等等。"><a href="#v-mode操作可以支持文本输入框或者多选框，下拉框等等。" class="headerlink" title="v-mode操作可以支持文本输入框或者多选框，下拉框等等。"></a>v-mode操作可以支持文本输入框或者多选框，下拉框等等。</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const text = ref(&#x27;&#x27;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input v-model=&quot;text&quot; placeholder=&quot;Type here&quot;&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; text &#125;&#125;&lt;/p&gt;&lt;!--这样文本内容就可以同步显示---&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="还有更多例子在官网上看即可"><a href="#还有更多例子在官网上看即可" class="headerlink" title="还有更多例子在官网上看即可"></a>还有更多例子在官网上看即可</h4><h3 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h3><h4 id="v-if"><a href="#v-if" class="headerlink" title="v-if"></a>v-if</h4><h5 id="v-if就是当指令的表达式为真的时候才会返回里面的值"><a href="#v-if就是当指令的表达式为真的时候才会返回里面的值" class="headerlink" title="v-if就是当指令的表达式为真的时候才会返回里面的值"></a>v-if就是当指令的表达式为真的时候才会返回里面的值</h5><h5 id="v-else就是当指令为假返回值"><a href="#v-else就是当指令为假返回值" class="headerlink" title="v-else就是当指令为假返回值"></a>v-else就是当指令为假返回值</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line"></span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">const awesome = ref(true)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line"></span><br><span class="line">  &lt;button @click=&quot;awesome = !awesome&quot;&gt;toggle&lt;/button&gt;</span><br><span class="line">  &lt;!--点击一次按钮awesome变成相反的值&gt;</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  &lt;h1 v-if=&quot;awesome&quot;&gt;Vue is awesome!&lt;/h1&gt;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">  &lt;h1 v-else&gt;Oh no 😢&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="这可以实现点击按钮进行切换"><a href="#这可以实现点击按钮进行切换" class="headerlink" title="这可以实现点击按钮进行切换"></a>这可以实现点击按钮进行切换</h5><h5 id="v-show简单，如果需要频繁切换那么v-show好一点"><a href="#v-show简单，如果需要频繁切换那么v-show好一点" class="headerlink" title="v-show简单，如果需要频繁切换那么v-show好一点"></a>v-show简单，如果需要频繁切换那么v-show好一点</h5><h5 id="如果运行时绑定条件很少改变v-if好"><a href="#如果运行时绑定条件很少改变v-if好" class="headerlink" title="如果运行时绑定条件很少改变v-if好"></a>如果运行时绑定条件很少改变v-if好</h5>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/01/29/DFS%E5%92%8CBFS/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          DFS和BFS
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/01/27/%E8%93%9D%E6%A1%A5%E6%9D%AF%E6%A8%A1%E6%8B%9F2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">蓝桥杯模拟2</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2024 iolzyy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

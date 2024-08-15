@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>DP(分组背包问题) | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="分组背包问题就是在01背包上加上了分组的条件就是，取得是每一组的最大值。f[N][N]就是前i组物品中选，当前体积小于等于j的最大值，v[][]体积，w[][]价值，s[]代表第i组的物品个数。如果不选就是f[i][j] &#x3D; f[i-1][j]，如果选的话就是f[i][j] &#x3D; max(f[i][j],f[i-1][j-v[i][k]]+w[i][k])；这就是状态转移方程。如果是一维的就是根据0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DP(分组背包问题)">
+<meta property="og:url" content="http://example.com/2024/02/17/DP-%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="分组背包问题就是在01背包上加上了分组的条件就是，取得是每一组的最大值。f[N][N]就是前i组物品中选，当前体积小于等于j的最大值，v[][]体积，w[][]价值，s[]代表第i组的物品个数。如果不选就是f[i][j] &#x3D; f[i-1][j]，如果选的话就是f[i][j] &#x3D; max(f[i][j],f[i-1][j-v[i][k]]+w[i][k])；这就是状态转移方程。如果是一维的就是根据0">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-17T07:39:16.000Z">
+<meta property="article:modified_time" content="2024-02-17T07:39:43.061Z">
+<meta property="article:author" content="iolzyy">
+<meta property="article:tag" content="基础算法">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">iolzyy</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Atcoder/" style="font-size: 10px;">Atcoder</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 12.5px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px;">蓝桥杯</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://houbb.github.io/">echo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-DP-分组背包问题" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/02/17/DP-%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" class="article-date">
+  	<time datetime="2024-02-17T07:39:16.000Z" itemprop="datePublished">2024-02-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DP(分组背包问题)
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="分组背包问题就是在01背包上加上了分组的条件就是，取得是每一组的最大值。"><a href="#分组背包问题就是在01背包上加上了分组的条件就是，取得是每一组的最大值。" class="headerlink" title="分组背包问题就是在01背包上加上了分组的条件就是，取得是每一组的最大值。"></a>分组背包问题就是在01背包上加上了分组的条件就是，取得是每一组的最大值。</h4><h4 id="f-N-N-就是前i组物品中选，当前体积小于等于j的最大值，v-体积，w-价值，s-代表第i组的物品个数。"><a href="#f-N-N-就是前i组物品中选，当前体积小于等于j的最大值，v-体积，w-价值，s-代表第i组的物品个数。" class="headerlink" title="f[N][N]就是前i组物品中选，当前体积小于等于j的最大值，v[][]体积，w[][]价值，s[]代表第i组的物品个数。"></a><code>f[N][N]</code>就是前i组物品中选，当前体积小于等于j的最大值，<code>v[][]</code>体积，<code>w[][]</code>价值，<code>s[]</code>代表第i组的物品个数。</h4><h4 id="如果不选就是f-i-j-f-i-1-j-，如果选的话就是f-i-j-max-f-i-j-f-i-1-j-v-i-k-w-i-k-；这就是状态转移方程。"><a href="#如果不选就是f-i-j-f-i-1-j-，如果选的话就是f-i-j-max-f-i-j-f-i-1-j-v-i-k-w-i-k-；这就是状态转移方程。" class="headerlink" title="如果不选就是f[i][j] = f[i-1][j]，如果选的话就是f[i][j] = max(f[i][j],f[i-1][j-v[i][k]]+w[i][k])；这就是状态转移方程。"></a>如果不选就是<code>f[i][j] = f[i-1][j]</code>，如果选的话就是<code>f[i][j] = max(f[i][j],f[i-1][j-v[i][k]]+w[i][k])</code>；这就是状态转移方程。</h4><h4 id="如果是一维的就是根据0-1背包一样逆序操作，f-j-max-f-j-f-j-v-i-k-w-i-k"><a href="#如果是一维的就是根据0-1背包一样逆序操作，f-j-max-f-j-f-j-v-i-k-w-i-k" class="headerlink" title="如果是一维的就是根据0-1背包一样逆序操作，f[j] = max(f[j],f[j-v[i][k]]+w[i][k])"></a>如果是一维的就是根据0-1背包一样逆序操作，<code>f[j] = max(f[j],f[j-v[i][k]]+w[i][k])</code></h4><h4 id="P1757-通天之分组背包"><a href="#P1757-通天之分组背包" class="headerlink" title="P1757 通天之分组背包"></a>P1757 通天之分组背包</h4><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1757">P1757 通天之分组背包 - 洛谷 | 计算机科学教育新生态 (luogu.com.cn)</a></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二维</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1050</span>;</span><br><span class="line"><span class="type">int</span> w[N][N],p[N][N],s[N];</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> weight,n;</span><br><span class="line">	cin&gt;&gt;weight&gt;&gt;n;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> tmpw,tmpp,k;</span><br><span class="line">		cin&gt;&gt;tmpw&gt;&gt;tmpp&gt;&gt;k;</span><br><span class="line">		s[k]++;</span><br><span class="line">		w[k][s[k]] = tmpw;</span><br><span class="line">		p[k][s[k]] = tmpp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>;j&lt;=weight;j++)&#123;</span><br><span class="line">			f[i][j] = f[i<span class="number">-1</span>][j];</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> m = <span class="number">0</span>;m&lt;=s[i];m++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(j&gt;=w[i][m])&#123;</span><br><span class="line">					f[i][j] = <span class="built_in">max</span>(f[i][j],f[i<span class="number">-1</span>][j-w[i][m]]+p[i][m]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;f[n][weight];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一维</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1050</span>;</span><br><span class="line"><span class="type">int</span> w[N][N],p[N][N],s[N];</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> weight,n;</span><br><span class="line">	cin&gt;&gt;weight&gt;&gt;n;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> tmpw,tmpp,k;</span><br><span class="line">		cin&gt;&gt;tmpw&gt;&gt;tmpp&gt;&gt;k;</span><br><span class="line">		s[k]++;</span><br><span class="line">		w[k][s[k]] = tmpw;</span><br><span class="line">		p[k][s[k]] = tmpp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> j = weight;j&gt;<span class="number">0</span>;j--)&#123;</span><br><span class="line">			f[j] = f[j];</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> m = <span class="number">0</span>;m&lt;=s[i];m++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(j&gt;=w[i][m])&#123;</span><br><span class="line">					f[j] = <span class="built_in">max</span>(f[j],f[j-w[i][m]]+p[i][m]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;f[weight];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/02/18/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%BB%83%E4%B9%A01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          背包问题练习1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/02/17/%E5%AF%92%E5%81%87%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0Day4-Vue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">寒假前端学习Day4(Vue)</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2024 iolzyy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

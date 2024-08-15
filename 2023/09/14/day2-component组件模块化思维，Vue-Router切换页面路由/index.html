@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>day2:component组件模块化思维，Vue-Router切换页面路由 | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="tips：当要上传github时gitigore会将依赖模块给屏蔽重新打开页面：12pnpm install &#x2F;&#x2F;重新安装依赖pnpm run dev &#x2F;&#x2F;就可以运行  Vite的目录结构1234567891011121314151617├── README.md &#x2F;&#x2F; 说明├── index.html &#x2F;&#x2F; html文件├── package.json &#x2F;&#x2F; 项目基本信息├── public &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day2:component组件模块化思维，Vue-Router切换页面路由">
+<meta property="og:url" content="http://example.com/2023/09/14/day2-component%E7%BB%84%E4%BB%B6%E6%A8%A1%E5%9D%97%E5%8C%96%E6%80%9D%E7%BB%B4%EF%BC%8CVue-Router%E5%88%87%E6%8D%A2%E9%A1%B5%E9%9D%A2%E8%B7%AF%E7%94%B1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="tips：当要上传github时gitigore会将依赖模块给屏蔽重新打开页面：12pnpm install &#x2F;&#x2F;重新安装依赖pnpm run dev &#x2F;&#x2F;就可以运行  Vite的目录结构1234567891011121314151617├── README.md &#x2F;&#x2F; 说明├── index.html &#x2F;&#x2F; html文件├── package.json &#x2F;&#x2F; 项目基本信息├── public &#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-14T11:47:34.000Z">
+<meta property="article:modified_time" content="2023-09-14T11:51:20.499Z">
+<meta property="article:author" content="iolzyy">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">iolzyy</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Atcoder/" style="font-size: 10px;">Atcoder</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 12.5px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px;">蓝桥杯</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://houbb.github.io/">echo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-day2-component组件模块化思维，Vue-Router切换页面路由" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/09/14/day2-component%E7%BB%84%E4%BB%B6%E6%A8%A1%E5%9D%97%E5%8C%96%E6%80%9D%E7%BB%B4%EF%BC%8CVue-Router%E5%88%87%E6%8D%A2%E9%A1%B5%E9%9D%A2%E8%B7%AF%E7%94%B1/" class="article-date">
+  	<time datetime="2023-09-14T11:47:34.000Z" itemprop="datePublished">2023-09-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      day2:component组件模块化思维，Vue-Router切换页面路由
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="tips：当要上传github时gitigore会将依赖模块给屏蔽"><a href="#tips：当要上传github时gitigore会将依赖模块给屏蔽" class="headerlink" title="tips：当要上传github时gitigore会将依赖模块给屏蔽"></a>tips：当要上传github时gitigore会将依赖模块给屏蔽</h4><h4 id="重新打开页面："><a href="#重新打开页面：" class="headerlink" title="重新打开页面："></a>重新打开页面：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pnpm install //重新安装依赖</span><br><span class="line">pnpm run dev //就可以运行</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vite的目录结构"><a href="#Vite的目录结构" class="headerlink" title="Vite的目录结构"></a>Vite的目录结构</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">├── README.md // 说明</span><br><span class="line">├── index.html // html文件</span><br><span class="line">├── package.json // 项目基本信息</span><br><span class="line">├── public // 公共模块</span><br><span class="line">│   └── vite.svg</span><br><span class="line">├── src  // 源码目录</span><br><span class="line">│   ├── App.vue // 入口文件</span><br><span class="line">│   ├── assets // 公共资源</span><br><span class="line">│   │   └── vue.svg</span><br><span class="line">│   ├── components</span><br><span class="line">│   │   └── HelloWorld.vue</span><br><span class="line">│   ├── main.ts // 入口文件，加载公共组件</span><br><span class="line">│   ├── style.css</span><br><span class="line">│   └── vite-env.d.ts</span><br><span class="line">├── tsconfig.json // ts配置</span><br><span class="line">├── tsconfig.node.json</span><br><span class="line">└── vite.config.ts   // 项目基本信息</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="component组件模块化思维"><a href="#component组件模块化思维" class="headerlink" title="component组件模块化思维"></a>component组件模块化思维</h5><h6 id="简而言之就是说将一个页面划分成不同的部分，分别完成最后像搭积木一样搭起来。而积木的实现就是写一个个组件"><a href="#简而言之就是说将一个页面划分成不同的部分，分别完成最后像搭积木一样搭起来。而积木的实现就是写一个个组件" class="headerlink" title="简而言之就是说将一个页面划分成不同的部分，分别完成最后像搭积木一样搭起来。而积木的实现就是写一个个组件"></a>简而言之就是说将一个页面划分成不同的部分，分别完成最后像搭积木一样搭起来。而积木的实现就是写一个个组件</h6><h4 id="创建vite-Ts"><a href="#创建vite-Ts" class="headerlink" title="创建vite+Ts"></a>创建vite+Ts</h4><h5 id="建议在Webstrom中进行创建"><a href="#建议在Webstrom中进行创建" class="headerlink" title="建议在Webstrom中进行创建"></a>建议在Webstrom中进行创建</h5><h6 id="a，点开“新建”然后找到vite，将目录设置为自己提前创建好的空文件夹，然后把下面的Typescript勾上。"><a href="#a，点开“新建”然后找到vite，将目录设置为自己提前创建好的空文件夹，然后把下面的Typescript勾上。" class="headerlink" title="a，点开“新建”然后找到vite，将目录设置为自己提前创建好的空文件夹，然后把下面的Typescript勾上。"></a>a，点开“新建”然后找到vite，将目录设置为自己提前创建好的空文件夹，然后把下面的Typescript勾上。</h6><h4 id="Vue-Router的安装，用途和使用"><a href="#Vue-Router的安装，用途和使用" class="headerlink" title="Vue-Router的安装，用途和使用"></a>Vue-Router的安装，用途和使用</h4><h6 id="首先是Vue-Router的安装"><a href="#首先是Vue-Router的安装" class="headerlink" title="首先是Vue-Router的安装"></a>首先是Vue-Router的安装</h6><p>npm install vue-router@4<br>&#x2F;&#x2F;建议将npm换成cnpm，应为有时候梯子会不稳定，最后换成淘宝源</p>
+<h6 id="安装了后看一下package-json中有没有Vue-Router"><a href="#安装了后看一下package-json中有没有Vue-Router" class="headerlink" title="安装了后看一下package.json中有没有Vue-Router"></a>安装了后看一下package.json中有没有Vue-Router</h6><h6 id="接着是Vue-Router的用途"><a href="#接着是Vue-Router的用途" class="headerlink" title="接着是Vue-Router的用途"></a>接着是Vue-Router的用途</h6><h6 id="就是通过单页面来模拟多页面。"><a href="#就是通过单页面来模拟多页面。" class="headerlink" title="就是通过单页面来模拟多页面。"></a>就是通过单页面来模拟多页面。</h6><h6 id="然后是Vue-Router的使用"><a href="#然后是Vue-Router的使用" class="headerlink" title="然后是Vue-Router的使用"></a>然后是Vue-Router的使用</h6><h6 id="a，首先在src中创建pages和routers两个目录"><a href="#a，首先在src中创建pages和routers两个目录" class="headerlink" title="a，首先在src中创建pages和routers两个目录"></a>a，首先在src中创建pages和routers两个目录</h6><h6 id="b，routers中创建index-ts"><a href="#b，routers中创建index-ts" class="headerlink" title="b，routers中创建index.ts"></a>b，routers中创建index.ts</h6><h6 id="c，我们这里使用的是router-view，没有用router-link。"><a href="#c，我们这里使用的是router-view，没有用router-link。" class="headerlink" title="c，我们这里使用的是router-view，没有用router-link。"></a>c，我们这里使用的是router-view，没有用router-link。</h6><h6 id="d，在components中创建vue1-vue-vue2-vue，便于用来展示vue-router的作用"><a href="#d，在components中创建vue1-vue-vue2-vue，便于用来展示vue-router的作用" class="headerlink" title="d，在components中创建vue1.vue,vue2.vue，便于用来展示vue-router的作用"></a>d，在components中创建vue1.vue,vue2.vue，便于用来展示vue-router的作用</h6><h6 id="在index-ts的操作"><a href="#在index-ts的操作" class="headerlink" title="在index.ts的操作"></a>在index.ts的操作</h6><h6 id="a，导入Helloworld，vue1，vue2的包"><a href="#a，导入Helloworld，vue1，vue2的包" class="headerlink" title="a，导入Helloworld，vue1，vue2的包"></a>a，导入Helloworld，vue1，vue2的包</h6><h6 id="b，接着是定义一些路由，那些在routes里面的就是一些路由"><a href="#b，接着是定义一些路由，那些在routes里面的就是一些路由" class="headerlink" title="b，接着是定义一些路由，那些在routes里面的就是一些路由"></a>b，接着是定义一些路由，那些在routes里面的就是一些路由</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const routes = [  </span><br><span class="line">    &#123;  </span><br><span class="line">        path:&quot;/&quot;,  </span><br><span class="line">        name:&quot;Home&quot;,  </span><br><span class="line">        component:HelloWorld  </span><br><span class="line">    &#125;,  </span><br><span class="line">    &#123;  </span><br><span class="line">        path:&quot;/vue1&quot;,  </span><br><span class="line">        name:&quot;Vue1&quot;,  </span><br><span class="line">        component:vue1  </span><br><span class="line">    &#125;,  </span><br><span class="line">    &#123;  </span><br><span class="line">        path:&quot;/vue2&quot;,  </span><br><span class="line">        name:&quot;Vue2&quot;,  </span><br><span class="line">        component:vue2  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h6 id="c，创建路由并传递”routes”配置"><a href="#c，创建路由并传递”routes”配置" class="headerlink" title="c，创建路由并传递”routes”配置"></a>c，创建路由并传递”routes”配置</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const router = createRouter(  </span><br><span class="line">    &#123;  </span><br><span class="line">    history:createWebHistory(),  </span><br><span class="line">    routes:routes  </span><br><span class="line">    &#125;  </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h6 id="d，变成全局变量"><a href="#d，变成全局变量" class="headerlink" title="d，变成全局变量"></a>d，变成全局变量</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export default router;</span><br></pre></td></tr></table></figure>
+<h6 id="e，-创建并且挂载根实例-在main-ts"><a href="#e，-创建并且挂载根实例-在main-ts" class="headerlink" title="e， 创建并且挂载根实例(在main.ts)"></a>e， 创建并且挂载根实例(在main.ts)</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const app = createApp(App);  </span><br><span class="line">  </span><br><span class="line">app.use(router);  </span><br><span class="line">  </span><br><span class="line">app.mount(&#x27;#app&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="在App-vue的操作-😊"><a href="#在App-vue的操作-😊" class="headerlink" title="在App.vue的操作 😊"></a>在App.vue的操作 😊</h5><h6 id="a，加入router"><a href="#a，加入router" class="headerlink" title="a，加入router"></a>a，加入router</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#123; RouterView &#125; from &quot;vue-router&quot;;</span><br></pre></td></tr></table></figure>
+<h6 id="b，在template"><a href="#b，在template" class="headerlink" title="b，在template"></a>b，在template</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;router-view /&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="在vue1和vue2的操作"><a href="#在vue1和vue2的操作" class="headerlink" title="在vue1和vue2的操作"></a>在vue1和vue2的操作</h5><h6 id="在template中写点字说明好表现出结果"><a href="#在template中写点字说明好表现出结果" class="headerlink" title="在template中写点字说明好表现出结果"></a>在template中写点字说明好表现出结果</h6><h5 id="捋一下vue-router的逻辑"><a href="#捋一下vue-router的逻辑" class="headerlink" title="捋一下vue-router的逻辑"></a>捋一下vue-router的逻辑</h5><p>1，首先是创建路由，就是在index.ts中创建<br>2，在main.ts进行挂载<br>3，在App.vue进行展示,即是导入router-viewer</p>
+<h5 id="实现好后那么跳转页面就在网址后面加个-vue1即可跳转"><a href="#实现好后那么跳转页面就在网址后面加个-vue1即可跳转" class="headerlink" title="实现好后那么跳转页面就在网址后面加个&#x2F;vue1即可跳转"></a>实现好后那么跳转页面就在网址后面加个&#x2F;vue1即可跳转</h5><h5 id="在学习的时候遇到的遇难杂症"><a href="#在学习的时候遇到的遇难杂症" class="headerlink" title="在学习的时候遇到的遇难杂症"></a>在学习的时候遇到的遇难杂症</h5><h6 id="首先是在Webstrom中有对TS语法有比较严格的要求，所以有时候在写的过程中会报错也不要过于在意。"><a href="#首先是在Webstrom中有对TS语法有比较严格的要求，所以有时候在写的过程中会报错也不要过于在意。" class="headerlink" title="首先是在Webstrom中有对TS语法有比较严格的要求，所以有时候在写的过程中会报错也不要过于在意。"></a>首先是在Webstrom中有对TS语法有比较严格的要求，所以有时候在写的过程中会报错也不要过于在意。</h6><h6 id="切记，最好用Webstrom进行vite框架的安装，如果不行那么进行手动更改的话，有可能当在别的文件调用对应Vue的包，有可能会无法被找到"><a href="#切记，最好用Webstrom进行vite框架的安装，如果不行那么进行手动更改的话，有可能当在别的文件调用对应Vue的包，有可能会无法被找到" class="headerlink" title="切记，最好用Webstrom进行vite框架的安装，如果不行那么进行手动更改的话，有可能当在别的文件调用对应Vue的包，有可能会无法被找到"></a>切记，最好用Webstrom进行vite框架的安装，如果不行那么进行手动更改的话，有可能当在别的文件调用对应Vue的包，有可能会无法被找到</h6><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/406510652">vue3 报错解决：找不到模块或其相应的类型声明。（Vue 3 can not find module） - 知乎 (zhihu.com)</a><br>这个就是解决方案，但是最好就是在Webstorm中创建。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/09/18/%E5%89%8D%E7%BC%80%E5%92%8C%E5%92%8C%E5%B7%AE%E5%88%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          前缀和和差分
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/09/13/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%92%8C%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">博客搭建和踩过的坑</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2024 iolzyy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

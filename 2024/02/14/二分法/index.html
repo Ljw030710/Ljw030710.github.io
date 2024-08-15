@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>二分法 | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="STL中的二分法数组是{1,2,4,4,5,6}在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。用STL写二分查找输入 n 个不超过 10^9 的单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二分法">
+<meta property="og:url" content="http://example.com/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="STL中的二分法数组是{1,2,4,4,5,6}在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。用STL写二分查找输入 n 个不超过 10^9 的单">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-14T11:58:13.000Z">
+<meta property="article:modified_time" content="2024-02-14T11:58:37.135Z">
+<meta property="article:author" content="iolzyy">
+<meta property="article:tag" content="基础算法">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">iolzyy</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=id=https://music.163.com/song?id=1944058085&userid=1954034794&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Atcoder/" style="font-size: 10px;">Atcoder</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 17.5px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">前端学习</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">博客搭建</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 20px;">基础算法</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12.5px;">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" style="font-size: 12.5px;">算法基础</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 15px;">蓝桥杯</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.tiancy.top/">tiancy</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.cnpatrickstar.com/">派大星</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://salt114514.github.io/">salt</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="/blog.bluebird.icu">青鸟</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://houbb.github.io/">echo</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://download.tooc.xlj0.com/uploads/179/leimu.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-二分法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/" class="article-date">
+  	<time datetime="2024-02-14T11:58:13.000Z" itemprop="datePublished">2024-02-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      二分法
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li></ul>
+	</div>
+
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="STL中的二分法"><a href="#STL中的二分法" class="headerlink" title="STL中的二分法"></a>STL中的二分法</h4><h5 id="数组是-1-2-4-4-5-6"><a href="#数组是-1-2-4-4-5-6" class="headerlink" title="数组是{1,2,4,4,5,6}"></a>数组是{1,2,4,4,5,6}</h5><h5 id="在STL中lower-bound-是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower-bound-v-begin-v-end-target-这样就会指的是第三个元素"><a href="#在STL中lower-bound-是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower-bound-v-begin-v-end-target-这样就会指的是第三个元素" class="headerlink" title="在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素"></a>在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素</h5><h5 id="在STL中upper-bound-是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。"><a href="#在STL中upper-bound-是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。" class="headerlink" title="在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。"></a>在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。</h5><h4 id="用STL写二分查找"><a href="#用STL写二分查找" class="headerlink" title="用STL写二分查找"></a>用STL写二分查找</h4><h5 id="输入-n-个不超过-10-9-的单调不减的（就是后面的数字不小于前面的数字）非负整数-1-2-…-a1​-a2​-…-an​，然后进行-m-次询问。对于每次询问，给出一个整数-q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出-−1-。"><a href="#输入-n-个不超过-10-9-的单调不减的（就是后面的数字不小于前面的数字）非负整数-1-2-…-a1​-a2​-…-an​，然后进行-m-次询问。对于每次询问，给出一个整数-q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出-−1-。" class="headerlink" title="输入 n 个不超过 10^9 的单调不减的（就是后面的数字不小于前面的数字）非负整数 1,2,…,a1​,a2​,…,an​，然后进行 m 次询问。对于每次询问，给出一个整数 q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出 −1 。"></a>输入 n 个不超过 10^9 的单调不减的（就是后面的数字不小于前面的数字）非负整数 1,2,…,a1​,a2​,…,an​，然后进行 m 次询问。对于每次询问，给出一个整数 q，要求输出这个数字在序列中第一次出现的编号，如果没有找到的话输出 −1 。</h5><h5 id="题解：这里就是用函数lower-bound-来返回第一个大于等于，然后想返回序列号就用distance-，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。"><a href="#题解：这里就是用函数lower-bound-来返回第一个大于等于，然后想返回序列号就用distance-，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。" class="headerlink" title="题解：这里就是用函数lower_bound()来返回第一个大于等于，然后想返回序列号就用distance()，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。"></a>题解：这里就是用函数lower_bound()来返回第一个大于等于，然后想返回序列号就用distance()，然后数组第一个的位置是1，所有需要在原有基础上加1，然后对于判断就是it不能等于end，把并且it的值要和对应的target相同，而it的值就是星号it。</h5><h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">int</span> N = <span class="number">1e6</span>+<span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> n;</span><br><span class="line">	<span class="type">int</span> m;</span><br><span class="line">	cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; a;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="type">int</span> x;</span><br><span class="line">		cin&gt;&gt;x;</span><br><span class="line">		a.<span class="built_in">push_back</span>(x);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(m--)&#123;</span><br><span class="line">		<span class="type">int</span> target;</span><br><span class="line">		cin&gt;&gt;target;</span><br><span class="line">		<span class="keyword">auto</span> it =<span class="built_in">lower_bound</span>(a.<span class="built_in">begin</span>(),a.<span class="built_in">end</span>(),target);</span><br><span class="line">		<span class="keyword">if</span>(it!=a.<span class="built_in">end</span>()&amp;&amp;*it==target)&#123;</span><br><span class="line">			cout&lt;&lt;<span class="built_in">distance</span>(a.<span class="built_in">begin</span>(),it)+<span class="number">1</span>&lt;&lt;<span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;-1 &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>);cin.<span class="built_in">tie</span>(<span class="number">0</span>);cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="built_in">solve</span>();	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="实数范围的二分（带小数）"><a href="#实数范围的二分（带小数）" class="headerlink" title="实数范围的二分（带小数）"></a>实数范围的二分（带小数）</h4><h5 id="对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。"><a href="#对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。" class="headerlink" title="对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。"></a>对于实数二分来说，是有许多解决方法，比如说求单调函数的零点或者极值。另外就是满足某种条件的最优解；或者是解决一些复杂度较高的问题。</h5><h5 id="用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。"><a href="#用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。" class="headerlink" title="用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。"></a>用二分法求解函数零点的例子，首先要定义一个函数是对应的表达式。然后小数二分的一个技巧是right-left要大于某个exp值，才会继续往下循环，然后就是最常规的二分操作。</h5><h5 id="举个例子，对于f-x-x-2-2，精度为1e-6，要通过二分法求零点的话。"><a href="#举个例子，对于f-x-x-2-2，精度为1e-6，要通过二分法求零点的话。" class="headerlink" title="举个例子，对于f(x) &#x3D; x^2-2，精度为1e-6，要通过二分法求零点的话。"></a>举个例子，对于f(x) &#x3D; x^2-2，精度为1e-6，要通过二分法求零点的话。</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x*x<span class="number">-2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">double</span> left = <span class="number">0</span>,right = <span class="number">2</span>,eps = <span class="number">1e-6</span>;</span><br><span class="line">	<span class="keyword">while</span>(right-left&gt;eps)&#123;</span><br><span class="line">		<span class="type">double</span> mid = left+(right-left)/<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">f</span>(mid)&gt;<span class="number">0</span>)&#123;</span><br><span class="line">			right = mid;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			left = mid;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cout&lt;&lt;<span class="string">&quot;零点是:&quot;</span>&lt;&lt;left&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="P1024-一元三次方程求解"><a href="#P1024-一元三次方程求解" class="headerlink" title="P1024 一元三次方程求解"></a>P1024 一元三次方程求解</h4><h5 id="题目有形如：ax-3-bx-2-cx-d-0-这样的一个一元三次方程。给出该方程中各项的系数（a-b-c-d-均为实数），并约定该方程存在三个不同实根（根的范围在-−100至-100-之间），且根与根之差的绝对值-≥1。要求由小到大依次在同一行输出这三个实根-根与根之间留有空格-，并精确到小数点后-2-位。"><a href="#题目有形如：ax-3-bx-2-cx-d-0-这样的一个一元三次方程。给出该方程中各项的系数（a-b-c-d-均为实数），并约定该方程存在三个不同实根（根的范围在-−100至-100-之间），且根与根之差的绝对值-≥1。要求由小到大依次在同一行输出这三个实根-根与根之间留有空格-，并精确到小数点后-2-位。" class="headerlink" title="题目有形如：ax^3+bx^2+cx+d&#x3D;0 这样的一个一元三次方程。给出该方程中各项的系数（a,b,c,d 均为实数），并约定该方程存在三个不同实根（根的范围在 −100至 100 之间），且根与根之差的绝对值 ≥1。要求由小到大依次在同一行输出这三个实根(根与根之间留有空格)，并精确到小数点后 2 位。"></a>题目有形如：ax^3+bx^2+cx+d&#x3D;0 这样的一个一元三次方程。给出该方程中各项的系数（a,b,c,d 均为实数），并约定该方程存在三个不同实根（根的范围在 −100至 100 之间），且根与根之差的绝对值 ≥1。要求由小到大依次在同一行输出这三个实根(根与根之间留有空格)，并精确到小数点后 2 位。</h5><h5 id="提示：记方程-f-x-0，若存在-2-个数-x1​-和-x2​，且-x1​"><a href="#提示：记方程-f-x-0，若存在-2-个数-x1​-和-x2​，且-x1​" class="headerlink" title="提示：记方程 f(x)&#x3D;0，若存在 2 个数 x1​ 和 x2​，且 x1​&lt;x2​，f(x1​)×f(x2​)&lt;0，则在 (x1​,x2​) 之间一定有一个根。"></a>提示：记方程 f(x)&#x3D;0，若存在 2 个数 x1​ 和 x2​，且 x1​&lt;x2​，f(x1​)×f(x2​)&lt;0，则在 (x1​,x2​) 之间一定有一个根。</h5><h5 id=""><a href="#" class="headerlink" title=""></a></h5><h5 id="输入和输出案例"><a href="#输入和输出案例" class="headerlink" title="输入和输出案例"></a>输入和输出案例</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 -5 -4 20</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-2.00 2.00 5.00</span><br></pre></td></tr></table></figure>
+
+<h5 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h5><h5 id="这就是典型的函数零点求解。"><a href="#这就是典型的函数零点求解。" class="headerlink" title="这就是典型的函数零点求解。"></a>这就是典型的函数零点求解。</h5><h5 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">double</span> a,b,c,d;<span class="comment">//定义全局变量，在函数和主程序里面都有用 </span></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">f</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a*x*x*x+b*x*x+c*x+d);<span class="comment">//万能函数，求出在未知数为x时的方程解 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">double</span> x1,x2,xx;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;d;<span class="comment">//输入 </span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">-100</span>;x&lt;=<span class="number">100</span>;x+=<span class="number">1</span>)<span class="comment">//枚举每一个可能的根 </span></span><br><span class="line">    &#123;</span><br><span class="line">        x1=x;x2=x+<span class="number">1</span>;<span class="comment">//确定根可能所在的区间 </span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">f</span>(x1)==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">&quot;%.2f &quot;</span>,x1);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">f</span>(x1)*<span class="built_in">f</span>(x2)&lt;<span class="number">0</span>)</span><br><span class="line">             &#123;</span><br><span class="line">                 <span class="keyword">while</span>(x2-x1&gt;=<span class="number">0.001</span>)<span class="comment">//二分法确定根的值 </span></span><br><span class="line">                 &#123;</span><br><span class="line">                      xx=(x1+x2)/<span class="number">2</span>;</span><br><span class="line">                      <span class="keyword">if</span>((<span class="built_in">f</span>(x1)*<span class="built_in">f</span>(xx))&lt;=<span class="number">0</span>)x2=xx;</span><br><span class="line">                      <span class="keyword">else</span> x1=xx;</span><br><span class="line">                 &#125;</span><br><span class="line">                 <span class="built_in">printf</span>(<span class="string">&quot;%.2f &quot;</span>,x1);<span class="comment">//输出根 </span></span><br><span class="line">             &#125;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="对于二分法区间的操作"><a href="#对于二分法区间的操作" class="headerlink" title="对于二分法区间的操作"></a>对于二分法区间的操作</h4><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/533408649">二分法总结 | 万字长文带你看透二分查找 - 知乎 (zhihu.com)</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/02/16/dp-01%E8%83%8C%E5%8C%85%E5%92%8C%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          dp(01背包和完全背包)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/02/05/%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8Ccmp%E7%9A%84%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">结构体和cmp的简单操作</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2024 iolzyy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
