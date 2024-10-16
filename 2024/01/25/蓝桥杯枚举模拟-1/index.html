@@ -89,7 +89,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -285,6 +286,8 @@
 <p>可以看出第一个花完的数字是1，所以所以我们只需要暴力模拟，将每个的数的每一位数对十取模得到每位数，然后是1就减，见到1的牌数为0。但是需要注意的是最终的结果需要减1，因为在我的代码中加多了一次因为最后判定的一次。</p>
 </blockquote>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs go">#include&lt;bits/stdc++.h&gt;<br><br>using namespace std;<br><br>typedef long long ll;<br><br>constexpr <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><br><span class="hljs-type">int</span> cnt = <span class="hljs-number">2021</span>;<br><br>  <br><br>void solve()&#123;<br><br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;;i++)&#123;<br><br>	<span class="hljs-type">int</span> b = i;<br><br>	while(b)&#123;<br><br>		<span class="hljs-type">int</span> t = b%<span class="hljs-number">10</span>;<br><br>		<span class="hljs-keyword">if</span>(t==<span class="hljs-number">1</span>)&#123;<br><br>			<span class="hljs-keyword">if</span>(cnt==<span class="hljs-number">0</span>)&#123;<br><br>			cout&lt;&lt;i<span class="hljs-number">-1</span>&lt;&lt;<span class="hljs-string">&#x27; &#x27;</span>;<br><br>			<span class="hljs-keyword">return</span>;<br><br>			&#125;<br><br>		<span class="hljs-keyword">else</span> cnt--;<br><br>		&#125;<br><br>		b/=<span class="hljs-number">10</span>;<br><br>		&#125;<br><br>	&#125;<br><br>&#125;<br><br><span class="hljs-type">int</span> main()&#123;<br><br>	ios::sync_with_stdio(<span class="hljs-number">0</span>);cin.tie(<span class="hljs-number">0</span>);cout.tie(<span class="hljs-number">0</span>);<br><br>	solve();<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
 <h3 id="赢球票"><a href="#赢球票" class="headerlink" title="赢球票"></a>赢球票</h3><h4 id="【问题描述】-1"><a href="#【问题描述】-1" class="headerlink" title="【问题描述】"></a>【问题描述】</h4><p>某机构举办球票大奖赛。获奖选手有机会赢得若干张球票。<br>主持人拿出 N 张卡片（上面写着 1, . . . , N 的数字），打乱顺序，排成一个圆圈。<br>你可以从任意一张卡片开始顺时针数数: 1, 2, 3 . . .<br>如果数到的数字刚好和卡片上的数字相同，则把该卡片收入囊中，从下一张卡片重<br>新数数。<br>直到再无法收获任何卡片，游戏结束。囊中卡片数字的和就是赢得球票的张数。<br>比如卡片排列是 1 2 3，我们从 1 号卡开始数，就把 1 号卡拿走。再从 2 号卡开始，<br>但数的数字无法与卡片对上，很快数字越来越大，不可能再拿走卡片了。因此这次我们<br>只赢得了 1 张球票。<br>还不算太坏！如果我们开始就傻傻地从 2 或 3 号卡片数起，那就一张卡片都拿不<br>到了。<br>如果运气好，卡片排列是 2 1 3，那我们可以顺利拿到所有的卡片！<br>本题目标：已知顺时针卡片序列，随便你从哪里开始数，求最多能赢多少张球票（就<br>是收入囊中的卡片数字之和）。</p>
 <h4 id="【输入格式】"><a href="#【输入格式】" class="headerlink" title="【输入格式】"></a>【输入格式】</h4><p>第一行一个整数 N (N ⩽ 100)，表示卡片数目。<br>第二行 N 个整数，表示顺时针排列的卡片。</p>
 <h4 id="【输出格式】"><a href="#【输出格式】" class="headerlink" title="【输出格式】"></a>【输出格式】</h4><p>输出一行，一个整数，表示最好情况下能赢得多少张球票。</p>
@@ -430,6 +433,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -622,6 +631,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

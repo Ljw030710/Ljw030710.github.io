@@ -89,7 +89,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -288,7 +289,8 @@
 <h5 id="这样进行当我们点登录窗口的时候点击清空那么就会清空"><a href="#这样进行当我们点登录窗口的时候点击清空那么就会清空" class="headerlink" title="这样进行当我们点登录窗口的时候点击清空那么就会清空"></a>这样进行当我们点登录窗口的时候点击清空那么就会清空</h5><h4 id="总结一下父子组件通信：需要在子组件定义好想要的数据和变量，父组件就是通过这个属性进行传递，然后父组件状态得到渲染，然后给到子组件，状态改变进行渲染。"><a href="#总结一下父子组件通信：需要在子组件定义好想要的数据和变量，父组件就是通过这个属性进行传递，然后父组件状态得到渲染，然后给到子组件，状态改变进行渲染。" class="headerlink" title="总结一下父子组件通信：需要在子组件定义好想要的数据和变量，父组件就是通过这个属性进行传递，然后父组件状态得到渲染，然后给到子组件，状态改变进行渲染。"></a>总结一下父子组件通信：需要在子组件定义好想要的数据和变量，父组件就是通过这个属性进行传递，然后父组件状态得到渲染，然后给到子组件，状态改变进行渲染。</h4><h3 id="二，Pinia变量全局存储"><a href="#二，Pinia变量全局存储" class="headerlink" title="二，Pinia变量全局存储"></a>二，Pinia变量全局存储</h3><h4 id="Pinal的官方文档-https-pinia-vuejs-org-zh"><a href="#Pinal的官方文档-https-pinia-vuejs-org-zh" class="headerlink" title="Pinal的官方文档 https://pinia.vuejs.org/zh/"></a>Pinal的官方文档 <a target="_blank" rel="noopener" href="https://pinia.vuejs.org/zh/">https://pinia.vuejs.org/zh/</a></h4><h4 id="首先我们需要安装Pinia的包"><a href="#首先我们需要安装Pinia的包" class="headerlink" title="首先我们需要安装Pinia的包"></a>首先我们需要安装Pinia的包</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go">npm/cnpm/pnpm install pinia<br></code></pre></td></tr></table></figure>
 <h5 id="然后再main-ts中添加"><a href="#然后再main-ts中添加" class="headerlink" title="然后再main.ts中添加"></a>然后再main.ts中添加</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// main.ts</span><br><br><br><span class="hljs-keyword">import</span> &#123; createApp &#125; from <span class="hljs-string">&quot;vue&quot;</span>;<br><span class="hljs-keyword">import</span> App from <span class="hljs-string">&quot;./App.vue&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; createPinia &#125; from <span class="hljs-string">&quot;pinia&quot;</span>;<br><span class="hljs-keyword">const</span> pinia = createPinia();<br><br><br><span class="hljs-keyword">const</span> app = createApp(App);<br>app.use(pinia);<br>app.mount(<span class="hljs-string">&quot;#app&quot;</span>);<br></code></pre></td></tr></table></figure>
 <h5 id="就是import什么，我们下面就需要用app-use-来进行挂载。"><a href="#就是import什么，我们下面就需要用app-use-来进行挂载。" class="headerlink" title="就是import什么，我们下面就需要用app.use()来进行挂载。"></a>就是import什么，我们下面就需要用app.use()来进行挂载。</h5><h5 id="接着在src目录下新建store文件夹-并且创建index-ts的文件"><a href="#接着在src目录下新建store文件夹-并且创建index-ts的文件" class="headerlink" title="接着在src目录下新建store文件夹,并且创建index.ts的文件"></a>接着在src目录下新建store文件夹,并且创建index.ts的文件</h5><h5 id="需要在store下文件创建后需要有以下操作"><a href="#需要在store下文件创建后需要有以下操作" class="headerlink" title="需要在store下文件创建后需要有以下操作"></a>需要在store下文件创建后需要有以下操作</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//引入仓库插件</span><br><span class="hljs-keyword">import</span> &#123;defineStore&#125; from <span class="hljs-string">&#x27;pinia&#x27;</span><br><span class="hljs-comment">//定义仓库名字，比如是Loginstore.ts的文件,就创建和名字相同的仓库名字</span><br><span class="hljs-keyword">const</span> loginStore = defineStore(  <br>    <span class="hljs-string">&quot;login&quot;</span>,  <br>    () =&gt; &#123;  <br>       <span class="hljs-keyword">const</span> loginSession = ref(<span class="hljs-literal">false</span>);  <br>       <span class="hljs-keyword">const</span> setLogin = (loginNewSession: boolean) =&gt; &#123;  <br>          loginSession.value = loginNewSession;  <br>       &#125;;  <br>  <br>       <span class="hljs-keyword">return</span> &#123;  <br>          loginSession,  <br>          setLogin,  <br>       &#125;;  <br>    &#125;,  <br>    &#123;  <br>       persist: <span class="hljs-literal">true</span>,  <span class="hljs-comment">//这个是进行持久化hook</span><br>    &#125;  <br>);<br><span class="hljs-comment">//需要全局使用，</span><br>export <span class="hljs-keyword">default</span> loginStore;<br></code></pre></td></tr></table></figure>
-<h4 id="关于在main-ts中router和pinia的优先问题"><a href="#关于在main-ts中router和pinia的优先问题" class="headerlink" title="关于在main.ts中router和pinia的优先问题"></a>关于在main.ts中router和pinia的优先问题</h4><h5 id="因为在main-ts中，注册router总比pinia先，所以不能使用到store-index-js文件中createPinia方法，只能在router文件中再createPinia一次，才能使用到pinia-所以需要进行手动挂载"><a href="#因为在main-ts中，注册router总比pinia先，所以不能使用到store-index-js文件中createPinia方法，只能在router文件中再createPinia一次，才能使用到pinia-所以需要进行手动挂载" class="headerlink" title="因为在main.ts中，注册router总比pinia先，所以不能使用到store/index.js文件中createPinia方法，只能在router文件中再createPinia一次，才能使用到pinia,所以需要进行手动挂载"></a>因为在main.ts中，注册router总比pinia先，所以不能使用到store/index.js文件中createPinia方法，只能在router文件中再createPinia一次，才能使用到pinia,所以需要进行手动挂载</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//在router中</span><br><span class="hljs-keyword">import</span> pinia <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../store&quot;</span>;<br><span class="hljs-keyword">import</span> loginstore <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../store/loginstore.ts&quot;</span>;<br><span class="hljs-keyword">import</span> &#123;storeToRefs&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;pinia&quot;</span>;<br><span class="hljs-keyword">const</span> loginstore = <span class="hljs-title function_">loginStore</span>(pinia);<br><span class="hljs-keyword">const</span> &#123;loginSession&#125; = <span class="hljs-title function_">storeToRefs</span>(loginstore);<br></code></pre></td></tr></table></figure>
+<h4 id="关于在main-ts中router和pinia的优先问题"><a href="#关于在main-ts中router和pinia的优先问题" class="headerlink" title="关于在main.ts中router和pinia的优先问题"></a>关于在main.ts中router和pinia的优先问题</h4><h5 id="因为在main-ts中，注册router总比pinia先，所以不能使用到store-index-js文件中createPinia方法，只能在router文件中再createPinia一次，才能使用到pinia-所以需要进行手动挂载"><a href="#因为在main-ts中，注册router总比pinia先，所以不能使用到store-index-js文件中createPinia方法，只能在router文件中再createPinia一次，才能使用到pinia-所以需要进行手动挂载" class="headerlink" title="因为在main.ts中，注册router总比pinia先，所以不能使用到store&#x2F;index.js文件中createPinia方法，只能在router文件中再createPinia一次，才能使用到pinia,所以需要进行手动挂载"></a>因为在main.ts中，注册router总比pinia先，所以不能使用到store&#x2F;index.js文件中createPinia方法，只能在router文件中再createPinia一次，才能使用到pinia,所以需要进行手动挂载</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//在router中</span><br><span class="hljs-keyword">import</span> pinia <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../store&quot;</span>;<br><span class="hljs-keyword">import</span> loginstore <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;../store/loginstore.ts&quot;</span>;<br><span class="hljs-keyword">import</span> &#123;storeToRefs&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;pinia&quot;</span>;<br><span class="hljs-keyword">const</span> loginstore = <span class="hljs-title function_">loginStore</span>(pinia);<br><span class="hljs-keyword">const</span> &#123;loginSession&#125; = <span class="hljs-title function_">storeToRefs</span>(loginstore);<br></code></pre></td></tr></table></figure>
+
 <h5 id="另外就是关于持久化数据的store，就是说如果你登陆之后退出后需要不重新进入，那么就是用持节化hook"><a href="#另外就是关于持久化数据的store，就是说如果你登陆之后退出后需要不重新进入，那么就是用持节化hook" class="headerlink" title="另外就是关于持久化数据的store，就是说如果你登陆之后退出后需要不重新进入，那么就是用持节化hook"></a>另外就是关于持久化数据的store，就是说如果你登陆之后退出后需要不重新进入，那么就是用持节化hook</h5><h5 id="Home-pinia-plugin-persistedstate-prazdevs-github-io"><a href="#Home-pinia-plugin-persistedstate-prazdevs-github-io" class="headerlink" title="Home | pinia-plugin-persistedstate (prazdevs.github.io)"></a><a target="_blank" rel="noopener" href="https://prazdevs.github.io/pinia-plugin-persistedstate/zh/">Home | pinia-plugin-persistedstate (prazdevs.github.io)</a></h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs go">pnpm i pinia-plugin-persistedstate<span class="hljs-comment">//安装</span><br><span class="hljs-comment">//将插件添加到index.ts</span><br><span class="hljs-keyword">import</span> &#123; createPinia &#125; from <span class="hljs-string">&#x27;pinia&#x27;</span> <br><span class="hljs-keyword">import</span> piniaPluginPersistedstate from <span class="hljs-string">&#x27;pinia-plugin-persistedstate&#x27;</span> <br><span class="hljs-keyword">const</span> pinia = createPinia() <br>pinia.use(piniaPluginPersistedstate)<br></code></pre></td></tr></table></figure>
 <h5 id="然后加一个presist：true。在上方的案例有写。"><a href="#然后加一个presist：true。在上方的案例有写。" class="headerlink" title="然后加一个presist：true。在上方的案例有写。"></a>然后加一个presist：true。在上方的案例有写。</h5>
                 
@@ -427,6 +429,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -619,6 +627,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

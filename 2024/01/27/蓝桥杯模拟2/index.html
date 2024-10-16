@@ -89,7 +89,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -281,17 +282,20 @@
               <div class="markdown-body">
                 
                 <h4 id="小蓝每天都锻炼身体。正常情况下-小蓝每天跑1千米。如果某天是周一或者月初-1日-为了激励自己-小蓝要跑2千米。如果同时是周一或月初-小蓝也是跑2千米。小蓝跑步已经坚持了很长时间-从2000年1月1日周六-含-到2020年10月1日周四-含-。请问这段时间小蓝总共跑步多少千米"><a href="#小蓝每天都锻炼身体。正常情况下-小蓝每天跑1千米。如果某天是周一或者月初-1日-为了激励自己-小蓝要跑2千米。如果同时是周一或月初-小蓝也是跑2千米。小蓝跑步已经坚持了很长时间-从2000年1月1日周六-含-到2020年10月1日周四-含-。请问这段时间小蓝总共跑步多少千米" class="headerlink" title="小蓝每天都锻炼身体。正常情况下,小蓝每天跑1千米。如果某天是周一或者月初(1日),为了激励自己,小蓝要跑2千米。如果同时是周一或月初,小蓝也是跑2千米。小蓝跑步已经坚持了很长时间,从2000年1月1日周六(含)到2020年10月1日周四(含)。请问这段时间小蓝总共跑步多少千米?"></a>小蓝每天都锻炼身体。正常情况下,小蓝每天跑1千米。如果某天是周一或者月初(1日),为了激励自己,小蓝要跑2千米。如果同时是周一或月初,小蓝也是跑2千米。小蓝跑步已经坚持了很长时间,从2000年1月1日周六(含)到2020年10月1日周四(含)。请问这段时间小蓝总共跑步多少千米?</h4><h5 id="题目解析：从一月一日开始，如果是闰年就要让二月变成29天，然后计数的时候对周一和每月一号进行特判，然后到截止日期就停止，并且返回输出的数字。"><a href="#题目解析：从一月一日开始，如果是闰年就要让二月变成29天，然后计数的时候对周一和每月一号进行特判，然后到截止日期就停止，并且返回输出的数字。" class="headerlink" title="题目解析：从一月一日开始，如果是闰年就要让二月变成29天，然后计数的时候对周一和每月一号进行特判，然后到截止日期就停止，并且返回输出的数字。"></a>题目解析：从一月一日开始，如果是闰年就要让二月变成29天，然后计数的时候对周一和每月一号进行特判，然后到截止日期就停止，并且返回输出的数字。</h5><h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs go">#include&lt;bits/stdc++.h&gt;<br><br>using namespace std;<br><br>typedef long long ll;<br><br>constexpr <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><br>void solve()&#123;<br><br>	<span class="hljs-type">int</span> months[<span class="hljs-number">13</span>] = &#123;<span class="hljs-number">0</span>,<span class="hljs-number">31</span>,<span class="hljs-number">28</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>,<span class="hljs-number">30</span>,<span class="hljs-number">31</span>&#125;;<br><br>	<span class="hljs-type">int</span> year,month,day;<br>	<br>	<span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br><br>	<span class="hljs-type">int</span> ans = <span class="hljs-number">6</span>;<br><br>	<span class="hljs-keyword">for</span>(year=<span class="hljs-number">2000</span>;year&lt;=<span class="hljs-number">2020</span>;year++)&#123;<br><br>		<span class="hljs-keyword">if</span>(year%<span class="hljs-number">400</span>==<span class="hljs-number">0</span>||(year%<span class="hljs-number">4</span>==<span class="hljs-number">0</span>&amp;&amp;year%<span class="hljs-number">100</span>!=<span class="hljs-number">0</span>))&#123;<br><br>			months[<span class="hljs-number">2</span>] = <span class="hljs-number">29</span>;<br><br>		&#125;<br><br>		<span class="hljs-keyword">else</span> months[<span class="hljs-number">2</span>] = <span class="hljs-number">28</span>;<br><br>		<span class="hljs-keyword">for</span>(month=<span class="hljs-number">1</span>;month&lt;=<span class="hljs-number">12</span>;month++)&#123;<br><br>			<span class="hljs-keyword">for</span>(day=<span class="hljs-number">1</span>;day&lt;=months[month];day++)&#123;<br><br>				cnt++;<br><br>				<span class="hljs-keyword">if</span>(ans&gt;<span class="hljs-number">7</span>) ans=<span class="hljs-number">1</span>;<br><br>				<span class="hljs-keyword">if</span>(ans==<span class="hljs-number">1</span>||day==<span class="hljs-number">1</span>)&#123;<br><br>					cnt++;<br><br>				&#125;<br><br>				ans++;<br><br>				<span class="hljs-keyword">if</span>(year==<span class="hljs-number">2020</span>&amp;&amp;month==<span class="hljs-number">10</span>&amp;&amp;day==<span class="hljs-number">1</span>)&#123;<br><br>					cout&lt;&lt;cnt;<br><br>					<span class="hljs-keyword">return</span>;<br><br>				&#125;<br><br>			&#125;<br><br>		&#125;<br><br>	&#125;<br><br>&#125;<br><br><span class="hljs-type">int</span> main()&#123;<br><br>ios::sync_with_stdio(<span class="hljs-number">0</span>);cin.tie(<span class="hljs-number">0</span>);cout.tie(<span class="hljs-number">0</span>);<br><br>solve();<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
 <h4 id="货物摆放"><a href="#货物摆放" class="headerlink" title="货物摆放"></a>货物摆放</h4><h4 id="题目：题目描述"><a href="#题目：题目描述" class="headerlink" title="题目：题目描述"></a>题目：题目描述</h4><p>小蓝有一个超大的仓库,可以摆放很多货物。</p>
 <p>现在,小蓝有n箱货物要摆放在仓库,每箱货物都是规则的正方体。小蓝规定了长、宽、高<br>三个互相垂直的方向,每箱货物的边都必须严格平行于长、宽、高。</p>
-<p>小蓝希望所有的货物最终摆成一个大的长方体。即在长、宽、高的方向上分别堆L、W、<br>H的货物,满足n=LxWxH。</p>
+<p>小蓝希望所有的货物最终摆成一个大的长方体。即在长、宽、高的方向上分别堆L、W、<br>H的货物,满足n&#x3D;LxWxH。</p>
 <p>给定n,请问有多少种堆放货物的方案满足要求。</p>
-<p>例如,当n=4时,有以下6种方案:1×1×4、1×2×2、1×4×1、2×1x<br>2、2×2×1、4×1×1.</p>
-<p>请问,当n=2021041820210418 (注意有16位数字)时,总共有多少种方案?</p>
+<p>例如,当n&#x3D;4时,有以下6种方案:1×1×4、1×2×2、1×4×1、2×1x<br>2、2×2×1、4×1×1.</p>
+<p>请问,当n&#x3D;2021041820210418 (注意有16位数字)时,总共有多少种方案?</p>
 <p>提示:建议使用计算机编程解决问题。</p>
 <h4 id="问题解析："><a href="#问题解析：" class="headerlink" title="问题解析："></a>问题解析：</h4><blockquote>
 <p>如果纯暴力会t，就是一个先找到约数，找到约数然后对约数进行三重循环然后找到能够能够对应的就情况数加1，约数的找就是从小开始，只要找到小的约数，然后在找相乘的另外一个大的约数即可。</p>
 </blockquote>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><code class="hljs go">#include&lt;bits/stdc++.h&gt;<br><br>using namespace std;<br><br>typedef long long ll;<br><br>constexpr <span class="hljs-type">int</span> N = <span class="hljs-number">1e7</span>+<span class="hljs-number">10</span>;<br><br>long long n = <span class="hljs-number">2021041820210418</span>;<br><br>long long arr[N];<br><br>void solve()&#123;<br><br>	ll ans = <span class="hljs-number">0</span>;<br><br>	ll i = <span class="hljs-number">0</span>;<br><br>	<span class="hljs-comment">//找约数</span><br><br>	ll cnt = <span class="hljs-number">0</span>;<br><br>	<span class="hljs-keyword">for</span>(ll i = <span class="hljs-number">1</span>;i*i&lt;=n;i++)&#123;<br><br>		<span class="hljs-keyword">if</span>(n%i==<span class="hljs-number">0</span>)&#123;<br><br>			arr[cnt] = i;<br><br>			cnt++;<br><br>			<span class="hljs-keyword">if</span>(n/i!=i)&#123;<br><br>				arr[cnt] = n/i;<br><br>				cnt++;<br><br>			&#125;<br><br>		&#125;<br>	<br>	&#125;<br><br>	<span class="hljs-keyword">for</span>(ll a = <span class="hljs-number">0</span>;a&lt;cnt;a++)&#123;<br>	<br>		<span class="hljs-keyword">for</span>(ll b = <span class="hljs-number">0</span>;b&lt;cnt;b++)&#123;<br><br>			<span class="hljs-keyword">for</span>(ll c = <span class="hljs-number">0</span>;c&lt;cnt;c++)&#123;<br><br>				<span class="hljs-keyword">if</span>(arr[a]*arr[b]*arr[c]==n)&#123;<br><br>					ans++;<br><br>				&#125;<br><br>			&#125;<br><br>		&#125;<br><br>	&#125;<br><br>	cout&lt;&lt;ans;<br><br>	<span class="hljs-keyword">return</span>;<br><br>&#125;<br><br>  <br><br><span class="hljs-type">int</span> main()&#123;<br><br>ios::sync_with_stdio(<span class="hljs-number">0</span>);cin.tie(<span class="hljs-number">0</span>);cout.tie(<span class="hljs-number">0</span>);<br><br>solve();<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h4 id="特别数的和"><a href="#特别数的和" class="headerlink" title="特别数的和"></a>特别数的和</h4><h4 id="题目：题目描述-1"><a href="#题目：题目描述-1" class="headerlink" title="题目：题目描述"></a>题目：题目描述</h4><p>小明对数位中含有2、0、1、9的数字很感兴趣(不包括前导0),在1到40中这样的<br>数包括1、2、9、10至32、39和40,共28个,他们的和是574。</p>
 <p>请问,在1到n中,所有这样的数的和是多少?</p>
 <p>输入描述</p>
@@ -300,6 +304,7 @@
 <p>输出描述</p>
 <p>输出一行,包含一个整数,表示满足条件的数的和。</p>
 <h4 id="题目解析：只需要找到对每个数的每一位数进行取模运算，然后看每一位数是不是符合上面题目的条件。有就计数器加1"><a href="#题目解析：只需要找到对每个数的每一位数进行取模运算，然后看每一位数是不是符合上面题目的条件。有就计数器加1" class="headerlink" title="题目解析：只需要找到对每个数的每一位数进行取模运算，然后看每一位数是不是符合上面题目的条件。有就计数器加1"></a>题目解析：只需要找到对每个数的每一位数进行取模运算，然后看每一位数是不是符合上面题目的条件。有就计数器加1</h4><h4 id="代码：-1"><a href="#代码：-1" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs go">#include&lt;bits/stdc++.h&gt;<br><br>using namespace std;<br><br>typedef long long ll;<br><br>constexpr <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><br><span class="hljs-type">bool</span> check(<span class="hljs-type">int</span> n)&#123;<br><br>  while(n)&#123;<br><br>    <span class="hljs-type">int</span> s = n%<span class="hljs-number">10</span>;<br><br>    n/=<span class="hljs-number">10</span>;<br><br>    <span class="hljs-keyword">if</span>(s==<span class="hljs-number">1</span>||s==<span class="hljs-number">2</span>||s==<span class="hljs-number">9</span>||s==<span class="hljs-number">0</span>)&#123;<br><br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br><br>    &#125;<br><br>  &#125;<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br><br>&#125;<br><br>void solve()&#123;<br><br>  <span class="hljs-type">int</span> num;<br><br>  cin&gt;&gt;num;<br><br>  <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br><br>  <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>;i&lt;=num;i++)&#123;<br><br>    <span class="hljs-keyword">if</span>(check(i)) ans+=i;<br><br>  &#125;<br><br>  cout&lt;&lt;ans;<br><br>  <span class="hljs-keyword">return</span>;<br><br>&#125;<br><br>  <br><br><span class="hljs-type">int</span> main()&#123;<br><br>    ios::sync_with_stdio(<span class="hljs-number">0</span>);cin.tie(<span class="hljs-number">0</span>);cout.tie(<span class="hljs-number">0</span>);<br><br>    solve();<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <h4 id="天干地支"><a href="#天干地支" class="headerlink" title="天干地支"></a>天干地支</h4><h4 id="题目描述：古代中国使用天干地支来记录当前的年份。"><a href="#题目描述：古代中国使用天干地支来记录当前的年份。" class="headerlink" title="题目描述：古代中国使用天干地支来记录当前的年份。"></a>题目描述：古代中国使用天干地支来记录当前的年份。</h4><p>天干一共有十个,分别为:甲(jia)、乙(yi)、丙(bing)、丁(ding)、戊(wù)、<br>己(ji)、庚(gēng)、辛(xin)、壬(rén)、癸(gui)。</p>
 <p>地支一共有十二个,分别为:子(zi)、丑(chou)、寅(yin)、卯(mao)、辰<br>(chén)、巳(si)、午(wu)、未(wèi)、申(shen)、酉(yǒu)、戌(xū)、亥<br>(hài) .</p>
 <p>将天干和地支连起来,就组成了一个天干地支的年份,例如:甲子。</p>
@@ -308,6 +313,7 @@
 <p>每过60年,天干会循环6轮,地支会循环5轮,所以天干地支纪年每60年轮回一次。<br>例如1900年,1960年,2020年都是庚子年。</p>
 <p>给定一个公元纪年的年份,请输出这一年的天干地支年份。</p>
 <h4 id="解析：2020年模10，就可以知道天干的顺序是从庚开始的，然后模12就可以知道4是子，然后往下就是从0-11的顺序了，所以我们可以手动打表将这些东西排序好。"><a href="#解析：2020年模10，就可以知道天干的顺序是从庚开始的，然后模12就可以知道4是子，然后往下就是从0-11的顺序了，所以我们可以手动打表将这些东西排序好。" class="headerlink" title="解析：2020年模10，就可以知道天干的顺序是从庚开始的，然后模12就可以知道4是子，然后往下就是从0-11的顺序了，所以我们可以手动打表将这些东西排序好。"></a>解析：2020年模10，就可以知道天干的顺序是从庚开始的，然后模12就可以知道4是子，然后往下就是从0-11的顺序了，所以我们可以手动打表将这些东西排序好。</h4><h4 id="代码：-2"><a href="#代码：-2" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs go">#include&lt;bits/stdc++.h&gt;<br><br>using namespace std;<br><br>typedef long long ll;<br><br>constexpr <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span>+<span class="hljs-number">10</span>;<br><br>void solve()&#123;<br><br>  <br><br>    <span class="hljs-type">int</span> year;<br><br>    std::cin &gt;&gt; year;<br><br>    std::<span class="hljs-type">string</span> heavenly[<span class="hljs-number">10</span>] = &#123;<span class="hljs-string">&quot;geng&quot;</span>, <span class="hljs-string">&quot;xin&quot;</span>, <span class="hljs-string">&quot;ren&quot;</span>, <span class="hljs-string">&quot;gui&quot;</span>, <span class="hljs-string">&quot;jia&quot;</span>, <span class="hljs-string">&quot;yi&quot;</span> , <span class="hljs-string">&quot;bing&quot;</span>, <span class="hljs-string">&quot;ding&quot;</span>, <span class="hljs-string">&quot;wu&quot;</span>, <span class="hljs-string">&quot;ji&quot;</span>&#125;;<br><br>    std::<span class="hljs-type">string</span> earthlyBranch[<span class="hljs-number">12</span>] = &#123;<span class="hljs-string">&quot;shen&quot;</span>, <span class="hljs-string">&quot;you&quot;</span>, <span class="hljs-string">&quot;xu&quot;</span>, <span class="hljs-string">&quot;hai&quot;</span>, <span class="hljs-string">&quot;zi&quot;</span>, <span class="hljs-string">&quot;chou&quot;</span>, <span class="hljs-string">&quot;yin&quot;</span>, <span class="hljs-string">&quot;mou&quot;</span>, <span class="hljs-string">&quot;chen&quot;</span>, <span class="hljs-string">&quot;si&quot;</span>, <span class="hljs-string">&quot;wu&quot;</span>, <span class="hljs-string">&quot;wei&quot;</span>&#125;;<br><br>  <br><br>    std::cout &lt;&lt; heavenly[year % <span class="hljs-number">10</span>] &lt;&lt; earthlyBranch[year % <span class="hljs-number">12</span>] &lt;&lt; std::endl;<br><br>  <br><br>&#125;<br><br><span class="hljs-type">int</span> main()&#123;<br><br>    ios::sync_with_stdio(<span class="hljs-number">0</span>);cin.tie(<span class="hljs-number">0</span>);cout.tie(<span class="hljs-number">0</span>);<br><br>  solve();<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>模拟章节就结束，难度不大</p>
 
                 
@@ -446,6 +452,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -638,6 +650,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
