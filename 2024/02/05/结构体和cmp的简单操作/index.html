@@ -22,8 +22,8 @@
     <meta name="description" content="在做排序算法的基础题的时候。如果一个对象里面多个元素需要进行排序，那么用结构体加cmp，对sort的排序进行改写,就能达到一个很好的效果。P1781 宇宙总统题目描述地球历公元 6036 年，全宇宙准备竞选一个最贤能的人当总统，共有 n 个非凡拔尖的人竞选总统，现在票数已经统计完毕，请你算出谁能够当上总统。 输入输出样式12345659876512365879541022356985678  12">
 <meta property="og:type" content="article">
 <meta property="og:title" content="结构体和cmp的简单操作">
-<meta property="og:url" content="http://example.com/2024/02/05/%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8Ccmp%E7%9A%84%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="https://ljw030710.github.io/2024/02/05/%E7%BB%93%E6%9E%84%E4%BD%93%E5%92%8Ccmp%E7%9A%84%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="iolzyy">
 <meta property="og:description" content="在做排序算法的基础题的时候。如果一个对象里面多个元素需要进行排序，那么用结构体加cmp，对sort的排序进行改写,就能达到一个很好的效果。P1781 宇宙总统题目描述地球历公元 6036 年，全宇宙准备竞选一个最贤能的人当总统，共有 n 个非凡拔尖的人竞选总统，现在票数已经统计完毕，请你算出谁能够当上总统。 输入输出样式12345659876512365879541022356985678  12">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-02-05T06:36:47.000Z">
@@ -34,7 +34,7 @@
   
   
   
-  <title>结构体和cmp的简单操作 - Hexo</title>
+  <title>结构体和cmp的简单操作 - iolzyy</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"ljw030710.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -89,7 +89,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="iolzyy" type="application/atom+xml">
 </head>
 
 
@@ -315,7 +315,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>结构体和cmp的简单操作</div>
-      <div>http://example.com/2024/02/05/结构体和cmp的简单操作/</div>
+      <div>https://ljw030710.github.io/2024/02/05/结构体和cmp的简单操作/</div>
     </div>
     <div class="license-meta">
       
