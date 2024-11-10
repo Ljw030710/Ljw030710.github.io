@@ -474,15 +474,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2024/02/17/DP-%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" target="_self">
-          DP(分组背包问题)
+        <a href="/2023/10/28/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" target="_self">
+          优先队列
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/17/DP-%E5%88%86%E7%BB%84%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/10/28/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" target="_self">
         <div>
-          分组背包问题就是在01背包上加上了分组的条件就是，取得是每一组的最大值。f[N][N]就是前i组物品中选，当前体积小于等于j的最大值，v[][]体积，w[][]价值，s[]代表第i组的物品个数。如果不选就是f[i][j] = f[i-1][j]，如果选的话就是f[i][j] = max(f[i][j],f[i-1][j-v[i][k]]+w[i][k])；这就是状态转移方程。如果是一维的就是根据0
+          优先队列(priority_queue)是堆的排列优先队列的一些性质首先优先队列是默认是大根堆一些操作12345q.size();//返回q里元素个数q.empty();//返回q是否为空，空则返回1，否则返回0q.push(k);//在q的末尾插入k q.pop();//删掉q的第一个元素q.top();//返回q的第一个元素 而优先队列的强大功能就是可以自动排序https://download
         </div>
       </a>
 
@@ -490,8 +490,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-17 15:39" pubdate>
-              2024-02-17
+            <time datetime="2023-10-28 21:14" pubdate>
+              2023-10-28
             </time>
           </div>
         
@@ -514,15 +514,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2024/02/17/%E5%AF%92%E5%81%87%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0Day4-Vue/" target="_self">
-          寒假前端学习Day4(Vue)
+        <a href="/2023/10/27/%E6%A0%88/" target="_self">
+          栈
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/17/%E5%AF%92%E5%81%87%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0Day4-Vue/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/10/27/%E6%A0%88/" target="_self">
         <div>
-          组件组件的引入就是需要在&lt;setup&gt;中引入子组件的模块，然后在模板中使用组件。12345678&lt;!------App.vue-------&gt;&lt;script setup&gt;import ChildComp from &#x27;./ChildComp.vue&#x27;&lt;/script&gt;&lt;template&gt;  &lt;ChildComp /
+          首先是先进后出的数据结构https://download.tooc.xlj0.com/uploads/179/%E7%AE%97%E6%B3%95/Pasted%20image%2020231018220744.png STL中栈的一些函数12345678910//元素访问st.top()//返回栈顶//修改st.push()//传入参数到栈顶st.pop()//弹出栈顶//容量st.empty(
         </div>
       </a>
 
@@ -530,48 +530,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-17 13:47" pubdate>
-              2024-02-17
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/02/16/dp-01%E8%83%8C%E5%8C%85%E5%92%8C%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" target="_self">
-          dp(01背包和完全背包)
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/16/dp-01%E8%83%8C%E5%8C%85%E5%92%8C%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/" target="_self">
-        <div>
-          01背包对于01背包，来说就是每个物品只能使用一次。对于01背包的思考，就是要找到能背包能够容纳的最大。首先是二维的01背包，这是最原始的背包也是最好理解的，f[i][j]定义就是前i个物品，背包容量为j的最优解，加入背包容量不够(j&lt;v[i])，所有前i个物品的最优值就是前i-1个物品的价值最大值，对应的代码是:f[i][j] = f[i-1][j]，如果背包容量够，就需要选，选第i个物品
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-16 12:19" pubdate>
-              2024-02-16
+            <time datetime="2023-10-27 20:51" pubdate>
+              2023-10-27
             </time>
           </div>
         
@@ -594,15 +554,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/" target="_self">
-          二分法
+        <a href="/2023/09/26/%E5%8F%8C%E6%8C%87%E9%92%88/" target="_self">
+          双指针
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/02/14/%E4%BA%8C%E5%88%86%E6%B3%95/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/26/%E5%8F%8C%E6%8C%87%E9%92%88/" target="_self">
         <div>
-          STL中的二分法数组是{1,2,4,4,5,6}在STL中lower_bound()是返回第一个非递减序列中的第一个大于等于val的位置，写法是lower_bound(v.begin(),v.end(),target);这样就会指的是第三个元素在STL中upper_bound()是返回第一个大于val的位置，所有对于这个函数返回的是值为5的元素。用STL写二分查找输入 n 个不超过 10^9 的单
+          1，双指针的用途就是a，有的是快慢指针操作b，可以用来维护一段区间2，双指针感觉没有模板，比较灵活1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556//这个题就是找出最小不重复区间#include &lt;bits/stdc++.h&gt;us
         </div>
       </a>
 
@@ -610,8 +570,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-02-14 19:58" pubdate>
-              2024-02-14
+            <time datetime="2023-09-26 20:48" pubdate>
+              2023-09-26
             </time>
           </div>
         
@@ -621,6 +581,46 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/">#基础算法</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/09/24/%E4%BD%8D%E8%BF%90%E7%AE%97-%E6%9C%80%E5%A5%BD%E6%8F%90%E5%89%8D%E7%9C%8B%E4%B8%80%E4%B8%8B%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
+          位运算(最好提前看一下逻辑运算符)
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2023/09/24/%E4%BD%8D%E8%BF%90%E7%AE%97-%E6%9C%80%E5%A5%BD%E6%8F%90%E5%89%8D%E7%9C%8B%E4%B8%80%E4%B8%8B%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6/" target="_self">
+        <div>
+          作用：a，可以用来考试b，线性基（异或）（数论）c，0，1串d，计数e，集，或者状态一，与运算（&amp;）$$(3)_{10} &#x3D;(011)_2$$$$(6)_{10}&#x3D;(110)_2$$如果二者取与运算(&amp;)那么就是$$(010)_2$$就是可以看出来如果两个不一样。那么就是0，两个都是0那么取与运算也是0或运算（|）$$(3)_{10} &#x3D;(011)_2
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-24 16:03" pubdate>
+              2023-09-24
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">#算法基础</a>
             
           </div>
         
@@ -632,7 +632,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
@@ -680,10 +680,6 @@
 
   <footer>
     <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
   
   
