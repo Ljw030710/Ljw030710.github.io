@@ -6,7 +6,7 @@
   <link href="https://ljw030710.github.io/atom.xml" rel="self"/>
   
   <link href="https://ljw030710.github.io/"/>
-  <updated>2024-11-29T06:44:35.358Z</updated>
+  <updated>2024-12-13T09:38:11.110Z</updated>
   <id>https://ljw030710.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LLaMA-Factory微调qwen2-VL(无sudo)</title>
+    <link href="https://ljw030710.github.io/2024/12/13/LLaMA-Factory%E5%BE%AE%E8%B0%83qwen2-VL-%E6%97%A0sudo/"/>
+    <id>https://ljw030710.github.io/2024/12/13/LLaMA-Factory%E5%BE%AE%E8%B0%83qwen2-VL-%E6%97%A0sudo/</id>
+    <published>2024-12-13T09:37:15.000Z</published>
+    <updated>2024-12-13T09:38:11.110Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3</summary>
+        
+      
+    
+    
+    
+    
+    <category term="大模型微调" scheme="https://ljw030710.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/"/>
+    
+  </entry>
   
   <entry>
     <title>CS61B Project0</title>
