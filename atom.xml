@@ -6,7 +6,7 @@
   <link href="https://ljw030710.github.io/atom.xml" rel="self"/>
   
   <link href="https://ljw030710.github.io/"/>
-  <updated>2024-12-13T09:38:11.110Z</updated>
+  <updated>2024-12-26T05:37:28.269Z</updated>
   <id>https://ljw030710.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决undefined symbol.nvJitLinkComplete 12 4.version libnvjitlink.so.12问题</title>
+    <link href="https://ljw030710.github.io/2024/12/26/%E8%A7%A3%E5%86%B3undefined-symbol-nvJitLinkComplete-12-4-version-libnvjitlink-so-12%E9%97%AE%E9%A2%98/"/>
+    <id>https://ljw030710.github.io/2024/12/26/%E8%A7%A3%E5%86%B3undefined-symbol-nvJitLinkComplete-12-4-version-libnvjitlink-so-12%E9%97%AE%E9%A2%98/</id>
+    <published>2024-12-26T05:36:22.000Z</published>
+    <updated>2024-12-26T05:37:28.269Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一个神奇的下午突然服务器抽风报错了，torch找不到了。&quot;&gt;&lt;a href=&quot;#一个神奇的下午突然服务器抽风报错了，torch找不到了。&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="大模型微调" scheme="https://ljw030710.github.io/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%BE%AE%E8%B0%83/"/>
+    
+  </entry>
   
   <entry>
     <title>LLaMA-Factory微调qwen2-VL(无sudo)</title>
